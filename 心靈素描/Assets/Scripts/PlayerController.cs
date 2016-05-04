@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rigid = GetComponent<Rigidbody2D> ();
+		animator = GetComponent<Animator> ();
 	}
 
 	void FixedUpdate(){
@@ -21,6 +22,6 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		animator.SetFloat ();
 	}
 }
