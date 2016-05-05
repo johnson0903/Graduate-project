@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if(SAN < 10)
+		if(other.tag == "Enemy" && SAN < 10)
 			SAN += 1;
 	}
 		
