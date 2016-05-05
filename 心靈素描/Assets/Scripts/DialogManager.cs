@@ -15,9 +15,9 @@ public class DialogManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (dialogActive && Input.GetKeyDown(KeyCode.Space)) {
-			dBox.SetActive(false);
-			dialogActive = false;
+		if (dialogActive && Input.GetMouseButtonDown(0)) {	
+				dBox.SetActive(false);
+				dialogActive = false;
 		}
 	}
 
