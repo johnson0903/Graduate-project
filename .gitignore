@@ -1,4 +1,4 @@
-﻿/[Ll]ibrary/
+/[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
@@ -28,3 +28,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+心靈素描/Library/
+心靈素描/Temp/UnityLockfile
+心靈素描/Temp/
