@@ -17,6 +17,7 @@ public class DialogHolder : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D(Collider2D other){
+		Debug.Log ("fff");
 		if (other.gameObject.name == "Player") {
 			if(Input.GetMouseButtonUp(0)){
 				dMan.ShowBox(dialog);
