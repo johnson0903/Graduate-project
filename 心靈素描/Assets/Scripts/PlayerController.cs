@@ -13,16 +13,12 @@ public class PlayerController : MonoBehaviour {
 		animator = GetComponent<Animator> ();
 	}
 
-	void FixedUpdate(){
-
+	// Update is called once per frame
+	void Update () {
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis("Vertical");
 		Vector2 movement = new Vector2(moveHorizontal, moveVertical);
 		rigid.velocity = movement * speed;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-//		animator.SetFloat ();
+		animator.SetFloat ("speed", Mathf.Abs(moveHorizontal*speed));
 	}
 }
