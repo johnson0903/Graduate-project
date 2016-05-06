@@ -4,20 +4,25 @@ using System.Collections.Generic;
 
 public class PlayerInventory : MonoBehaviour {
 
-	private PlayerController playerController;
 	private List<PickUp> inventory = new List<PickUp> ();
 
 	void Start(){
-		playerController = GetComponent<PlayerController> ();
+		
 	}
 
-	void OnTriggerEnter2D(Collider2D other){
-		if (other.CompareTag ("Item")) {
-			playerController.Talking ();
-			PickUp item = other.GetComponent<PickUp> ();
-			item.ShowDialog ();
-			inventory.Add (item);
-			Destroy (other.gameObject, 0.5f);
-		}
+//	void OnTriggerEnter2D(Collider2D other){
+//		if (other.CompareTag ("Item")) {
+//			PickUp item = other.GetComponent<PickUp> ();
+//			item.ShowDialog ();
+//			inventory.Add (item);
+//			Destroy (other.gameObject, 0.5f);
+//		}
+//	}
+
+	public void PickUpItem(GameObject somthing){
+		PickUp item = somthing.GetComponent<PickUp> ();
+		item.ShowDialog ();
+		inventory.Add (item);
+		Destroy (somthing, 0.5f);
 	}
 }

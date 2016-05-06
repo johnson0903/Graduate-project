@@ -6,6 +6,7 @@ public class DialogManager : MonoBehaviour {
 
 	public GameObject dBox;
 	public Text dText;
+	public Image itemImage;
 	public GameObject player;
 
 	public bool dialogActive;
@@ -27,5 +28,12 @@ public class DialogManager : MonoBehaviour {
 		dialogActive = true;
 		dBox.SetActive (true);
 		dText.text = dialog;
+	}
+
+	public void ShowBox(string dialog, Sprite itemSprite){
+		dialogActive = true;
+		dBox.SetActive (true);
+		dText.text = dialog;
+		itemImage.sprite = itemSprite;
 	}
 }
