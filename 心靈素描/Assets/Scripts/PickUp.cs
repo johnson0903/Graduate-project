@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PickUp : MonoBehaviour {
-	public string dialog;
+	public string[] dialogLines;
 	private DialogManager dMan;
 	private SpriteRenderer spriteRenderer;
 
@@ -10,7 +10,9 @@ public class PickUp : MonoBehaviour {
 		dMan = FindObjectOfType<DialogManager> ();
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 	}
+
 	public void ShowDialog(){
-		dMan.ShowBox(dialog, spriteRenderer.sprite);
+		dMan.dialogLines = dialogLines;
+		dMan.ShowBox(spriteRenderer.sprite);
 	}
 }

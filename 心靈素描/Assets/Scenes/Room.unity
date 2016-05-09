@@ -255,7 +255,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11460972, guid: 258451a88fffc92429afd71072ae3243, type: 2}
+      propertyPath: dialog
+      value: 12312
+      objectReference: {fileID: 0}
+    - target: {fileID: 105970, guid: 258451a88fffc92429afd71072ae3243, type: 2}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11460972, guid: 258451a88fffc92429afd71072ae3243, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 258451a88fffc92429afd71072ae3243, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &487361247
@@ -265,6 +274,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11424852, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
+      propertyPath: dialogLines.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 408476, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
       propertyPath: m_LocalPosition.x
       value: -9.63
@@ -300,6 +313,22 @@ Prefab:
     - target: {fileID: 156832, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
       propertyPath: m_Name
       value: strawberry
+      objectReference: {fileID: 0}
+    - target: {fileID: 11424852, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
+      propertyPath: dialogLines.Array.data[0]
+      value: "\u8349\u83931"
+      objectReference: {fileID: 0}
+    - target: {fileID: 11424852, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
+      propertyPath: dialogLines.Array.data[1]
+      value: "\u8349\u83932"
+      objectReference: {fileID: 0}
+    - target: {fileID: 11424852, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
+      propertyPath: dialogLines.Array.data[2]
+      value: "\u8349\u83933"
+      objectReference: {fileID: 0}
+    - target: {fileID: 11424852, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
+      propertyPath: dialogLines.Array.data[3]
+      value: "\u8349\u83934"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
@@ -387,7 +416,6 @@ GameObject:
   m_Component:
   - 224: {fileID: 570002833}
   - 114: {fileID: 570002834}
-  - 114: {fileID: 570002835}
   m_Layer: 5
   m_Name: Dialog Manager
   m_TagString: Untagged
@@ -429,24 +457,8 @@ MonoBehaviour:
   itemImage: {fileID: 1287067108}
   player: {fileID: 675722103}
   dialogActive: 0
---- !u!114 &570002835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 570002832}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afe5f1a844b5e1c459c79ed9933baed9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogBox: {fileID: 723907787}
-  textBox: {fileID: 986059270}
-  textfile: {fileID: 0}
-  dialogImage: {fileID: 1287067108}
-  textLines: []
+  dialogLines: []
   currentLine: 0
-  endLine: 0
 --- !u!1 &675722103 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 174796, guid: cdea3ab1afcdcea4c97bb0849dfa10a1, type: 2}
@@ -686,6 +698,22 @@ BoxCollider2D:
   m_Offset: {x: -3.84, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.85, y: 5.76}
+--- !u!1 &1208624317 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 105970, guid: 258451a88fffc92429afd71072ae3243, type: 2}
+  m_PrefabInternal: {fileID: 316512709}
+--- !u!114 &1208624320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1208624317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialog: hi
 --- !u!1 &1287067106
 GameObject:
   m_ObjectHideFlags: 0

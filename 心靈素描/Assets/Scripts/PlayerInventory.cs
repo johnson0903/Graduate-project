@@ -23,6 +23,6 @@ public class PlayerInventory : MonoBehaviour {
 		PickUp item = somthing.GetComponent<PickUp> ();
 		item.ShowDialog ();
 		inventory.Add (item);
-		Destroy (somthing, 0.5f);
+		Destroy (somthing);
 	}
 }
