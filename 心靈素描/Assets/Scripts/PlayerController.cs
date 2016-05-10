@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody2D playerRigidbody;
 	private PlayerInventory playerInventory;
 	public float speed;
-	public bool isTalking = false;
+	public bool isTalking;
 
 	// Use this for initialization
 	void Start () {
@@ -31,20 +31,9 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerStay2D(Collider2D other){
-		if (other.CompareTag ("Item") || other.CompareTag ("NPC")) {
-			isTalking = true;
-			if (other.CompareTag ("Item") && !isTalking) {
-				playerInventory.PickUpItem (other.gameObject);
-			}
-		}
-	}
-
 	public void EndTalk() {
 		if (isTalking) {
 			isTalking = false;
 		}
 	}
-
-
 }

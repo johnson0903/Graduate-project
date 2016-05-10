@@ -6,6 +6,7 @@ public class DialogHolder : MonoBehaviour {
 	public string[] dialogLines;
 	private DialogManager dMan;
 	private SpriteRenderer spriteRenderer;
+	private bool isPlayerInRange;
 
 	// Use this for initialization
 	void Start () {
@@ -20,8 +21,20 @@ public class DialogHolder : MonoBehaviour {
 
 	void OnMouseDown()
 	{
-		dMan.dialogLines = dialogLines;
-		dMan.ShowBox(spriteRenderer.sprite);
+		if (isPlayerInRange) {
+			dMan.dialogLines = dialogLines;
+			dMan.ShowBox(spriteRenderer.sprite);
+		}
 	}
-		
+
+	public void EnterRange(){
+		isPlayerInRange = true;
+		Debug.Log (isPlayerInRange.ToString());
+	}
+
+	public void LeaveRange(){
+		isPlayerInRange = false;
+		Debug.Log (isPlayerInRange.ToString());
+	}
 }
+
