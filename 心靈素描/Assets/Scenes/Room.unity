@@ -274,64 +274,44 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11424852, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
-      propertyPath: dialogLines.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 408476, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
+    - target: {fileID: 468122, guid: 311628e09a1f4c34badd3791a5d6ef4e, type: 2}
       propertyPath: m_LocalPosition.x
       value: -9.63
       objectReference: {fileID: 0}
-    - target: {fileID: 408476, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
+    - target: {fileID: 468122, guid: 311628e09a1f4c34badd3791a5d6ef4e, type: 2}
       propertyPath: m_LocalPosition.y
       value: -7.71
       objectReference: {fileID: 0}
-    - target: {fileID: 408476, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
+    - target: {fileID: 468122, guid: 311628e09a1f4c34badd3791a5d6ef4e, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 408476, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
+    - target: {fileID: 468122, guid: 311628e09a1f4c34badd3791a5d6ef4e, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 408476, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
+    - target: {fileID: 468122, guid: 311628e09a1f4c34badd3791a5d6ef4e, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 408476, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
+    - target: {fileID: 468122, guid: 311628e09a1f4c34badd3791a5d6ef4e, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 408476, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
+    - target: {fileID: 468122, guid: 311628e09a1f4c34badd3791a5d6ef4e, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 408476, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
+    - target: {fileID: 468122, guid: 311628e09a1f4c34badd3791a5d6ef4e, type: 2}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 156832, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
+    - target: {fileID: 145474, guid: 311628e09a1f4c34badd3791a5d6ef4e, type: 2}
       propertyPath: m_Name
       value: strawberry
       objectReference: {fileID: 0}
-    - target: {fileID: 11424852, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
-      propertyPath: dialogLines.Array.data[0]
-      value: "\u8349\u83931"
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424852, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
-      propertyPath: dialogLines.Array.data[1]
-      value: "\u8349\u83932"
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424852, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
-      propertyPath: dialogLines.Array.data[2]
-      value: "\u8349\u83933"
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424852, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
-      propertyPath: dialogLines.Array.data[3]
-      value: "\u8349\u83934"
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 4ca812210c6ecfe4e8fd1d056413e102, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 311628e09a1f4c34badd3791a5d6ef4e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &514381183
 GameObject:
