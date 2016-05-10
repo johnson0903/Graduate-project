@@ -55,7 +55,6 @@
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\PlayerInventory.cs" />
-     <Compile Include="Assets\Scripts\TextBoxManager.cs" />
      <Compile Include="Assets\Scripts\UnknownObject.cs" />
      <None Include="Assets\DialogTexts\dialog_strawberry.txt" />
  <Reference Include="UnityEngine.UI">

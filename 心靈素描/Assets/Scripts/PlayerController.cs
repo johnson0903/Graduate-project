@@ -5,7 +5,6 @@ public class PlayerController : MonoBehaviour {
 
 	private Animator animator;
 	private Rigidbody2D playerRigidbody;
-	private PlayerInventory playerInventory;
 	public float speed;
 	public bool isTalking;
 
@@ -13,7 +12,6 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		playerRigidbody = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
-		playerInventory = GetComponent<PlayerInventory> ();
 	}
 
 	// Update is called once per frame
@@ -34,6 +32,12 @@ public class PlayerController : MonoBehaviour {
 	public void EndTalk() {
 		if (isTalking) {
 			isTalking = false;
+		}
+	}
+
+	public void StartTalk() {
+		if (!isTalking) {
+			isTalking = true;
 		}
 	}
 }

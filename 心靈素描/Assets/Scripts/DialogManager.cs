@@ -10,12 +10,13 @@ public class DialogManager : MonoBehaviour {
 	public GameObject player;
 
 	public bool dialogActive;
-
 	public string[] dialogLines;
 	public int currentLine;
 
+	private PlayerController playerController;
 	void Start () {
-
+		if (player)
+			playerController = player.GetComponent<PlayerController> ();
 	}
 	
 	// Update is called once per frame
@@ -32,13 +33,14 @@ public class DialogManager : MonoBehaviour {
 		if (currentLine >= dialogLines.Length) {
 			dBox.SetActive (false);
 			dialogActive = false;
-			currentLine = 0;
-			player.GetComponent<PlayerController> ().EndTalk ();
+			currentLine = -1;
+			playerController.EndTalk ();
 		}
 	}
 
 	//顯示對話框
 	public void ShowBox() {
+		playerController.StartTalk ();
 		dialogActive = true;
 		dBox.SetActive (true);
 		itemImage.color = new Color (255, 255, 255, 0);
@@ -46,6 +48,7 @@ public class DialogManager : MonoBehaviour {
 	}
 
 	public void ShowBox(Sprite itemSprite){
+		playerController.StartTalk ();
 		dialogActive = true;
 		dBox.SetActive (true);
 		itemImage.color = new Color (255, 255, 255, 1);
