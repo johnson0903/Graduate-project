@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update() {
 		
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		Vector2 movement = new Vector2(moveHorizontal, 0.0f);
@@ -31,15 +31,19 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other){
-		if (other.CompareTag ("Item")) {
+	void OnTriggerStay2D(Collider2D other){
+		if (other.CompareTag ("Item") || other.CompareTag ("NPC")) {
 			isTalking = true;
-			playerInventory.PickUpItem (other.gameObject);
+			if (other.CompareTag ("Item") && !isTalking) {
+				playerInventory.PickUpItem (other.gameObject);
+			}
 		}
 	}
 
 	public void EndTalk() {
-		isTalking = false;
+		if (isTalking) {
+			isTalking = false;
+		}
 	}
 
 

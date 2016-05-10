@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21288012}
   - 61: {fileID: 6103202}
   - 114: {fileID: 11489964}
+  - 114: {fileID: 11422938}
   m_Layer: 0
   m_Name: strawberry
   m_TagString: Item
@@ -44,6 +45,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
+--- !u!114 &11422938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogLines:
+  - "\u597D\u5403\u7684\u8349\u8393"
+  - "\u5E95\u5BB6\u5E95\u5BB6"
 --- !u!114 &11489964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,11 +70,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8132129a8a5580a47b2cc68beef59de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogLines:
-  - "\u8349\u83931"
-  - "\u8349\u83932"
-  - "\u8349\u83933"
-  - "\u8349\u83934"
 --- !u!212 &21288012
 SpriteRenderer:
   m_ObjectHideFlags: 1

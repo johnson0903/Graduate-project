@@ -10,11 +10,12 @@ public class OpenDoor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("opennnnn");
 	}
 
 	void OnMouseDown()
 	{
 		Debug.Log ("opennnnn");
 	}
+
+
 }

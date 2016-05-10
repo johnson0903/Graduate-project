@@ -3,10 +3,14 @@ using System.Collections;
 
 public class DialogHolder : MonoBehaviour {
 
-	public string dialog;
+	public string[] dialogLines;
+	private DialogManager dMan;
+	private SpriteRenderer spriteRenderer;
 
 	// Use this for initialization
 	void Start () {
+		dMan = FindObjectOfType<DialogManager> ();
+		spriteRenderer = GetComponent<SpriteRenderer> ();
 	}
 	
 	// Update is called once per frame
@@ -14,10 +18,10 @@ public class DialogHolder : MonoBehaviour {
 	
 	}
 
-	void OnTriggerStay2D(Collider2D other){
-		if (other.gameObject.name == "Player") {
-			if(Input.GetMouseButtonUp(0)){
-			}
-		}
+	void OnMouseDown()
+	{
+		dMan.dialogLines = dialogLines;
+		dMan.ShowBox(spriteRenderer.sprite);
 	}
+		
 }

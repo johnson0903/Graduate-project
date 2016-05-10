@@ -21,8 +21,8 @@ public class PlayerInventory : MonoBehaviour {
 
 	public void PickUpItem(GameObject somthing){
 		PickUp item = somthing.GetComponent<PickUp> ();
-		item.ShowDialog ();
 		inventory.Add (item);
+		Debug.Log (inventory.Count);
 		Destroy (somthing);
 	}
 }
