@@ -33,7 +33,7 @@ public class DialogManager : MonoBehaviour {
 		if (currentLine >= dialogLines.Length) {
 			dBox.SetActive (false);
 			dialogActive = false;
-			currentLine = -1;
+			currentLine = 0;
 			playerController.EndTalk ();
 		}
 	}
