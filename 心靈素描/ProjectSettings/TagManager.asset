@@ -46,12 +46,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Floor
+  - name: dialogSensor
     uniqueID: 3131993583
     locked: 0
-  - name: Items
+  - name: Floor
     uniqueID: 1861650685
     locked: 0
-  - name: Units
+  - name: Items
     uniqueID: 3393972251
+    locked: 0
+  - name: Units
+    uniqueID: 3391165315
     locked: 0
