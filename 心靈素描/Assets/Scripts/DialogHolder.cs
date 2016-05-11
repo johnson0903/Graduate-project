@@ -22,8 +22,7 @@ public class DialogHolder : MonoBehaviour {
 	void OnMouseDown()
 	{
 		if (isPlayerInRange) {
-			dMan.dialogLines = dialogLines;
-			dMan.ShowBox(spriteRenderer.sprite);
+			dMan.ShowBox(spriteRenderer.sprite, this.gameObject);
 		}
 	}
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class PlayerInventory : MonoBehaviour {
 
-	private List<PickUp> inventory = new List<PickUp> ();
+	private List<GameObject> inventory = new List<GameObject> ();
 
 	void Start(){
 		
@@ -19,10 +19,9 @@ public class PlayerInventory : MonoBehaviour {
 //		}
 //	}
 
-	public void PickUpItem(GameObject somthing){
-		PickUp item = somthing.GetComponent<PickUp> ();
+	public void PickUpItem(GameObject item){
 		inventory.Add (item);
-		Debug.Log (inventory.Count);
-		Destroy (somthing);
+		Debug.Log ("包包東西 = " + inventory.Count);
+		Destroy (item);
 	}
 }

@@ -14,6 +14,8 @@ public class DialogManager : MonoBehaviour
 	public string[] dialogLines;
 	public int currentLine;
 
+	private GameObject currentItem;
+
 	private PlayerController playerController;
 
 	void Start ()
@@ -31,27 +33,21 @@ public class DialogManager : MonoBehaviour
 			dialogActive = false;
 			currentLine = 0;
 			playerController.EndTalk ();
+			if (currentItem != null && currentItem.CompareTag("Item"))
+				player.GetComponent<PlayerInventory> ().PickUpItem (currentItem);
 		}
 	}
 
-	//顯示對話框
-	public void ShowBox ()
+	public void ShowBox (Sprite itemSprite, GameObject item)
 	{
+		currentItem = item;
+		dialogLines = currentItem.GetComponent<DialogHolder> ().dialogLines;
 		playerController.StartTalk ();
 		dialogActive = true;
 		dBox.SetActive (true);
-		itemImage.color = new Color (255, 255, 255, 0);
-		dText.text = dialogLines [currentLine];
-	}
-
-	public void ShowBox (Sprite itemSprite)
-	{
-		playerController.StartTalk ();
-		dialogActive = true;
-		dBox.SetActive (true);
-		itemImage.color = new Color (255, 255, 255, 1);
 		dText.text = dialogLines [currentLine];
 		itemImage.sprite = itemSprite;
+
 	}
 
 	public void ContinueDialog ()
