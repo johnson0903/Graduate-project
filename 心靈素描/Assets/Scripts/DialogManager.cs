@@ -28,12 +28,10 @@ public class DialogManager : MonoBehaviour
 	void Update ()
 	{
 		//如果對話的行數超過總對話的行數，結束對話並且重設currentLine為0，將人物結束對話
-		if (currentLine >= dialogLines.Length) {
-			dBox.SetActive (false);
-			dialogActive = false;
-			currentLine = 0;
-			playerController.EndTalk ();
-			if (currentItem != null && currentItem.CompareTag("Item"))
+		if (currentLine >= dialogLines.Length)
+		{
+			EndDialog ();
+			if (currentItem != null && currentItem.CompareTag ("Item"))
 				player.GetComponent<PlayerInventory> ().PickUpItem (currentItem);
 		}
 	}
@@ -47,12 +45,12 @@ public class DialogManager : MonoBehaviour
 		dBox.SetActive (true);
 		dText.text = dialogLines [currentLine];
 		itemImage.sprite = itemSprite;
-
 	}
 
 	public void ContinueDialog ()
 	{
-		if (dialogActive && (currentLine <= dialogLines.Length - 1)) {
+		if (dialogActive && (currentLine <= dialogLines.Length - 1))
+		{
 			currentLine++;
 
 			//如果currentLine超過dialogLines.Length則不更新dText.text
@@ -61,5 +59,13 @@ public class DialogManager : MonoBehaviour
 			
 			dText.text = dialogLines [currentLine];
 		}
+	}
+
+	void EndDialog ()
+	{
+		dBox.SetActive (false);
+		dialogActive = false;
+		currentLine = 0;
+		playerController.EndTalk ();
 	}
 }

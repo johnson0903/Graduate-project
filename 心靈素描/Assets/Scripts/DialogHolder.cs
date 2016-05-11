@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DialogHolder : MonoBehaviour {
+public class DialogHolder : MonoBehaviour
+{
 
 	public string[] dialogLines;
 	private DialogManager dMan;
@@ -9,31 +10,36 @@ public class DialogHolder : MonoBehaviour {
 	private bool isPlayerInRange;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		dMan = FindObjectOfType<DialogManager> ();
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 	
 	}
 
-	void OnMouseDown()
+	void OnMouseDown ()
 	{
-		if (isPlayerInRange) {
-			dMan.ShowBox(spriteRenderer.sprite, this.gameObject);
+		if (isPlayerInRange)
+		{
+			dMan.ShowBox (spriteRenderer.sprite, this.gameObject);
 		}
 	}
 
-	public void EnterRange(){
+	public void EnterRange ()
+	{
 		isPlayerInRange = true;
-		Debug.Log (isPlayerInRange.ToString());
+		Debug.Log (isPlayerInRange.ToString ());
 	}
 
-	public void LeaveRange(){
+	public void LeaveRange ()
+	{
 		isPlayerInRange = false;
-		Debug.Log (isPlayerInRange.ToString());
+		Debug.Log (isPlayerInRange.ToString ());
 	}
 }
 
