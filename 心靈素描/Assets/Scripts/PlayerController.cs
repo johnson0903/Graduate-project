@@ -1,42 +1,58 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
-	private Animator animator;
-	private Rigidbody2D playerRigidbody;
 	public float speed;
 	public bool isTalking;
 
+	private Animator animator;
+	private Rigidbody2D playerRigidbody;
+	private static bool isPlayerExit;
+
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		playerRigidbody = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
+		if (!isPlayerExit)
+		{
+			isPlayerExit = true;
+			DontDestroyOnLoad (transform.gameObject);
+		}
 	}
 
 	// Update is called once per frame
-	void Update() {
+	void Update ()
+	{
 		
 		float moveHorizontal = Input.GetAxis ("Horizontal");
-		Vector2 movement = new Vector2(moveHorizontal, 0.0f);
-		animator.SetFloat ("speed", Mathf.Abs(moveHorizontal*speed));
+		Vector2 movement = new Vector2 (moveHorizontal, 0.0f);
+		animator.SetFloat ("speed", Mathf.Abs (moveHorizontal * speed));
 		playerRigidbody.velocity = movement * speed;
 
-		if (isTalking) {
+		if (isTalking)
+		{
 			speed = 0;
-		} else {
+		} else
+		{
 			speed = 8;
 		}
 	}
 
-	public void EndTalk() {
-		if (isTalking) {
+	public void EndTalk ()
+	{
+		if (isTalking)
+		{
 			isTalking = false;
 		}
 	}
 
-	public void StartTalk() {
-		if (!isTalking) {
+	public void StartTalk ()
+	{
+		if (!isTalking)
+		{
 			isTalking = true;
 		}
 	}
