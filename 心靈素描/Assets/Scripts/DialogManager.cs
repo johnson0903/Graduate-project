@@ -13,15 +13,20 @@ public class DialogManager : MonoBehaviour
 	public bool dialogActive;
 	public string[] dialogLines;
 	public int currentLine;
-
 	private GameObject currentItem;
-
 	private PlayerController playerController;
+
+	private static bool isDialogManagerExist;
 
 	void Start ()
 	{
 		if (player)
 			playerController = player.GetComponent<PlayerController> ();
+		if (!isDialogManagerExist) {
+			isDialogManagerExist = true;
+			DontDestroyOnLoad (this.gameObject);
+		} else
+			Destroy (this.gameObject);
 	}
 	
 	// Update is called once per frame

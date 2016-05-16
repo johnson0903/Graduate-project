@@ -14,7 +14,10 @@ public class OpenDoor : MonoBehaviour {
 
 	void OnMouseDown()
 	{
-		Debug.Log ("opennnnn");
+		if (Application.loadedLevel == 0)
+			Application.LoadLevel (1);
+		else
+			Application.LoadLevel (0);
 	}
 
 
