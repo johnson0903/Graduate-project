@@ -33,13 +33,11 @@ public class DialogHolder : MonoBehaviour
 	public void EnterRange ()
 	{
 		isPlayerInRange = true;
-		Debug.Log (isPlayerInRange.ToString ());
 	}
 
 	public void LeaveRange ()
 	{
 		isPlayerInRange = false;
-		Debug.Log (isPlayerInRange.ToString ());
 	}
 }
 

@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour {
+
+	public GameObject bag;
 
 	private List<GameObject> inventory = new List<GameObject> ();
 
@@ -10,18 +13,21 @@ public class PlayerInventory : MonoBehaviour {
 		
 	}
 
-//	void OnTriggerEnter2D(Collider2D other){
-//		if (other.CompareTag ("Item")) {
-//			PickUp item = other.GetComponent<PickUp> ();
-//			item.ShowDialog ();
-//			inventory.Add (item);
-//			Destroy (other.gameObject, 0.5f);
-//		}
-//	}
 
-	public void PickUpItem(GameObject item){
+
+	public void PickUpItem(GameObject pickUpItem){
+		GameObject item = new GameObject(pickUpItem.name, typeof(Image));
+		item.transform.SetParent (bag.transform);
+		item.transform.localPosition = new Vector3 (-70 + inventory.Count % 4 * 45, 60 - inventory.Count / 4 * 45, 0.0f);
+		item.transform.localScale = new Vector3(0.3f, 0.3f, 0.0f);
+		item.GetComponent<Image> ().sprite = pickUpItem.GetComponent<SpriteRenderer> ().sprite;
+		Destroy (pickUpItem);
 		inventory.Add (item);
-		Debug.Log ("包包東西 = " + inventory.Count);
-		Destroy (item);
 	}
+
+	public List<GameObject> Inventory {
+		get { return inventory; }
+	}
+
+
 }

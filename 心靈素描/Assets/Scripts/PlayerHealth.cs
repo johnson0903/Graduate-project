@@ -7,7 +7,6 @@ public class PlayerHealth : MonoBehaviour
 	private int SAN;
 	public Text SAN_text;
 	public Image SAN_bar;
-	public Image fear;
 
 	// Use this for initialization
 	void Awake () 
@@ -18,9 +17,6 @@ public class PlayerHealth : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		Color fearDegree = fear.color;
-		fearDegree.a = SAN * 0.07f;
-		fear.color = fearDegree;
 		SAN_bar.fillAmount = SAN * 0.1f;
 		SAN_text.text = "SAN: " + SAN;
 	}
