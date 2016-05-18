@@ -12,9 +12,7 @@ public class PlayerInventory : MonoBehaviour {
 	void Start(){
 		
 	}
-
-
-
+		
 	public void PickUpItem(GameObject pickUpItem){
 		GameObject item = new GameObject(pickUpItem.name, typeof(Image));
 		item.transform.SetParent (bag.transform);

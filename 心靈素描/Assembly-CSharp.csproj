@@ -49,7 +49,7 @@
      <Compile Include="Assets\Scripts\ChangeCursor.cs" />
      <Compile Include="Assets\Scripts\DialogHolder.cs" />
      <Compile Include="Assets\Scripts\DialogManager.cs" />
-     <Compile Include="Assets\Scripts\DontDestroyCanvas.cs" />
+     <Compile Include="Assets\Scripts\DontDestroyMeOnLoad.cs" />
      <Compile Include="Assets\Scripts\Flip.cs" />
      <Compile Include="Assets\Scripts\IsInTalkRange.cs" />
      <Compile Include="Assets\Scripts\OpenDoor.cs" />
