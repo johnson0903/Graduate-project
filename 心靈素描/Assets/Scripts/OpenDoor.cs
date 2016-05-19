@@ -5,16 +5,35 @@ public class OpenDoor : MonoBehaviour {
 	
 	private bool isPlayerInRange;
 
-	// Use this for initialization
+	public Texture2D openDoorCursor;
+
+	private Transform player;
+	private static bool isGameStart;
+
 	void Start () {
-	
+		Cursor.SetCursor (null, Vector2.zero, CursorMode.Auto);
+		if (isGameStart) {
+			player = FindObjectOfType<PlayerController> ().gameObject.transform;
+			player.position = new Vector3 (this.transform.position.x, player.position.y, player.position.z);
+		} else {
+			isGameStart = true;
+		}
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	}
 
-	void OnMouseDown()
+	void OnMouseEnter()
+	{
+		Cursor.SetCursor (openDoorCursor, Vector2.zero, CursorMode.Auto);
+	}
+
+	void OnMouseExit(){
+		Cursor.SetCursor (null, Vector2.zero, CursorMode.Auto);
+	}
+
+	void OnMouseUp()
 	{
 		if (isPlayerInRange)
 		{

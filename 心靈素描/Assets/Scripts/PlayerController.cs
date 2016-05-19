@@ -10,18 +10,11 @@ public class PlayerController : MonoBehaviour
 	private Animator animator;
 	private Rigidbody2D playerRigidbody;
 
-	private static bool isPlayerExist;
-
 	// Use this for initialization
 	void Start ()
 	{
 		playerRigidbody = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
-		if (!isPlayerExist) {
-			isPlayerExist = true;
-			DontDestroyOnLoad (this.gameObject);
-		} else
-			Destroy (this.gameObject);
 	}
 
 	// Update is called once per frame
