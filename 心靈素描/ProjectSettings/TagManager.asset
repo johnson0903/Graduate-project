@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Item
   - NPC
+  - PlayerRange
   layers:
   - Default
   - TransparentFX

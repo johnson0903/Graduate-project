@@ -177,6 +177,10 @@ Prefab:
       propertyPath: m_Size.y
       value: 14.903851
       objectReference: {fileID: 0}
+    - target: {fileID: 194236, guid: 9a206caf8f0ba5c41b36af330c1a84dc, type: 2}
+      propertyPath: m_TagString
+      value: PlayerRange
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a206caf8f0ba5c41b36af330c1a84dc, type: 2}
   m_IsPrefabParent: 0

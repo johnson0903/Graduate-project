@@ -16,12 +16,6 @@ public class DialogHolder : MonoBehaviour
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 	}
 
-	// Update is called once per frame
-	void Update ()
-	{
-	
-	}
-
 	void OnMouseDown ()
 	{
 		if (isPlayerInRange)
