@@ -23,8 +23,14 @@ public class PlayerInventory : MonoBehaviour {
 		inventory.Add (item);
 	}
 
-	public List<GameObject> Inventory {
-		get { return inventory; }
+	public bool isSomethingInInventory(string name) {
+		bool isFound = false;
+		for (int i = 0; i < inventory.Count; i++)
+		{
+			if (inventory [i].name == name)
+				isFound = true;
+		}
+		return isFound;
 	}
 
 

@@ -8,12 +8,13 @@ public class OpenDoor : MonoBehaviour {
 	public Texture2D openDoorCursor;
 
 	private Transform player;
+	private bool isLocked = true;
 	private static bool isGameStart;
 
 	void Start () {
 		Cursor.SetCursor (null, Vector2.zero, CursorMode.Auto);
-		if (isGameStart) {
-			player = FindObjectOfType<PlayerController> ().gameObject.transform;
+		player = FindObjectOfType<PlayerController> ().gameObject.transform;
+		if (isGameStart) {	
 			player.position = new Vector3 (this.transform.position.x, player.position.y, player.position.z);
 		} else {
 			isGameStart = true;
@@ -22,6 +23,8 @@ public class OpenDoor : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (player.GetComponent<PlayerInventory>().isSomethingInInventory("key"))
+			isLocked = false;
 	}
 
 	void OnMouseEnter()
@@ -35,7 +38,7 @@ public class OpenDoor : MonoBehaviour {
 
 	void OnMouseUp()
 	{
-		if (isPlayerInRange)
+		if (isPlayerInRange && !isLocked)
 		{
 			if (Application.loadedLevel == 0)
 				Application.LoadLevel (1);
@@ -57,4 +60,6 @@ public class OpenDoor : MonoBehaviour {
 			isPlayerInRange = false;
 		//Debug.Log (isPlayerInRange.ToString ());
 	}
+
+
 }
