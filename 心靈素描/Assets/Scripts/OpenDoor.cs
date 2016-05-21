@@ -3,13 +3,12 @@ using System.Collections;
 
 public class OpenDoor : MonoBehaviour {
 	
-	private bool isPlayerInRange;
-
 	public Texture2D openDoorCursor;
 
 	private Transform player;
 	private bool isLocked = true;
 	private static bool isGameStart;
+	private bool isPlayerInRange;
 
 	void Start () {
 		Cursor.SetCursor (null, Vector2.zero, CursorMode.Auto);
@@ -23,7 +22,7 @@ public class OpenDoor : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (player.GetComponent<PlayerInventory>().isSomethingInInventory("key"))
+		if (player.GetComponent<PlayerInventory>().isSomethingInInventory("Key"))
 			isLocked = false;
 	}
 
@@ -38,27 +37,26 @@ public class OpenDoor : MonoBehaviour {
 
 	void OnMouseUp()
 	{
-		if (isPlayerInRange && !isLocked)
+		Debug.Log (this.GetComponent<DialogHolder>().IsPlayerInRange);
+		if (this.GetComponent<DialogHolder>().IsPlayerInRange && !isLocked)
 		{
 			if (Application.loadedLevel == 0)
 				Application.LoadLevel (1);
 			else
 				Application.LoadLevel (0);
 		}
-
 	}
 
-	void OnTriggerEnter2D(Collider2D other){
-		if (other.CompareTag ("PlayerRange"))
-			isPlayerInRange = true;
+	public void EnterRange ()
+	{
+		isPlayerInRange = true;
 		Debug.Log (isPlayerInRange.ToString ());
 	}
 
-	void OnTriggerExit2D(Collider2D other)
+	public void LeaveRange ()
 	{
-		if (other.CompareTag ("PlayerRange"))
-			isPlayerInRange = false;
-		//Debug.Log (isPlayerInRange.ToString ());
+		isPlayerInRange = false;
+		Debug.Log (isPlayerInRange.ToString ());
 	}
 
 

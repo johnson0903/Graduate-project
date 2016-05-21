@@ -5,22 +5,24 @@ public class DialogHolder : MonoBehaviour
 {
 
 	public string[] dialogLines;
-	private DialogManager dMan;
-	private SpriteRenderer spriteRenderer;
+
+	private DialogManager dialogManager;
+	private GameObject player;
 	private bool isPlayerInRange;
+
 
 	// Use this for initialization
 	void Start ()
 	{
-		dMan = FindObjectOfType<DialogManager> ();
-		spriteRenderer = GetComponent<SpriteRenderer> ();
+		dialogManager = FindObjectOfType<DialogManager> ();
+		player = FindObjectOfType<PlayerController> ().gameObject;
 	}
 
 	void OnMouseDown ()
 	{
 		if (isPlayerInRange)
 		{
-			dMan.ShowBox (spriteRenderer.sprite, this.gameObject);
+			dialogManager.ShowBox (this.GetComponent<SpriteRenderer> ().sprite, this.gameObject);
 		}
 	}
 
@@ -33,5 +35,11 @@ public class DialogHolder : MonoBehaviour
 	{
 		isPlayerInRange = false;
 	}
+
+	public bool IsPlayerInRange {
+		get{ return isPlayerInRange; }
+	}
+		
+		
 }
 

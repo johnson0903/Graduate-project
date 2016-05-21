@@ -96,9 +96,10 @@ GameObject:
   - 212: {fileID: 137016416}
   - 114: {fileID: 137016415}
   - 61: {fileID: 137016418}
+  - 114: {fileID: 137016419}
   m_Layer: 0
   m_Name: "\u4EFB\u610F\u9580"
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,6 +172,19 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 5.25, y: 10.24}
+--- !u!114 &137016419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 137016414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogLines:
+  - "\u6253\u958B\u4E86"
 --- !u!1 &368316750
 GameObject:
   m_ObjectHideFlags: 0
