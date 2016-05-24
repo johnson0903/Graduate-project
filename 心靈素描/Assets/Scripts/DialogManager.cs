@@ -21,6 +21,8 @@ public class DialogManager : MonoBehaviour
 	{
 		if (player)
 			playerController = player.GetComponent<PlayerController> ();
+		dBox.SetActive (false);
+		dialogActive = false;
 	}
 	
 	// Update is called once per frame
@@ -29,9 +31,7 @@ public class DialogManager : MonoBehaviour
 		//如果對話的行數超過總對話的行數，結束對話並且重設currentLine為0，將人物結束對話
 		if (currentLine >= dialogLines.Length)
 		{
-			EndDialog ();
-			if (currentItem != null && currentItem.CompareTag ("Item"))
-				player.GetComponent<PlayerInventory> ().PickUpItem (currentItem);
+			
 		}
 	}
 
@@ -46,17 +46,19 @@ public class DialogManager : MonoBehaviour
 		itemImage.sprite = itemSprite;
 	}
 
-	public void ContinueDialog ()
+	public void ContinueDialog ()	
 	{
 		if (dialogActive && (currentLine <= dialogLines.Length - 1))
 		{
 			currentLine++;
-
 			//如果currentLine超過dialogLines.Length則不更新dText.text
-			if (currentLine == dialogLines.Length)
-				return;
-			
-			dText.text = dialogLines [currentLine];
+			if (currentLine >= dialogLines.Length) {
+				EndDialog ();
+				if (currentItem != null && currentItem.CompareTag ("Item")) 
+					player.GetComponent<PlayerInventory> ().PickUpItem (currentItem);
+			} 
+			else
+				dText.text = dialogLines [currentLine];
 		}
 	}
 

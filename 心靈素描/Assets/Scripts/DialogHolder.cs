@@ -10,6 +10,8 @@ public class DialogHolder : MonoBehaviour
 	private GameObject player;
 	private bool isPlayerInRange;
 
+	private bool isTalking;
+
 
 	// Use this for initialization
 	void Start ()
@@ -18,10 +20,11 @@ public class DialogHolder : MonoBehaviour
 		player = FindObjectOfType<PlayerController> ().gameObject;
 	}
 
-	void OnMouseDown ()
+	void OnMouseUp ()
 	{
-		if (isPlayerInRange)
+		if (isPlayerInRange && !isTalking)
 		{
+			isTalking = true;
 			dialogManager.ShowBox (this.GetComponent<SpriteRenderer> ().sprite, this.gameObject);
 		}
 	}
@@ -29,11 +32,13 @@ public class DialogHolder : MonoBehaviour
 	public void EnterRange ()
 	{
 		isPlayerInRange = true;
+		isTalking = false;
 	}
 
 	public void LeaveRange ()
 	{
 		isPlayerInRange = false;
+		isTalking = false;
 	}
 
 	public bool IsPlayerInRange {

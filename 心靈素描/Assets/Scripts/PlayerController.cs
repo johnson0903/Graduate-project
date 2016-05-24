@@ -9,12 +9,14 @@ public class PlayerController : MonoBehaviour
 	private Animator animator;
 	private Rigidbody2D playerRigidbody;
 	private bool isTalking;
+	private float tempSpeed;
 
 	// Use this for initialization
 	void Start ()
 	{
 		playerRigidbody = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
+		tempSpeed = speed;
 	}
 
 	// Update is called once per frame
@@ -28,12 +30,14 @@ public class PlayerController : MonoBehaviour
 		
 	public void StartTalk() {
 		isTalking = true;
+		tempSpeed = speed;
 		speed = 0;
+		Debug.Log("TALK");
 	}
 
 	public void EndTalk() {
 		isTalking = false;
-		speed = 8;
+		speed = tempSpeed;
 	}
 
 	public bool IsTalking {
