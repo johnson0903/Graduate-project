@@ -9,10 +9,6 @@ public class PlayerInventory : MonoBehaviour {
 
 	private List<GameObject> inventory = new List<GameObject> ();
 
-	void Start(){
-		
-	}
-		
 	public void PickUpItem(GameObject pickUpItem){
 		GameObject item = new GameObject(pickUpItem.name, typeof(Image));
 		item.transform.SetParent (bag.transform);
@@ -21,6 +17,20 @@ public class PlayerInventory : MonoBehaviour {
 		item.GetComponent<Image> ().sprite = pickUpItem.GetComponent<SpriteRenderer> ().sprite;
 		Destroy (pickUpItem);
 		inventory.Add (item);
+		Debug.Log (inventory.Count);
+	}
+
+	public void DropItem(string name) {
+		for (int i = 0; i < inventory.Count; i++)
+		{
+			if (inventory [i].name == name)
+			{	
+				Destroy (inventory [i]);
+				inventory.RemoveAt (i);
+			}
+				
+		}
+		Debug.Log (inventory.Count);
 	}
 
 	public bool isSomethingInInventory(string name) {

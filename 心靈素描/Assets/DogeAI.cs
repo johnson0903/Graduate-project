@@ -19,6 +19,7 @@ public class DogeAI : MonoBehaviour {
 		if (player.GetComponent<PlayerInventory> ().isSomethingInInventory ("Bone")) {
 			this.GetComponent<DialogHolder>().dialogLines[0] = "好吃好吃";
 			this.GetComponent<DialogHolder>().dialogLines[1] = "讓你過";
+			player.GetComponent<PlayerInventory> ().DropItem ("Bone");
 			this.GetComponent<SpriteRenderer> ().color = new Color(255, 255, 255, 1);
 			this.GetComponent<BoxCollider2D> ().isTrigger = true;
 		}
