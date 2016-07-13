@@ -7,7 +7,7 @@ public class DialogManager : MonoBehaviour
 	public GameObject dBox;
 	public Text dText;
 	public Image itemImage;
-	public string[] dialogLines;
+	public Dialog[] dialogs;
 
 	private GameObject player;
 	private PlayerController playerController;
@@ -31,10 +31,10 @@ public class DialogManager : MonoBehaviour
 	public void ShowBox (GameObject item)
 	{
 		currentItem = item;
-		dialogLines = currentItem.GetComponent<DialogHolder> ().dialogLines;
+		dialogs = currentItem.GetComponent<DialogHolder> ().Dialogs;
 		playerController.StartTalk ();
 		dialogActive = true;
-		dText.text = dialogLines [currentLine];
+		dText.text = dialogs [currentLine].Content;
 		if (currentItem.GetComponent<SpriteRenderer> ()) {
 			itemImage.color = new Color(255, 255, 255, 1);
 			itemImage.sprite = currentItem.GetComponent<SpriteRenderer> ().sprite;
@@ -45,10 +45,10 @@ public class DialogManager : MonoBehaviour
 
 	public void ContinueDialog ()	
 	{
-		if (dialogActive && (currentLine <= dialogLines.Length - 1)) {
+		if (dialogActive && (currentLine <= dialogs.Length - 1)) {
 			currentLine++;
 			//如果currentLine超過dialogLines.Length則不更新dText.text
-			if (currentLine >= dialogLines.Length) {
+			if (currentLine >= dialogs.Length) {
 				dialogActive = false;
 				currentLine = 0;
 				currentItem.GetComponent<DialogHolder> ().EndTalk ();
@@ -57,7 +57,7 @@ public class DialogManager : MonoBehaviour
 					player.GetComponent<PlayerInventory> ().PickUpItem (currentItem);
 				}
 			} else
-				dText.text = dialogLines [currentLine];
+				dText.text = dialogs [currentLine].Content;
 		}
 	}
 
