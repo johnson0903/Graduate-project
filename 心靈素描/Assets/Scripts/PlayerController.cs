@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
 		isTalking = true;
 		tempSpeed = speed;
 		speed = 0;
-		Debug.Log("TALK");
 	}
 
 	public void EndTalk() {
