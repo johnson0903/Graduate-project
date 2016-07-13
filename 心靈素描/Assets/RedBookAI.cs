@@ -3,10 +3,10 @@ using System.Collections;
 
 public class RedBookAI : MonoBehaviour {
 
-	public GameObject key;
+	public GameObject boxCutter;
 
 	private GameObject player;
-	private static bool isRedBookKeyTaken;
+	private static bool isBoxCutterTaken;
 
 	// Use this for initialization
 	void Start () {
@@ -16,13 +16,13 @@ public class RedBookAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if (!isRedBookKeyTaken && this.GetComponent<DialogHolder> ().IsDialogOver) {
-			GameObject k = Instantiate (key);
-			k.name = key.name;
-			isRedBookKeyTaken = true;
-			player.GetComponent<PlayerInventory> ().PickUpItem (k);
+		if (!isBoxCutterTaken && this.GetComponent<DialogHolder> ().IsDialogOver) {
+			GameObject gameObject = Instantiate (boxCutter);
+			gameObject.name = boxCutter.name;
+			isBoxCutterTaken = true;
+			player.GetComponent<PlayerInventory> ().PickUpItem (gameObject);
 		} 
-		else if (isRedBookKeyTaken)
+		else if (isBoxCutterTaken)
 			this.GetComponent<DialogHolder> ().dialogLines = new string[] { "這裡已經沒有東西了" };
 	}
 
