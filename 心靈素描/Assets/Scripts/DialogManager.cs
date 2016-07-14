@@ -4,69 +4,65 @@ using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
-
 	public GameObject dBox;
 	public Text dText;
 	public Image itemImage;
-	public GameObject player;
+	public Dialog[] dialogs;
 
-	public bool dialogActive;
-	public string[] dialogLines;
-	public int currentLine;
-	private GameObject currentItem;
+	private GameObject player;
 	private PlayerController playerController;
-
+	private bool dialogActive;
+	private int currentLine;
+	private GameObject currentItem;
 
 	void Start ()
 	{
-		if (player)
-			playerController = player.GetComponent<PlayerController> ();
-		dBox.SetActive (false);
+		player = FindObjectOfType<PlayerController> ().gameObject;
+		playerController = player.GetComponent<PlayerController> ();
 		dialogActive = false;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		//如果對話的行數超過總對話的行數，結束對話並且重設currentLine為0，將人物結束對話
-		if (currentLine >= dialogLines.Length)
-		{
-			
-		}
+		dBox.SetActive (dialogActive);
 	}
 
-	public void ShowBox (Sprite itemSprite, GameObject item)
+	public void ShowBox (GameObject item)
 	{
 		currentItem = item;
-		dialogLines = currentItem.GetComponent<DialogHolder> ().dialogLines;
+		dialogs = currentItem.GetComponent<DialogHolder> ().Dialogs;
 		playerController.StartTalk ();
 		dialogActive = true;
-		dBox.SetActive (true);
-		dText.text = dialogLines [currentLine];
-		itemImage.sprite = itemSprite;
+		dText.text = dialogs [currentLine].Content;
+		if (currentItem.GetComponent<SpriteRenderer> ()) {
+			itemImage.color = new Color(255, 255, 255, 1);
+			itemImage.sprite = currentItem.GetComponent<SpriteRenderer> ().sprite;
+		}
+		else 
+			itemImage.color = new Color(255, 255, 255, 0);		
 	}
 
 	public void ContinueDialog ()	
 	{
-		if (dialogActive && (currentLine <= dialogLines.Length - 1))
-		{
+		if (dialogActive && (currentLine <= dialogs.Length - 1)) {
 			currentLine++;
 			//如果currentLine超過dialogLines.Length則不更新dText.text
-			if (currentLine >= dialogLines.Length) {
-				EndDialog ();
-				if (currentItem != null && currentItem.CompareTag ("Item")) 
+			if (currentLine >= dialogs.Length) {
+				dialogActive = false;
+				currentLine = 0;
+				currentItem.GetComponent<DialogHolder> ().EndTalk ();
+				playerController.EndTalk ();
+				if (currentItem.CompareTag ("Item")) {
 					player.GetComponent<PlayerInventory> ().PickUpItem (currentItem);
-			} 
-			else
-				dText.text = dialogLines [currentLine];
+				}
+			} else
+				dText.text = dialogs [currentLine].Content;
 		}
 	}
 
-	void EndDialog ()
-	{
-		dBox.SetActive (false);
-		dialogActive = false;
-		currentLine = 0;
-		playerController.EndTalk ();
+	public bool IsDialogActive {
+		get{ return dialogActive; }
 	}
+
 }

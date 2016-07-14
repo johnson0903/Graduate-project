@@ -22,8 +22,12 @@ public class OpenDoor : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (player.GetComponent<PlayerInventory>().isSomethingInInventory("Key"))
-			isLocked = false;
+		if (this.GetComponent<DialogHolder> ().IsDialogOver && player.GetComponent<PlayerInventory> ().isSomethingInInventory ("Key")) {
+			if (Application.loadedLevel == 0)
+				Application.LoadLevel (1);
+			else
+				Application.LoadLevel (0);
+		}
 	}
 
 	void OnMouseEnter()
@@ -34,30 +38,5 @@ public class OpenDoor : MonoBehaviour {
 	void OnMouseExit(){
 		Cursor.SetCursor (null, Vector2.zero, CursorMode.Auto);
 	}
-
-	void OnMouseUp()
-	{
-		Debug.Log (this.GetComponent<DialogHolder>().IsPlayerInRange);
-		if (this.GetComponent<DialogHolder>().IsPlayerInRange && !isLocked)
-		{
-			if (Application.loadedLevel == 0)
-				Application.LoadLevel (1);
-			else
-				Application.LoadLevel (0);
-		}
-	}
-
-	public void EnterRange ()
-	{
-		isPlayerInRange = true;
-		Debug.Log (isPlayerInRange.ToString ());
-	}
-
-	public void LeaveRange ()
-	{
-		isPlayerInRange = false;
-		Debug.Log (isPlayerInRange.ToString ());
-	}
-
 
 }

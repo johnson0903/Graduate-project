@@ -46,8 +46,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\DogeAI.cs" />
+     <Compile Include="Assets\PillowAI.cs" />
+     <Compile Include="Assets\RedBookAI.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\ChangeCursor.cs" />
+     <Compile Include="Assets\Scripts\Dialog.cs" />
      <Compile Include="Assets\Scripts\DialogHolder.cs" />
      <Compile Include="Assets\Scripts\DialogManager.cs" />
      <Compile Include="Assets\Scripts\DontDestroyMeOnLoad.cs" />
