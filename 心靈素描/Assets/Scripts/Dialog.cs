@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Dialog{
+public class Dialog {
 
 	private string mode;
 	private string content;
@@ -12,14 +12,17 @@ public class Dialog{
 		get{ return mode; }
 		set{ mode = value; }
 	}
+
 	public string Content {
 		get{ return content; }
 		set{ content = value; }
 	}
+
 	public GameObject Item {
 		get{ return item; }
 		set{ item = value; }
 	}
+
 	public string DenyContent {
 		get{ return denyContent; }
 		set{ denyContent = value; }

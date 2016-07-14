@@ -15,7 +15,7 @@ public class DialogManager : MonoBehaviour
 	private GameObject player;
 	private PlayerController playerController;
 	private bool dialogActive;
-	private int currentDialog;
+	private int currentDialogIndex;
 	private GameObject currentItem;
 
 	private bool askDialogAnswer;
@@ -33,34 +33,34 @@ public class DialogManager : MonoBehaviour
 		dBox.SetActive (dialogActive);
 	}
 
-	public void ShowBox (GameObject item)
+	public void ShowBox (GameObject gameobject)
 	{
-		currentItem = item;
+		currentItem = gameobject;
 		dialogs = currentItem.GetComponent<DialogHolder> ().Dialogs;
 		playerController.StartTalk ();
 		dialogActive = true;
 
-		if(dialogs[currentDialog].Mode == "Talk"){
-			dText.text = dialogs [currentDialog].Content;
+		if(dialogs[currentDialogIndex].Mode == "Talk"){
+			dText.text = dialogs [currentDialogIndex].Content;
 			nextButton.SetActive (true);
 			yesButton.SetActive (false);
 			noButton.SetActive (false);
 		}			
-		else if (dialogs[currentDialog].Mode == "Ask"){
-			dText.text = dialogs [currentDialog].Content;
+		else if (dialogs[currentDialogIndex].Mode == "Ask"){
+			dText.text = dialogs [currentDialogIndex].Content;
 			nextButton.SetActive (false);
 			yesButton.SetActive (true);
 			noButton.SetActive (true);
 		}
-		else if (dialogs[currentDialog].Mode == "Pick"){
-			dText.text = dialogs [currentDialog].Content;
+		else if (dialogs[currentDialogIndex].Mode == "Pick"){
+			dText.text = dialogs [currentDialogIndex].Content;
 			nextButton.SetActive (true);
 			yesButton.SetActive (false);
 			noButton.SetActive (false);
 
-			GameObject k = Instantiate (dialogs[currentDialog].Item);
-			k.name = dialogs[currentDialog].Item.name;
-			player.GetComponent<PlayerInventory> ().PickUpItem (k);
+			GameObject item = Instantiate (dialogs[currentDialogIndex].Item);
+			item.name = dialogs[currentDialogIndex].Item.name;
+			player.GetComponent<PlayerInventory> ().PickUpItem (item);
 		}
 
 		if (currentItem.GetComponent<SpriteRenderer> ()) {
@@ -73,16 +73,16 @@ public class DialogManager : MonoBehaviour
 
 	public void ContinueDialog ()	
 	{
-		if (dialogActive && (currentDialog <= dialogs.Length - 1)) 
+		if (dialogActive && (currentDialogIndex <= dialogs.Length - 1)) 
 		{
-			currentDialog++;
+			currentDialogIndex++;
 
 			//如果currentLine超過dialogLines.Length則不更新dText.text
 
-			if (currentDialog >= dialogs.Length) 
+			if (currentDialogIndex >= dialogs.Length) 
 			{
 				dialogActive = false;
-				currentDialog = 0;
+				currentDialogIndex = 0;
 				currentItem.GetComponent<DialogHolder> ().EndTalk ();
 				playerController.EndTalk ();
 				if (currentItem.CompareTag ("Item"))
@@ -90,27 +90,27 @@ public class DialogManager : MonoBehaviour
 			} 
 			else 
 			{
-				if(dialogs[currentDialog].Mode == "Talk"){
-					dText.text = dialogs [currentDialog].Content;
+				if(dialogs[currentDialogIndex].Mode == "Talk"){
+					dText.text = dialogs [currentDialogIndex].Content;
 					nextButton.SetActive (true);
 					yesButton.SetActive (false);
 					noButton.SetActive (false);
 				}			
-				else if (dialogs[currentDialog].Mode == "Ask"){
+				else if (dialogs[currentDialogIndex].Mode == "Ask"){
 					if (askDialogAnswer)
-						dText.text = dialogs [currentDialog].Content;
+						dText.text = dialogs [currentDialogIndex].Content;
 					else {
-						dText.text = dialogs [currentDialog].DenyContent;
-						currentDialog = dialogs.Length - 1;
+						dText.text = dialogs [currentDialogIndex].DenyContent;
+						currentDialogIndex = dialogs.Length - 1;
 					}
 					nextButton.SetActive (false);
 					yesButton.SetActive (true);
 					noButton.SetActive (true);
 				}
-				else if (dialogs[currentDialog].Mode == "Pick"){
-					dText.text = dialogs [currentDialog].Content;
-					GameObject g = Instantiate (dialogs[currentDialog].Item);
-					g.name = dialogs[currentDialog].Item.name;
+				else if (dialogs[currentDialogIndex].Mode == "Pick"){
+					dText.text = dialogs [currentDialogIndex].Content;
+					GameObject g = Instantiate (dialogs[currentDialogIndex].Item);
+					g.name = dialogs[currentDialogIndex].Item.name;
 					player.GetComponent<PlayerInventory> ().PickUpItem (g);
 					nextButton.SetActive (true);
 					yesButton.SetActive (false);
@@ -132,11 +132,11 @@ public class DialogManager : MonoBehaviour
 
 	public void ClickNoButton(){
 		askDialogAnswer = false;
-		dText.text = dialogs [currentDialog].DenyContent;
+		dText.text = dialogs [currentDialogIndex].DenyContent;
 		nextButton.SetActive (true);
 		yesButton.SetActive (false);
 		noButton.SetActive (false);
-		currentDialog = dialogs.Length - 1;
+		currentDialogIndex = dialogs.Length - 1;
 	}
 
 	public bool AskDialogAnswer {
