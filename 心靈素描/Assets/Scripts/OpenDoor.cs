@@ -20,16 +20,6 @@ public class OpenDoor : MonoBehaviour {
 		}
 	}
 
-	// Update is called once per frame
-	void Update () {
-		if (this.GetComponent<DialogHolder> ().IsDialogOver && player.GetComponent<PlayerInventory> ().isSomethingInInventory ("Key")) {
-			if (Application.loadedLevel == 0)
-				Application.LoadLevel (1);
-			else
-				Application.LoadLevel (0);
-		}
-	}
-
 	void OnMouseEnter()
 	{
 		Cursor.SetCursor (openDoorCursor, Vector2.zero, CursorMode.Auto);

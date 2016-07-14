@@ -45,25 +45,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BedroomDoorAI.cs" />
-     <Compile Include="Assets\DogeAI.cs" />
-     <Compile Include="Assets\PillowAI.cs" />
-     <Compile Include="Assets\RedBookAI.cs" />
+     <Compile Include="Assets\Scripts\BedroomDoorAI.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\ChangeCursor.cs" />
      <Compile Include="Assets\Scripts\Dialog.cs" />
      <Compile Include="Assets\Scripts\DialogHolder.cs" />
      <Compile Include="Assets\Scripts\DialogManager.cs" />
+     <Compile Include="Assets\Scripts\DogeAI.cs" />
      <Compile Include="Assets\Scripts\DontDestroyMeOnLoad.cs" />
      <Compile Include="Assets\Scripts\Flip.cs" />
      <Compile Include="Assets\Scripts\IsInTalkRange.cs" />
      <Compile Include="Assets\Scripts\OpenDoor.cs" />
+     <Compile Include="Assets\Scripts\PillowAI.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\PlayerInventory.cs" />
+     <Compile Include="Assets\Scripts\RedBookAI.cs" />
      <Compile Include="Assets\Scripts\ShowBagList.cs" />
-     <Compile Include="Assets\Scripts\UnknownObject.cs" />
-     <None Include="Assets\DialogTexts\dialog_strawberry.txt" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
