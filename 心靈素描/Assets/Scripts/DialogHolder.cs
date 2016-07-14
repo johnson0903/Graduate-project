@@ -18,7 +18,8 @@ public class DialogHolder : MonoBehaviour
 
 	void OnMouseUp ()
 	{
-		if (isPlayerInRange && !dialogManager.IsDialogActive)
+		isDialogOver = false;
+		if (isPlayerInRange && !dialogManager.IsDialogActive && !isDialogOver)
 		{
 			dialogManager.ShowBox (this.gameObject);
 		}
@@ -28,19 +29,18 @@ public class DialogHolder : MonoBehaviour
 		Dialog dialog = new Dialog ();
 		dialog.Mode = "Talk";
 		dialog.Content = talkContent;
-		dialog.Item = null;
 		return dialog;
 	}
-	public Dialog AskDialog(string askContent){
+	public Dialog AskDialog(string askContent, string denyContent){
 		Dialog dialog = new Dialog ();
-		dialog.Mode = "Talk";
+		dialog.Mode = "Ask";
 		dialog.Content = askContent;
-		dialog.Item = null;
+		dialog.DenyContent = denyContent;
 		return dialog;
 	}
 	public Dialog PickUpItemDialog(string pickUpItemContent, GameObject pickUpItem){
 		Dialog dialog = new Dialog ();
-		dialog.Mode = "Talk";
+		dialog.Mode = "Pick";
 		dialog.Content = pickUpItemContent;
 		dialog.Item = pickUpItem;
 		return dialog;
@@ -49,10 +49,6 @@ public class DialogHolder : MonoBehaviour
 
 	public void EndTalk(){
 		isDialogOver = true;
-	}
-
-	public void AllisDone(){
-		isDialogOver = false;
 	}
 
 	public void EnterRange ()
@@ -71,6 +67,11 @@ public class DialogHolder : MonoBehaviour
 
 	public bool IsDialogOver {
 		get{ return isDialogOver; }
+		set{ isDialogOver = value; }
+	}
+
+	public bool AskDialogAnswer {
+		get{ return dialogManager.AskDialogAnswer; }
 	}
 
 	public Dialog[] Dialogs {
