@@ -40,9 +40,7 @@ public class BedroomDoorAI : MonoBehaviour {
 				else
 					Application.LoadLevel (0);
 			} 
-			Debug.Log (dialogHolder.IsDialogOver);
 			dialogHolder.IsDialogOver = false;
-
 		}
 
 	}
