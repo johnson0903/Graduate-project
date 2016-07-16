@@ -4,15 +4,12 @@ using System.Collections;
 public class DialogHolder : MonoBehaviour
 {
 	private Dialog[] dialogs;
-	private GameObject player;
 	private DialogManager dialogManager;
 	private bool isPlayerInRange;
 	private bool isDialogOver;
 
-	// Use this for initialization
 	void Start()
 	{
-		player = FindObjectOfType<PlayerController>().gameObject;
 		dialogManager = FindObjectOfType<DialogManager>();
 	}
 
