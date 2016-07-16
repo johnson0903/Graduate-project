@@ -51,11 +51,6 @@ public class DialogHolder : MonoBehaviour
 		return dialog;
 	}
 
-	public void EndTalk()
-	{
-		isDialogOver = true;
-	}
-
 	public void EnterRange()
 	{
 		isPlayerInRange = true;

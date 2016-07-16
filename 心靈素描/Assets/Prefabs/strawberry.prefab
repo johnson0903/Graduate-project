@@ -9,9 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 401556}
   - 212: {fileID: 21248420}
-  - 61: {fileID: 6121776}
-  - 114: {fileID: 11464030}
-  - 114: {fileID: 11483876}
   m_Layer: 0
   m_Name: strawberry
   m_TagString: Item
@@ -31,49 +28,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &6121776
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120172}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 3, y: 3}
---- !u!114 &11464030
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogLines:
-  - "\u597D\u5403\u7684\u8349\u8393"
-  - "\u5E95\u5BB6\u5E95\u5BB6"
---- !u!114 &11483876
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b789a4d6264c83843b854b9629b25acc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canGet: {fileID: 2800000, guid: c6e80012b065f5b40999b841406bbda2, type: 3}
-  grab: {fileID: 2800000, guid: fadfc367775b560489ee354ebb89914b, type: 3}
-  hotSpot: {x: 0, y: 0}
-  cursorMode: 0
 --- !u!212 &21248420
 SpriteRenderer:
   m_ObjectHideFlags: 1
