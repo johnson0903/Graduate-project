@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BedroomDoorAI : MonoBehaviour {
 
@@ -30,19 +31,21 @@ public class BedroomDoorAI : MonoBehaviour {
 		}
 
 		//當跟門的對話完畢時，檢查是否可以過去
-		if (dialogHolder.IsDialogOver) {
-			if (player.GetComponent<PlayerInventory> ().isSomethingInInventory ("Key") || isBedroomDoorOpen) {
+		if (dialogHolder.IsDialogOver)
+		{
+			//這個if現在進不來
+			if (player.GetComponent<PlayerInventory>().isSomethingInInventory("Key") || isBedroomDoorOpen)
+			{
 				isBedroomDoorOpen = true;
-				if(player.GetComponent<PlayerInventory> ().isSomethingInInventory("Key"))
-					player.GetComponent<PlayerInventory> ().DropItem ("Key");
+				if (player.GetComponent<PlayerInventory>().isSomethingInInventory("Key"))
+					player.GetComponent<PlayerInventory>().DropItem("Key");
 				if (Application.loadedLevel == 0)
-					Application.LoadLevel (1);
+					SceneManager.LoadScene(1);
 				else
-					Application.LoadLevel (0);
-			} 
+					SceneManager.LoadScene(0);
+			}
 			dialogHolder.IsDialogOver = false;
 		}
-
 	}
 
 }

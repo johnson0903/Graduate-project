@@ -91,7 +91,7 @@ public class DialogManager : MonoBehaviour
 			{
 				isdialogActive = false;
 				currentDialogIndex = 0;
-				currentItem.GetComponent<DialogHolder>().EndTalk();
+				//currentItem.GetComponent<DialogHolder>().EndTalk();
 				playerController.EndTalk();
 				if (currentItem.CompareTag("Item"))
 					player.GetComponent<PlayerInventory>().PickUpItem(currentItem);
