@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System;
 
 public class BedroomDoorAI : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class BedroomDoorAI : MonoBehaviour {
 	void Start () {
 		player = FindObjectOfType<PlayerController> ().gameObject;
 		dialogHolder = this.GetComponent<DialogHolder> ();
+		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
 	}
 
 	// Update is called once per frame
@@ -27,25 +29,22 @@ public class BedroomDoorAI : MonoBehaviour {
 			if (Application.loadedLevel == 0)
 				dialogHolder.Dialogs = new Dialog[] { dialogHolder.TalkDialog ("通往走廊") };
 			else
-				dialogHolder.Dialogs = new Dialog[] { dialogHolder.TalkDialog ("通往房間") };
-		}
-
-		//當跟門的對話完畢時，檢查是否可以過去
-		if (dialogHolder.IsDialogOver)
-		{
-			//這個if現在進不來
-			if (player.GetComponent<PlayerInventory>().isSomethingInInventory("Key") || isBedroomDoorOpen)
-			{
-				isBedroomDoorOpen = true;
-				if (player.GetComponent<PlayerInventory>().isSomethingInInventory("Key"))
-					player.GetComponent<PlayerInventory>().DropItem("Key");
-				if (Application.loadedLevel == 0)
-					SceneManager.LoadScene(1);
-				else
-					SceneManager.LoadScene(0);
-			}
-			dialogHolder.IsDialogOver = false;
+				dialogHolder.Dialogs = new Dialog[] { dialogHolder.TalkDialog ("通往臥室") };
 		}
 	}
+
+	void OnDialogOver (object sender, EventArgs e)
+	{
+		if (player.GetComponent<PlayerInventory> ().isSomethingInInventory ("Key") || isBedroomDoorOpen) {
+			isBedroomDoorOpen = true;
+			if (player.GetComponent<PlayerInventory> ().isSomethingInInventory ("Key"))
+				player.GetComponent<PlayerInventory> ().DropItem ("Key");
+			if (Application.loadedLevel == 0)
+				SceneManager.LoadScene (1);
+			else
+				SceneManager.LoadScene (0);
+		}
+	}
+
 
 }
