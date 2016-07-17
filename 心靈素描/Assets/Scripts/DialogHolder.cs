@@ -6,25 +6,46 @@ public class DialogHolder : MonoBehaviour
 {
 	public event EventHandler DialogOverEvent;
 
-	private Dialog[] dialogs;
+	private PlayerController playerController;
 	private DialogManager dialogManager;
+	private Dialog[] dialogs;
 	private bool isPlayerInRange;
+	private bool isPlayerWalkingToHolder;
 
 	void Start()
 	{
-		dialogManager = FindObjectOfType<DialogManager> ();
+		dialogManager = FindObjectOfType<DialogManager>();
+		playerController = FindObjectOfType<PlayerController>();
+	}
+
+	void Update()
+	{
+		if (isPlayerWalkingToHolder )
+		{
+			if (Input.mousePosition.x > playerController.transform.position.x)
+				playerController.GetComponent<Rigidbody2D>().velocity = new Vector2(8.0f, 0.0f);
+			if(isPlayerInRange)
+				playerController.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
+
+		}
 	}
 
 	void OnMouseUp()
 	{
-		if (dialogs != null && isPlayerInRange && !dialogManager.IsDialogActive) {
-			dialogManager.ShowBox (this.gameObject);
+		if (dialogs != null && isPlayerInRange && !dialogManager.IsDialogActive)
+		{
+			dialogManager.ShowBox(this.gameObject);
 		}
+
+		if (!isPlayerInRange)
+			isPlayerWalkingToHolder = true;
+		else
+			isPlayerWalkingToHolder = false;
 	}
 
 	public Dialog TalkDialog(string talkContent)
 	{
-		Dialog dialog = new Dialog ();
+		Dialog dialog = new Dialog();
 		dialog.Mode = "Talk";
 		dialog.Content = talkContent;
 		return dialog;
@@ -32,7 +53,7 @@ public class DialogHolder : MonoBehaviour
 
 	public Dialog AskDialog(string askContent, string denyContent)
 	{
-		Dialog dialog = new Dialog ();
+		Dialog dialog = new Dialog();
 		dialog.Mode = "Ask";
 		dialog.Content = askContent;
 		dialog.DenyContent = denyContent;
@@ -41,16 +62,17 @@ public class DialogHolder : MonoBehaviour
 
 	public Dialog PickUpItemDialog(string pickUpItemContent, GameObject pickUpItem)
 	{
-		Dialog dialog = new Dialog ();
+		Dialog dialog = new Dialog();
 		dialog.Mode = "Pick";
 		dialog.Content = pickUpItemContent;
 		dialog.Item = pickUpItem;
 		return dialog;
 	}
 
-	public void TellObjectDialogIsOver() {
+	public void TellObjectDialogIsOver()
+	{
 		if (DialogOverEvent != null)
-			DialogOverEvent (this, EventArgs.Empty);
+			DialogOverEvent(this, EventArgs.Empty);
 	}
 
 	public void EnterRange()
@@ -63,15 +85,18 @@ public class DialogHolder : MonoBehaviour
 		isPlayerInRange = false;
 	}
 
-	public bool IsPlayerInRange {
+	public bool IsPlayerInRange
+	{
 		get { return isPlayerInRange; }
 	}
 
-	public bool AskDialogAnswer {
+	public bool AskDialogAnswer
+	{
 		get { return dialogManager.AskDialogAnswer; }
 	}
 
-	public Dialog[] Dialogs {
+	public Dialog[] Dialogs
+	{
 		get { return dialogs; }
 		set { dialogs = value; }
 	}
