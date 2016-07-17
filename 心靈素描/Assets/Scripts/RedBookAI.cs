@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class RedBookAI : MonoBehaviour
 {
-
 	public GameObject boxCutter;
 
 	private GameObject player;
@@ -15,26 +15,24 @@ public class RedBookAI : MonoBehaviour
 	{
 		player = FindObjectOfType<PlayerController>().gameObject;
 		dialogHolder = this.GetComponent<DialogHolder>();
+		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		if (!isBoxCutterTaken)
-		{
+		if (!isBoxCutterTaken) {
 			dialogHolder.Dialogs = new Dialog[] {
 				dialogHolder.TalkDialog ("只有這本書是紅色的"),
 				dialogHolder.TalkDialog ("後面好像有一根東西"),
-				dialogHolder.PickUpItemDialog("獲得了 美工刀", boxCutter)
+				dialogHolder.PickUpItemDialog ("獲得了 美工刀", boxCutter)
 			};
-			if (dialogHolder.IsDialogOver)
-				isBoxCutterTaken = true;
-
-		}
-		else if (isBoxCutterTaken)
-		{
-			dialogHolder.Dialogs = new Dialog[] { dialogHolder.TalkDialog("這邊已經沒有東西了") };
+		} else if (isBoxCutterTaken) {
+			dialogHolder.Dialogs = new Dialog[] { dialogHolder.TalkDialog ("這邊已經沒有東西了") };
 		}
 	}
 
+	void OnDialogOver(object sender, EventArgs e) {
+		isBoxCutterTaken = true;
+	}
 }

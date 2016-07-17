@@ -1,31 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class DialogHolder : MonoBehaviour
 {
+	public event EventHandler DialogOverEvent;
+
 	private Dialog[] dialogs;
 	private DialogManager dialogManager;
 	private bool isPlayerInRange;
-	private bool isDialogOver;
 
 	void Start()
 	{
-		dialogManager = FindObjectOfType<DialogManager>();
+		dialogManager = FindObjectOfType<DialogManager> ();
 	}
 
 	void OnMouseUp()
 	{
-		isDialogOver = false;
-
-		if (isPlayerInRange && !dialogManager.IsDialogActive && !isDialogOver)
-		{
-			dialogManager.ShowBox(this.gameObject);
+		if (dialogs != null && isPlayerInRange && !dialogManager.IsDialogActive) {
+			dialogManager.ShowBox (this.gameObject);
 		}
 	}
 
 	public Dialog TalkDialog(string talkContent)
 	{
-		Dialog dialog = new Dialog();
+		Dialog dialog = new Dialog ();
 		dialog.Mode = "Talk";
 		dialog.Content = talkContent;
 		return dialog;
@@ -33,19 +32,25 @@ public class DialogHolder : MonoBehaviour
 
 	public Dialog AskDialog(string askContent, string denyContent)
 	{
-		Dialog dialog = new Dialog();
+		Dialog dialog = new Dialog ();
 		dialog.Mode = "Ask";
 		dialog.Content = askContent;
 		dialog.DenyContent = denyContent;
 		return dialog;
 	}
+
 	public Dialog PickUpItemDialog(string pickUpItemContent, GameObject pickUpItem)
 	{
-		Dialog dialog = new Dialog();
+		Dialog dialog = new Dialog ();
 		dialog.Mode = "Pick";
 		dialog.Content = pickUpItemContent;
 		dialog.Item = pickUpItem;
 		return dialog;
+	}
+
+	public void TellObjectDialogIsOver() {
+		if (DialogOverEvent != null)
+			DialogOverEvent (this, EventArgs.Empty);
 	}
 
 	public void EnterRange()
@@ -58,24 +63,15 @@ public class DialogHolder : MonoBehaviour
 		isPlayerInRange = false;
 	}
 
-	public bool IsPlayerInRange
-	{
+	public bool IsPlayerInRange {
 		get { return isPlayerInRange; }
 	}
 
-	public bool IsDialogOver
-	{
-		get { return isDialogOver; }
-		set { isDialogOver = value; }
-	}
-
-	public bool AskDialogAnswer
-	{
+	public bool AskDialogAnswer {
 		get { return dialogManager.AskDialogAnswer; }
 	}
 
-	public Dialog[] Dialogs
-	{
+	public Dialog[] Dialogs {
 		get { return dialogs; }
 		set { dialogs = value; }
 	}
