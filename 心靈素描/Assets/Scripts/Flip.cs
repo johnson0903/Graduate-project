@@ -7,9 +7,9 @@ public class Flip : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ((Input.GetKeyDown (KeyCode.LeftArrow) || Input.GetKeyDown (KeyCode.A)) && isFacingRight)
+		if (this.GetComponent<Rigidbody2D>().velocity.x < 0 && isFacingRight)
 			FlipPlayer ();
-		if ((Input.GetKeyDown (KeyCode.RightArrow) || Input.GetKeyDown (KeyCode.D)) && !isFacingRight)
+		if (this.GetComponent<Rigidbody2D>().velocity.x > 0 && !isFacingRight)
 			FlipPlayer ();
 	}
 		

@@ -20,13 +20,19 @@ public class DialogHolder : MonoBehaviour
 
 	void Update()
 	{
-		if (isPlayerWalkingToHolder )
+		if (isPlayerWalkingToHolder)
 		{
-			if (Input.mousePosition.x > playerController.transform.position.x)
-				playerController.GetComponent<Rigidbody2D>().velocity = new Vector2(8.0f, 0.0f);
-			if(isPlayerInRange)
-				playerController.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
-
+			if (!isPlayerInRange) {
+				if (this.transform.position.x > playerController.transform.position.x)
+					playerController.GetComponent<Rigidbody2D> ().velocity = new Vector2 (8.0f, 0.0f);
+				else
+					playerController.GetComponent<Rigidbody2D> ().velocity = new Vector2 (-8.0f, 0.0f);
+			}
+			else {
+				isPlayerWalkingToHolder = false;
+				playerController.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0.0f, 0.0f);
+				dialogManager.ShowBox(this.gameObject);
+			}
 		}
 	}
 
