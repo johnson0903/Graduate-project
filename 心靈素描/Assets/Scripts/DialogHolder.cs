@@ -15,12 +15,11 @@ public class DialogHolder : MonoBehaviour
 		dialogManager = FindObjectOfType<DialogManager>();
 	}
 
-	void OnMouseUp()
+	void Update()
 	{
-		if (dialogs != null && isPlayerInRange && !dialogManager.IsDialogActive)
-		{
-			dialogManager.ShowBox(this.gameObject);
-		}
+		if (Input.GetKeyDown(KeyCode.Space))
+			if (dialogs != null && isPlayerInRange)
+				dialogManager.ContinueDialog(this.gameObject);
 	}
 
 	public Dialog TalkDialog(string talkContent)
@@ -31,12 +30,12 @@ public class DialogHolder : MonoBehaviour
 		return dialog;
 	}
 
-	public Dialog AskDialog(string askContent, string denyContent)
+	public Dialog AskDialog(string answer1, string answer2)
 	{
 		Dialog dialog = new Dialog();
 		dialog.Mode = "Ask";
-		dialog.Content = askContent;
-		dialog.DenyContent = denyContent;
+		dialog.Answer1 = answer1;
+		dialog.Answer2 = answer2;
 		return dialog;
 	}
 
@@ -70,7 +69,7 @@ public class DialogHolder : MonoBehaviour
 		get { return isPlayerInRange; }
 	}
 
-	public bool AskDialogAnswer
+	public int AskDialogAnswer
 	{
 		get { return dialogManager.AskDialogAnswer; }
 	}
@@ -80,6 +79,5 @@ public class DialogHolder : MonoBehaviour
 		get { return dialogs; }
 		set { dialogs = value; }
 	}
-
 }
 

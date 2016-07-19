@@ -5,113 +5,141 @@ using UnityEngine.UI;
 public class DialogManager : MonoBehaviour
 {
 	public GameObject dBox;
-	public GameObject nextButton;
-	public GameObject yesButton;
-	public GameObject noButton;
 	public Text dText;
-	public Image itemImage;
 	public Dialog[] dialogs;
+	public Image answer1;
+	public Image answer2;
 
 	private GameObject player;
 	private GameObject currentItem;
 	private PlayerController playerController;
-	private bool isdialogActive;
+	private bool isDialogActive;
 	private int currentDialogIndex;
-	private bool askDialogAnswer;
+	private int askDialogAnswer;
 
 	void Start()
 	{
-		player = FindObjectOfType<PlayerController> ().gameObject;
-		playerController = player.GetComponent<PlayerController> ();
-		isdialogActive = false;
+		player = FindObjectOfType<PlayerController>().gameObject;
+		playerController = player.GetComponent<PlayerController>();
+		answer1.gameObject.SetActive(false);
+		answer2.gameObject.SetActive(false);
+		isDialogActive = false;
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
-		dBox.SetActive (isdialogActive);
+		dBox.SetActive(isDialogActive);
+
+		if (answer1.gameObject.activeSelf && answer2.gameObject.activeSelf)
+		{
+
+			Color chosenColor = new Color(1, 1, 1, 0.5f);
+			Color notChosenColor = new Color(1, 1, 1, 0);
+
+			if (askDialogAnswer == 1)
+			{
+				answer1.GetComponent<Image>().color = chosenColor;
+				answer2.GetComponent<Image>().color = notChosenColor;
+			}
+			else {
+				answer1.GetComponent<Image>().color = notChosenColor;
+				answer2.GetComponent<Image>().color = chosenColor;
+			}
+
+			if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) ||
+			   Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+			{
+				if (askDialogAnswer == 1)
+					askDialogAnswer = 2;
+				else
+					askDialogAnswer = 1;
+			}
+		}
 	}
 
 	public void ShowBox(GameObject gameobject)
 	{
 		currentItem = gameobject;
-		dialogs = currentItem.GetComponent<DialogHolder> ().Dialogs;
-		playerController.StartTalk ();
-		isdialogActive = true;
-
-		ShowDialogByMode ();
-
-		if (currentItem.GetComponent<SpriteRenderer> ()) {
-			itemImage.color = new Color (255, 255, 255, 1);
-			itemImage.sprite = currentItem.GetComponent<SpriteRenderer> ().sprite;
-		} else
-			itemImage.color = new Color (255, 255, 255, 0);
+		dialogs = currentItem.GetComponent<DialogHolder>().Dialogs;
+		playerController.StartTalk();
+		isDialogActive = true;
 	}
 
-	public void ContinueDialog()
+	public void ContinueDialog(GameObject gameobject)
 	{
-		if (isdialogActive && (currentDialogIndex <= dialogs.Length - 1)) {
-			currentDialogIndex++;
+		currentItem = gameobject;
+		dialogs = currentItem.GetComponent<DialogHolder>().Dialogs;
 
-			//如果currentLine超過dialogLines.Length
-			if (currentDialogIndex >= dialogs.Length) {
-				isdialogActive = false;
+		if (!isDialogActive && currentDialogIndex == 0)
+		{
+			playerController.StartTalk();
+			isDialogActive = true;
+			ShowDialogByMode();
+			currentDialogIndex++;
+		}
+
+		else if (isDialogActive && currentDialogIndex <= dialogs.Length)
+		{
+			if (currentDialogIndex >= dialogs.Length)
+			{
+				isDialogActive = false;
 				currentDialogIndex = 0;
-				currentItem.GetComponent<DialogHolder> ().TellObjectDialogIsOver ();
-				playerController.EndTalk ();
-				if (currentItem.CompareTag ("Item"))
-					player.GetComponent<PlayerInventory> ().PickUpItem (currentItem);
-			} else {
-				ShowDialogByMode ();
+				currentItem.GetComponent<DialogHolder>().TellObjectDialogIsOver();
+				playerController.EndTalk();
+
+				if (currentItem.CompareTag("Item"))
+					player.GetComponent<PlayerInventory>().PickUpItem(currentItem);
+			}
+			else
+			{
+				ShowDialogByMode();
+				currentDialogIndex++;
 			}
 		}
 	}
 
 	void ShowDialogByMode()
 	{
-		if (dialogs [currentDialogIndex].Mode == "Talk") {
-			dText.text = dialogs [currentDialogIndex].Content;
-			nextButton.SetActive (true);
-			yesButton.SetActive (false);
-			noButton.SetActive (false);
-		} else if (dialogs [currentDialogIndex].Mode == "Ask") {
-			dText.text = dialogs [currentDialogIndex].Content;
-			nextButton.SetActive (false);
-			yesButton.SetActive (true);
-			noButton.SetActive (true);
-		} else if (dialogs [currentDialogIndex].Mode == "Pick") {
-			dText.text = dialogs [currentDialogIndex].Content;
-			GameObject g = Instantiate (dialogs [currentDialogIndex].Item);
-			g.name = dialogs [currentDialogIndex].Item.name;
-			player.GetComponent<PlayerInventory> ().PickUpItem (g);
-			nextButton.SetActive (true);
-			yesButton.SetActive (false);
-			noButton.SetActive (false);
+		if (dialogs[currentDialogIndex].Mode == "Talk")
+		{
+			dText.text = dialogs[currentDialogIndex].Content;
+			answer1.gameObject.SetActive(false);
+			answer2.gameObject.SetActive(false);
+		}
+		else if (dialogs[currentDialogIndex].Mode == "Ask")
+		{
+			answer1.gameObject.SetActive(true);
+			answer2.gameObject.SetActive(true);
+			answer1.GetComponentInChildren<Text>().text = dialogs[currentDialogIndex].Answer1;
+			answer2.GetComponentInChildren<Text>().text = dialogs[currentDialogIndex].Answer2;
+			askDialogAnswer = 1;
+		}
+		else if (dialogs[currentDialogIndex].Mode == "Pick")
+		{
+			dText.text = dialogs[currentDialogIndex].Content;
+			GameObject g = Instantiate(dialogs[currentDialogIndex].Item);
+			g.name = dialogs[currentDialogIndex].Item.name;
+			player.GetComponent<PlayerInventory>().PickUpItem(g);
+			answer1.gameObject.SetActive(false);
+			answer2.gameObject.SetActive(false);
 		}
 	}
 
-	public bool IsDialogActive {
-		get { return isdialogActive; }
-	}
-
-	public void ClickYesButton()
+	public bool IsDialogActive
 	{
-		askDialogAnswer = true;
-		ContinueDialog ();
+		get { return isDialogActive; }
 	}
 
-	public void ClickNoButton()
+	//public void ClickNoButton()
+	//{
+	//	dText.text = dialogs[currentDialogIndex].DenyContent;
+	//	answer1.gameObject.SetActive(false);
+	//	answer2.gameObject.SetActive(false);
+	//	currentDialogIndex = dialogs.Length - 1;
+	//}
+
+	public int AskDialogAnswer
 	{
-		askDialogAnswer = false;
-		dText.text = dialogs [currentDialogIndex].DenyContent;
-		nextButton.SetActive (true);
-		yesButton.SetActive (false);
-		noButton.SetActive (false);
-		currentDialogIndex = dialogs.Length - 1;
-	}
-
-	public bool AskDialogAnswer {
 		get { return askDialogAnswer; }
 	}
-
 }

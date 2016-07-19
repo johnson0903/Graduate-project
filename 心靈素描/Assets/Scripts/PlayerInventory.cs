@@ -10,7 +10,6 @@ public class PlayerInventory : MonoBehaviour {
 	private List<GameObject> inventory = new List<GameObject> ();
 
 	public void PickUpItem(GameObject pickUpItem){
-		Debug.Log (pickUpItem.name);
 		GameObject item = new GameObject(pickUpItem.name, typeof(Image));
 		item.transform.SetParent (bag.transform);
 		item.transform.localPosition = new Vector3 (-70 + inventory.Count % 4 * 45, 60 - inventory.Count / 4 * 45, 0.0f);
@@ -18,7 +17,6 @@ public class PlayerInventory : MonoBehaviour {
 		item.GetComponent<Image> ().sprite = pickUpItem.GetComponent<SpriteRenderer> ().sprite;
 		Destroy (pickUpItem);
 		inventory.Add (item);
-		Debug.Log (inventory.Count);
 	}
 
 	public void DropItem(string name) {
@@ -29,7 +27,6 @@ public class PlayerInventory : MonoBehaviour {
 				Destroy (inventory [i]);
 				inventory.RemoveAt (i);
 			}
-				
 		}
 		Debug.Log (inventory.Count);
 	}
@@ -43,6 +40,4 @@ public class PlayerInventory : MonoBehaviour {
 		}
 		return isFound;
 	}
-
-
 }

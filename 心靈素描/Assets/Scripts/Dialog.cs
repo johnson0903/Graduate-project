@@ -1,30 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Dialog {
+public class Dialog
+{
 
-	private string mode;
-	private string content;
 	private GameObject item;
-	private string denyContent;
 
-	public string Mode {
-		get{ return mode; }
-		set{ mode = value; }
+	public string Mode
+	{
+		get;
+		set;
 	}
 
-	public string Content {
-		get{ return content; }
-		set{ content = value; }
+	public string Content
+	{
+		get;
+		set;
 	}
 
-	public GameObject Item {
-		get{ return item; }
-		set{ item = value; }
+	public GameObject Item
+	{
+		get;
+		set;
 	}
 
-	public string DenyContent {
-		get{ return denyContent; }
-		set{ denyContent = value; }
+	public string Answer1
+	{
+		get;
+		set;
 	}
+
+	public string Answer2
+	{
+		get;
+		set;
+	}
+
+
 }
