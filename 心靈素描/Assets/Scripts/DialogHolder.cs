@@ -10,24 +10,11 @@ public class DialogHolder : MonoBehaviour
 	private DialogManager dialogManager;
 	private Dialog[] dialogs;
 	private bool isPlayerInRange;
-	private bool isPlayerWalkingToHolder;
 
 	void Start()
 	{
 		dialogManager = FindObjectOfType<DialogManager>();
 		playerController = FindObjectOfType<PlayerController>();
-	}
-
-	void Update()
-	{
-		if (isPlayerWalkingToHolder )
-		{
-			if (Input.mousePosition.x > playerController.transform.position.x)
-				playerController.GetComponent<Rigidbody2D>().velocity = new Vector2(8.0f, 0.0f);
-			if(isPlayerInRange)
-				playerController.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
-
-		}
 	}
 
 	void OnMouseUp()
@@ -36,11 +23,6 @@ public class DialogHolder : MonoBehaviour
 		{
 			dialogManager.ShowBox(this.gameObject);
 		}
-
-		if (!isPlayerInRange)
-			isPlayerWalkingToHolder = true;
-		else
-			isPlayerWalkingToHolder = false;
 	}
 
 	public Dialog TalkDialog(string talkContent)

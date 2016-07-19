@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
 {
 
 	public float speed;
-
+	public Vector2 movement;
 	private Animator animator;
 	private Rigidbody2D playerRigidbody;
 	private bool isTalking;
@@ -23,8 +23,7 @@ public class PlayerController : MonoBehaviour
 	void Update ()
 	{
 		float moveHorizontal = Input.GetAxis ("Horizontal");
-		Vector2 movement = new Vector2 (moveHorizontal, 0.0f);
-		Debug.Log(moveHorizontal);
+	    movement = new Vector2 (moveHorizontal, 0.0f);
 		animator.SetFloat ("speed", Mathf.Abs (moveHorizontal * speed));
 		playerRigidbody.velocity = movement * speed;
 	}
