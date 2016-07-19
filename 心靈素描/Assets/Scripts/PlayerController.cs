@@ -5,45 +5,45 @@ public class PlayerController : MonoBehaviour
 {
 
 	public float speed;
-	public Vector2 movement;
 	private Animator animator;
 	private Rigidbody2D playerRigidbody;
 	private bool isTalking;
 	private float tempSpeed;
 
 	// Use this for initialization
-	void Start ()
+	void Start()
 	{
-		playerRigidbody = GetComponent<Rigidbody2D> ();
-		animator = GetComponent<Animator> ();
+		playerRigidbody = GetComponent<Rigidbody2D>();
+		animator = GetComponent<Animator>();
 		tempSpeed = speed;
 	}
 
 	// Update is called once per frame
-	void Update ()
+	void Update()
 	{
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-
-		Vector2 movement = new Vector2 (moveHorizontal, 0.0f);
-		if (movement.x != 0)
-			playerRigidbody.velocity = movement * speed;
-		animator.SetFloat ("speed", Mathf.Abs (playerRigidbody.velocity.x));
+		float moveHorizontal = Input.GetAxis("Horizontal");
+		Vector2 movement = new Vector2(moveHorizontal, 0.0f);
+		playerRigidbody.velocity = movement * speed;
+		animator.SetFloat("speed", Mathf.Abs(moveHorizontal * speed));
 
 	}
-		
-	public void StartTalk() {
+
+	public void StartTalk()
+	{
 		isTalking = true;
 		tempSpeed = speed;
 		speed = 0;
 	}
 
-	public void EndTalk() {
+	public void EndTalk()
+	{
 		isTalking = false;
 		speed = tempSpeed;
 	}
 
-	public bool IsTalking {
-		get{ return isTalking; }
+	public bool IsTalking
+	{
+		get { return isTalking; }
 	}
 
 }
