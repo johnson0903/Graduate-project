@@ -23,9 +23,12 @@ public class PlayerController : MonoBehaviour
 	void Update ()
 	{
 		float moveHorizontal = Input.GetAxis ("Horizontal");
-	    movement = new Vector2 (moveHorizontal, 0.0f);
-		animator.SetFloat ("speed", Mathf.Abs (moveHorizontal * speed));
-		playerRigidbody.velocity = movement * speed;
+
+		Vector2 movement = new Vector2 (moveHorizontal, 0.0f);
+		if (movement.x != 0)
+			playerRigidbody.velocity = movement * speed;
+		animator.SetFloat ("speed", Mathf.Abs (playerRigidbody.velocity.x));
+
 	}
 		
 	public void StartTalk() {

@@ -6,7 +6,6 @@ public class DialogHolder : MonoBehaviour
 {
 	public event EventHandler DialogOverEvent;
 
-	private PlayerController playerController;
 	private DialogManager dialogManager;
 	private Dialog[] dialogs;
 	private bool isPlayerInRange;
@@ -14,7 +13,6 @@ public class DialogHolder : MonoBehaviour
 	void Start()
 	{
 		dialogManager = FindObjectOfType<DialogManager>();
-		playerController = FindObjectOfType<PlayerController>();
 	}
 
 	void OnMouseUp()
