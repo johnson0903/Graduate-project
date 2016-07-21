@@ -36,5 +36,9 @@ public class Dialog
 		set;
 	}
 
-
+	public Dialog[] Answer2_Dialogs
+	{
+		get;
+		set;
+	}
 }

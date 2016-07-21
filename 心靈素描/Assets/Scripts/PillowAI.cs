@@ -22,18 +22,18 @@ public class PillowAI : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		//如果枕頭裡的鑰匙還沒被拿走
 		if (!isPillowKeyTaken)
 		{
-			if (player.GetComponent<PlayerInventory>().isSomethingInInventory("BoxCutter"))
+			if (player.GetComponent<PlayerInventory>().isSomethingInInventory("BoxCutter"))     //如果身上有美工刀
 			{
-				if (dialogHolder.AskDialogAnswer == 1)
-					dialogHolder.Dialogs = new Dialog[] { dialogHolder.TalkDialog("要用美工刀劃開枕頭看看嗎"), dialogHolder.AskDialog("不管了拿起來吧", "不要好了感覺好危險"), dialogHolder.PickUpItemDialog("不管了拿起來吧", key) };
-				else if (dialogHolder.AskDialogAnswer == 2)
-					dialogHolder.Dialogs = new Dialog[] { dialogHolder.TalkDialog("要用美工刀劃開枕頭看看嗎"), dialogHolder.AskDialog("不管了拿起來吧", "不要好了感覺好危險"), dialogHolder.TalkDialog("怕怕的...") };
-				else
-					dialogHolder.Dialogs = new Dialog[] { dialogHolder.TalkDialog("要用美工刀劃開枕頭看看嗎"), dialogHolder.AskDialog("不管了拿起來吧", "不要好了感覺好危險"), dialogHolder.TalkDialog("???...") };
+				dialogHolder.Dialogs = new Dialog[] { dialogHolder.TalkDialog ("軟綿綿的枕頭"),
+												      dialogHolder.TalkDialog ("但裡面好像有一個硬硬的東西"),
+					                                  dialogHolder.TalkDialog("要用美工刀劃開枕頭看看嗎"),
+													  dialogHolder.AskDialog("不管了拿起來吧", "不要好了感覺好危險", new Dialog[]{dialogHolder.TalkDialog("怕怕ㄉ"), dialogHolder.TalkDialog("怕怕ㄉ2") }),
+													  dialogHolder.PickUpItemDialog("不管了拿起來吧", key) };
 			}
-			else
+			else   //如果身上沒有美工刀
 			{
 				dialogHolder.Dialogs = new Dialog[] {
 					dialogHolder.TalkDialog ("軟綿綿的枕頭"),
@@ -41,7 +41,8 @@ public class PillowAI : MonoBehaviour
 				};
 			}
 		}
-		else {
+		else    //枕頭的鑰匙被拿了
+		{
 			dialogHolder.Dialogs = new Dialog[] { dialogHolder.TalkDialog("撕碎的枕頭散落在床上"), dialogHolder.TalkDialog("瞧你都幹了什麼") };
 		}
 	}

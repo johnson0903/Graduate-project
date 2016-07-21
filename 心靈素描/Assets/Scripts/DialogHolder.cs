@@ -30,12 +30,13 @@ public class DialogHolder : MonoBehaviour
 		return dialog;
 	}
 
-	public Dialog AskDialog(string answer1, string answer2)
+	public Dialog AskDialog(string answer1, string answer2, Dialog[] answer2_dialogs)
 	{
 		Dialog dialog = new Dialog();
 		dialog.Mode = "Ask";
 		dialog.Answer1 = answer1;
 		dialog.Answer2 = answer2;
+		dialog.Answer2_Dialogs = answer2_dialogs;
 		return dialog;
 	}
 

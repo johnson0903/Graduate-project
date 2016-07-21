@@ -10,12 +10,14 @@ public class DialogManager : MonoBehaviour
 	public Image answer1;
 	public Image answer2;
 
+	private Dialog[] originalDialogs;
 	private GameObject player;
-	private GameObject currentItem;
+	private GameObject talkingObeject;
 	private PlayerController playerController;
 	private bool isDialogActive;
 	private int currentDialogIndex;
 	private int askDialogAnswer;
+	private int originalDialogIndex;
 
 	void Start()
 	{
@@ -31,70 +33,36 @@ public class DialogManager : MonoBehaviour
 		dBox.SetActive(isDialogActive);
 
 		if (answer1.gameObject.activeSelf && answer2.gameObject.activeSelf)
+			ShowAnswerMenu();
+	}
+
+	void ShowAnswerMenu()
+	{
+		Color chosenColor = new Color(1, 1, 1, 0.5f);
+		Color notChosenColor = new Color(1, 1, 1, 0);
+
+		if (askDialogAnswer == 1)
 		{
+			answer1.GetComponent<Image>().color = chosenColor;
+			answer2.GetComponent<Image>().color = notChosenColor;
+			dialogs = originalDialogs;
+			currentDialogIndex = originalDialogIndex + 1;
+		}
+		else 
+		{
+			answer1.GetComponent<Image>().color = notChosenColor;
+			answer2.GetComponent<Image>().color = chosenColor;
+			dialogs = originalDialogs[originalDialogIndex].Answer2_Dialogs;
+			currentDialogIndex = 0;
+		}
 
-			Color chosenColor = new Color(1, 1, 1, 0.5f);
-			Color notChosenColor = new Color(1, 1, 1, 0);
-
+		if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) ||
+		   Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+		{
 			if (askDialogAnswer == 1)
-			{
-				answer1.GetComponent<Image>().color = chosenColor;
-				answer2.GetComponent<Image>().color = notChosenColor;
-			}
-			else {
-				answer1.GetComponent<Image>().color = notChosenColor;
-				answer2.GetComponent<Image>().color = chosenColor;
-			}
-
-			if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) ||
-			   Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
-			{
-				if (askDialogAnswer == 1)
-					askDialogAnswer = 2;
-				else
-					askDialogAnswer = 1;
-			}
-		}
-	}
-
-	public void ShowBox(GameObject gameobject)
-	{
-		currentItem = gameobject;
-		dialogs = currentItem.GetComponent<DialogHolder>().Dialogs;
-		playerController.StartTalk();
-		isDialogActive = true;
-	}
-
-	public void ContinueDialog(GameObject gameobject)
-	{
-		currentItem = gameobject;
-		dialogs = currentItem.GetComponent<DialogHolder>().Dialogs;
-
-		if (!isDialogActive && currentDialogIndex == 0)
-		{
-			playerController.StartTalk();
-			isDialogActive = true;
-			ShowDialogByMode();
-			currentDialogIndex++;
-		}
-
-		else if (isDialogActive && currentDialogIndex <= dialogs.Length)
-		{
-			if (currentDialogIndex >= dialogs.Length)
-			{
-				isDialogActive = false;
-				currentDialogIndex = 0;
-				currentItem.GetComponent<DialogHolder>().TellObjectDialogIsOver();
-				playerController.EndTalk();
-
-				if (currentItem.CompareTag("Item"))
-					player.GetComponent<PlayerInventory>().PickUpItem(currentItem);
-			}
+				askDialogAnswer = 2;
 			else
-			{
-				ShowDialogByMode();
-				currentDialogIndex++;
-			}
+				askDialogAnswer = 1;
 		}
 	}
 
@@ -108,11 +76,13 @@ public class DialogManager : MonoBehaviour
 		}
 		else if (dialogs[currentDialogIndex].Mode == "Ask")
 		{
+			originalDialogs = dialogs;
+			originalDialogIndex = currentDialogIndex;
+			askDialogAnswer = 1;
 			answer1.gameObject.SetActive(true);
 			answer2.gameObject.SetActive(true);
 			answer1.GetComponentInChildren<Text>().text = dialogs[currentDialogIndex].Answer1;
 			answer2.GetComponentInChildren<Text>().text = dialogs[currentDialogIndex].Answer2;
-			askDialogAnswer = 1;
 		}
 		else if (dialogs[currentDialogIndex].Mode == "Pick")
 		{
@@ -125,18 +95,39 @@ public class DialogManager : MonoBehaviour
 		}
 	}
 
+	public void ContinueDialog(GameObject gameobject)
+	{
+		if (!isDialogActive && currentDialogIndex == 0)
+		{
+			talkingObeject = gameobject;
+			dialogs = talkingObeject.GetComponent<DialogHolder>().Dialogs;
+			playerController.StartTalk();
+			isDialogActive = true;
+			ShowDialogByMode();
+			currentDialogIndex++;
+		}
+
+		else if (isDialogActive && currentDialogIndex <= dialogs.Length)
+		{
+			if (currentDialogIndex >= dialogs.Length)
+			{
+				isDialogActive = false;
+				currentDialogIndex = 0;
+				talkingObeject.GetComponent<DialogHolder>().TellObjectDialogIsOver();
+				playerController.EndTalk();
+			}
+			else
+			{
+				ShowDialogByMode();
+				currentDialogIndex++;
+			}
+		}
+	}
+
 	public bool IsDialogActive
 	{
 		get { return isDialogActive; }
 	}
-
-	//public void ClickNoButton()
-	//{
-	//	dText.text = dialogs[currentDialogIndex].DenyContent;
-	//	answer1.gameObject.SetActive(false);
-	//	answer2.gameObject.SetActive(false);
-	//	currentDialogIndex = dialogs.Length - 1;
-	//}
 
 	public int AskDialogAnswer
 	{

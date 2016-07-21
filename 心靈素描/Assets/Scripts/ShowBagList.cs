@@ -2,22 +2,24 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ShowBagList : MonoBehaviour {
-
+public class ShowBagList : MonoBehaviour
+{
+	public GameObject bagList;
 	// Use this for initialization
-	void Start () {
-		this.gameObject.SetActive (false);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	void Start()
+	{
+		bagList.SetActive(false);
 	}
 
-	public void ShowBag() {
-		if (this.isActiveAndEnabled == false)
-			this.gameObject.SetActive (true);
-		else
-			this.gameObject.SetActive (false);
+	// Update is called once per frame
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.E))
+		{
+			if (!bagList.activeSelf)
+				bagList.SetActive(true);
+			else
+				bagList.SetActive(false);
+		}
 	}
 }
