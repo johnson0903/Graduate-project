@@ -31,7 +31,7 @@ public class PillowAI : MonoBehaviour
 												      dialogHolder.TalkDialog ("但裡面好像有一個硬硬的東西"),
 					                                  dialogHolder.TalkDialog("要用美工刀劃開枕頭看看嗎"),
 													  dialogHolder.AskDialog("不管了拿起來吧", "不要好了感覺好危險", new Dialog[]{dialogHolder.TalkDialog("怕怕ㄉ"), dialogHolder.TalkDialog("怕怕ㄉ2") }),
-													  dialogHolder.PickUpItemDialog("不管了拿起來吧", key) };
+													  dialogHolder.PickUpItemDialog("獲得了 大門的鑰匙", key) };
 			}
 			else   //如果身上沒有美工刀
 			{
