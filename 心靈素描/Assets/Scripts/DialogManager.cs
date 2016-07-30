@@ -113,6 +113,7 @@ public class DialogManager : MonoBehaviour
 			dialogs = talkingObeject.GetComponent<DialogHolder>().Dialogs;
 			playerController.StartTalk();
 			isDialogActive = true;
+			askDialogAnswer = 0;
 			ShowDialogByMode();
 			currentDialogIndex++;
 		}

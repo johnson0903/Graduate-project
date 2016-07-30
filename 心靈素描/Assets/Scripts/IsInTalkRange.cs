@@ -3,7 +3,7 @@ using System.Collections;
 
 public class IsInTalkRange : MonoBehaviour {
 
-	void OnTriggerEnter2D(Collider2D other) {
+	void OnTriggerStay2D(Collider2D other) {
 		if (other.CompareTag ("Item") || other.CompareTag ("NPC")) {
 			DialogHolder dHolder = other.GetComponent<DialogHolder> ();
 			if (dHolder != null) {

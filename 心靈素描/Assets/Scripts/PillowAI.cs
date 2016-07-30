@@ -48,11 +48,9 @@ public class PillowAI : MonoBehaviour
 	}
 
 	void OnDialogOver(object sender, EventArgs e)
-	{
-		if (dialogHolder.AskDialogAnswer == 1)
+	{	
+		if (!isPillowKeyTaken && dialogHolder.AskDialogAnswer == 1)
 			isPillowKeyTaken = true;
-		else
-			isPillowKeyTaken = false;
 	}
 
 }

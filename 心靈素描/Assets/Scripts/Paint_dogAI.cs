@@ -33,7 +33,7 @@ public class Paint_dogAI : MonoBehaviour {
 				dialogHolder.TalkDialog ("要回去了嗎"),
 				dialogHolder.AskDialog ("回去", "待著", new Dialog[] {
 					dialogHolder.TalkDialog ("再調查一下好了")
-				}), dialogHolder.TalkDialog ("回去囉"),
+				}), dialogHolder.TalkDialog ("回去囉")
 			};
 	}
 

@@ -15,6 +15,11 @@ public class BedroomDoorAI : MonoBehaviour {
 		player = FindObjectOfType<PlayerController> ().gameObject;
 		dialogHolder = this.GetComponent<DialogHolder> ();
 		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
+
+		if (ChangeSceneByBedroomDoor) {	
+			player.transform.position = new Vector3 (this.transform.position.x, player.transform.position.y, player.transform.position.z);
+			ChangeSceneByBedroomDoor = false;
+		}
 	}
 
 	// Update is called once per frame

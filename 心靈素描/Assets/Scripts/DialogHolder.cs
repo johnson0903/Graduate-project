@@ -63,7 +63,6 @@ public class DialogHolder : MonoBehaviour
 	public void LeaveRange()
 	{
 		isPlayerInRange = false;
-		Debug.Log ("123");
 	}
 
 	public bool IsPlayerInRange
