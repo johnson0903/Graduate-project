@@ -9,6 +9,7 @@ public class DialogHolder : MonoBehaviour
 	private DialogManager dialogManager;
 	private Dialog[] dialogs;
 	private bool isPlayerInRange;
+	private bool isAutoPopUp;
 
 	void Start()
 	{
@@ -17,9 +18,17 @@ public class DialogHolder : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
-			if (dialogs != null && isPlayerInRange)
-				dialogManager.ContinueDialog(this.gameObject);
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			if (!isAutoPopUp && dialogs != null && isPlayerInRange)
+				dialogManager.ContinueDialog (this.gameObject);
+		}
+	}
+
+	void OnTriggerStay2D(Collider2D other) {
+		if (isAutoPopUp && dialogs != null && isPlayerInRange) {
+			dialogManager.ContinueDialog (this.gameObject);
+			isAutoPopUp = false;
+		}
 	}
 
 	public Dialog TalkDialog(string talkContent)
@@ -73,6 +82,12 @@ public class DialogHolder : MonoBehaviour
 	public int AskDialogAnswer
 	{
 		get { return dialogManager.AskDialogAnswer; }
+	}
+
+	public bool IsAutoPopUp
+	{
+		get { return isAutoPopUp; }
+		set { isAutoPopUp = value; }
 	}
 
 	public Dialog[] Dialogs

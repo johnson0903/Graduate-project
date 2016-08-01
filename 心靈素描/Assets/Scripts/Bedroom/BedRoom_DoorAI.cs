@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using System;
 
-public class BedroomDoorAI : MonoBehaviour {
+public class BedRoom_DoorAI : MonoBehaviour {
 
 	private GameObject player;
 	private DialogHolder dialogHolder;
@@ -27,7 +27,7 @@ public class BedroomDoorAI : MonoBehaviour {
 
 		if (!isBedroomDoorOpen) {
 			if (player.GetComponent<PlayerInventory> ().isSomethingInInventory ("Key")) {
-				dialogHolder.Dialogs = new Dialog[] { dialogHolder.TalkDialog ("門開了...") };
+				dialogHolder.Dialogs = new Dialog[] { dialogHolder.TalkDialog ("使用 大門的鑰匙") };
 			} else {
 				dialogHolder.Dialogs = new Dialog[] { dialogHolder.TalkDialog ("門關得緊緊的...") };
 			}
@@ -53,6 +53,5 @@ public class BedroomDoorAI : MonoBehaviour {
 			}
 		}
 	}
-
 
 }

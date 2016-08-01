@@ -103,7 +103,7 @@ GameObject:
   - 114: {fileID: 22774566}
   - 114: {fileID: 22774570}
   m_Layer: 0
-  m_Name: Paint_dog
+  m_Name: Paint_pencilTomb
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 22774564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.44, y: 3.04, z: 0}
+  m_LocalPosition: {x: -12.17, y: 3.04, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 497432305}
@@ -157,9 +157,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.18986511, y: 0}
   serializedVersion: 2
-  m_Size: {x: 9.79, y: 5.2599998}
+  m_Size: {x: 5.6133695, y: 5.2599998}
 --- !u!212 &22774569
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 22774564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fdd13958664c144daf57c4ba75b5a1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b067fa7a55cf4b4095b996db886ea0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &235218403
@@ -970,9 +970,9 @@ GameObject:
   - 4: {fileID: 743683651}
   - 212: {fileID: 743683650}
   - 61: {fileID: 743683653}
-  - 114: {fileID: 743683655}
   - 114: {fileID: 743683654}
   - 114: {fileID: 743683652}
+  - 114: {fileID: 743683655}
   m_Layer: 0
   m_Name: pillow
   m_TagString: NPC
@@ -1047,9 +1047,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.04539585, y: 0.14126873}
+  m_Offset: {x: -0.017885208, y: 0.14126873}
   serializedVersion: 2
-  m_Size: {x: 2.2291012, y: 1.3912476}
+  m_Size: {x: 2.1025338, y: 1.3912476}
 --- !u!114 &743683654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1069,7 +1069,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 743683649}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93bddb1670318884ea9e91b19b6c2e96, type: 3}
+  m_Script: {fileID: 11500000, guid: adf4c470d5f281542b1bd270a46ba21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   key: {fileID: 195982, guid: 0036482b332f2c64a897012c523b2fce, type: 2}
@@ -1351,8 +1351,8 @@ GameObject:
   - 212: {fileID: 974423058}
   - 61: {fileID: 974423055}
   - 114: {fileID: 974423057}
-  - 114: {fileID: 974423059}
   - 114: {fileID: 974423060}
+  - 114: {fileID: 974423054}
   m_Layer: 0
   m_Name: Door
   m_TagString: NPC
@@ -1360,6 +1360,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &974423054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 974423053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a151ed58ef246854fa8367e500142806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &974423055
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1428,17 +1439,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!114 &974423059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 974423053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2596f89652f241b9896df9a31f07615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &974423060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2334,9 +2334,9 @@ GameObject:
   - 4: {fileID: 2011389321}
   - 212: {fileID: 2011389320}
   - 114: {fileID: 2011389324}
-  - 114: {fileID: 2011389323}
   - 61: {fileID: 2011389322}
   - 114: {fileID: 2011389325}
+  - 114: {fileID: 2011389323}
   m_Layer: 0
   m_Name: BookCase
   m_TagString: NPC
@@ -2409,10 +2409,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2011389319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb4a67df84d1c07419b3f3b232a9633b, type: 3}
+  m_Script: {fileID: 11500000, guid: 07c57e16efb0a2a42833590aacc92d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxCutter: {fileID: 195960, guid: 5b6bf65b8c9f5094aaeccc4f362c62c5, type: 2}
+  paint_dog: {fileID: 193932, guid: c35b5829908404d4d8c1814ceb3df97e, type: 2}
 --- !u!114 &2011389324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2609,9 +2609,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.0038876534, y: -0.30240822}
+  m_Offset: {x: -0.0038866997, y: -0.30240822}
   serializedVersion: 2
-  m_Size: {x: 0.94756645, y: 2.3348162}
+  m_Size: {x: 0.662796, y: 2.3348165}
 --- !u!4 &2121066549 stripped
 Transform:
   m_PrefabParentObject: {fileID: 480008, guid: e2fdea5df3d9146db90af61c1c777ff3, type: 2}

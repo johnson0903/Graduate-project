@@ -10,4 +10,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/corridor.unity
   - enabled: 1
-    path: Assets/Scenes/Paint_pencilTomb.unity
+    path: Assets/Scenes/PencilTombPaint.unity
