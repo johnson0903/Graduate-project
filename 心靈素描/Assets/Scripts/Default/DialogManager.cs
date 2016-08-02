@@ -111,7 +111,7 @@ public class DialogManager : MonoBehaviour
 		{
 			talkingObeject = gameobject;
 			dialogs = talkingObeject.GetComponent<DialogHolder>().Dialogs;
-			playerController.StartTalk();
+			playerController.DontMove();
 			isDialogActive = true;
 			askDialogAnswer = 0;
 			ShowDialogByMode();
@@ -125,7 +125,7 @@ public class DialogManager : MonoBehaviour
 				isDialogActive = false;
 				currentDialogIndex = 0;
 				talkingObeject.GetComponent<DialogHolder>().TellObjectDialogIsOver();
-				playerController.EndTalk();
+				playerController.YouCanMove();
 			}
 			else
 			{

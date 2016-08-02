@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 	public float speed;
 	private Animator animator;
 	private Rigidbody2D playerRigidbody;
-	private bool isTalking;
 	private float tempSpeed;
 
 	// Use this for initialization
@@ -25,25 +24,17 @@ public class PlayerController : MonoBehaviour
 		Vector2 movement = new Vector2(moveHorizontal, 0.0f);
 		playerRigidbody.velocity = movement * speed;
 		animator.SetFloat("speed", Mathf.Abs(moveHorizontal * speed));
-
 	}
 
-	public void StartTalk()
+	public void DontMove()
 	{
-		isTalking = true;
 		tempSpeed = speed;
 		speed = 0;
 	}
 
-	public void EndTalk()
+	public void YouCanMove()
 	{
-		isTalking = false;
 		speed = tempSpeed;
 	}
-
-	public bool IsTalking
-	{
-		get { return isTalking; }
-	}
-
+		
 }
