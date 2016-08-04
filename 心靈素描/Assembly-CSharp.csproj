@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Default\DontDestroyMeOnLoad.cs" />
      <Compile Include="Assets\Scripts\Default\Flip.cs" />
      <Compile Include="Assets\Scripts\Default\IsInTalkRange.cs" />
+     <Compile Include="Assets\Scripts\Default\ItemData.cs" />
      <Compile Include="Assets\Scripts\Default\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Default\PlayerInventory.cs" />
      <Compile Include="Assets\Scripts\Default\ShowBagList.cs" />

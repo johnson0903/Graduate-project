@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21207532}
   - 114: {fileID: 11412472}
   - 114: {fileID: 11411298}
+  - 114: {fileID: 11499242}
   m_Layer: 0
   m_Name: Paint_pencilTomb
   m_TagString: NPC
@@ -52,6 +53,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11499242
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833f2aa08ce6cd64682a386c9c50b6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: "\u5947\u602A\u7684\u5857\u9D091"
+  description: "\u4E0A\u9762\u756B\u8457\u5947\u602A\u7684\u5716\u6848"
 --- !u!212 &21207532
 SpriteRenderer:
   m_ObjectHideFlags: 1

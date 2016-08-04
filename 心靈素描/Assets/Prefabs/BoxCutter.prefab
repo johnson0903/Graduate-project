@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 499200}
   - 212: {fileID: 21269974}
+  - 114: {fileID: 11498572}
   m_Layer: 0
   m_Name: BoxCutter
   m_TagString: Untagged
@@ -23,11 +24,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.36, y: -11.58, z: 0}
-  m_LocalScale: {x: 0.38720796, y: 0.49556664, z: 0.9322002}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11498572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833f2aa08ce6cd64682a386c9c50b6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: "\u7F8E\u5DE5\u5200"
+  description: "\u6211\u662F\u4E00\u628A\u7F8E\u5DE5\u5200"
 --- !u!212 &21269974
 SpriteRenderer:
   m_ObjectHideFlags: 1

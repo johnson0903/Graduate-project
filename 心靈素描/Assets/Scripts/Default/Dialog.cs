@@ -4,8 +4,6 @@ using System.Collections;
 public class Dialog
 {
 
-	private GameObject item;
-
 	public string Mode
 	{
 		get;

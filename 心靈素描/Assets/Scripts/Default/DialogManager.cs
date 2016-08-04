@@ -6,11 +6,11 @@ public class DialogManager : MonoBehaviour
 {
 	public GameObject dBox;
 	public Text dText;
-	public Dialog[] dialogs;
 	public GameObject answer1;
 	public GameObject answer2;
 	public GameObject pickUpItemImage;
 
+	private Dialog[] dialogs;
 	private Dialog[] originalDialogs;
 	private GameObject player;
 	private GameObject talkingObeject;
@@ -107,7 +107,7 @@ public class DialogManager : MonoBehaviour
 
 	public void ContinueDialog(GameObject gameobject)
 	{
-		if (!isDialogActive && currentDialogIndex == 0)
+		if (!isDialogActive && !player.GetComponent<PlayerInventory>().bag.activeSelf && currentDialogIndex == 0)
 		{
 			talkingObeject = gameobject;
 			dialogs = talkingObeject.GetComponent<DialogHolder>().Dialogs;
