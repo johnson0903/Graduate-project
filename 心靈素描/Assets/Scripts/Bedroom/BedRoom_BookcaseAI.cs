@@ -4,13 +4,13 @@ using System;
 
 public class BedRoom_BookcaseAI : MonoBehaviour {
 
-	public GameObject paint_dog;
+	public GameObject pencilTombPaint;
 
 	private GameObject player;
 	private DialogHolder dialogHolder;
 	private int talkCount;
-	private static bool isBoxCutterTaken;
-	private static bool dogPaintHasBeenTaken;
+
+	private static bool pencilTombPaintHasBeenTaken;
 
 	// Use this for initialization
 	void Start()
@@ -52,7 +52,7 @@ public class BedRoom_BookcaseAI : MonoBehaviour {
 				dialogHolder.TalkDialog ("＂探索與創作＂"),
 				dialogHolder.TalkDialog ("＂使每位學生能自我探索，覺知環境與個人的關係，運用媒材與形式，從事藝術創作，以豐富生活與心靈。＂"),
 				dialogHolder.TalkDialog ("發現書裡面夾了一張紙"),
-				dialogHolder.PickUpItemDialog ("獲得了 畫著狗狗的塗鴉", paint_dog)
+				dialogHolder.PickUpItemDialog ("獲得了 奇怪的塗鴉", pencilTombPaint)
 			};							
 		}
 
@@ -61,7 +61,7 @@ public class BedRoom_BookcaseAI : MonoBehaviour {
 
 	void OnDialogOver(object sender, EventArgs e) {
 		if (dialogHolder.AskDialogAnswer == 1) {
-			if (!dogPaintHasBeenTaken) {
+			if (!pencilTombPaintHasBeenTaken) {
 				if (talkCount >= 2)
 					talkCount = 0;
 				else
@@ -73,7 +73,7 @@ public class BedRoom_BookcaseAI : MonoBehaviour {
 					talkCount++;	
 			}
 			if (talkCount == 2)
-				dogPaintHasBeenTaken = true;
+				pencilTombPaintHasBeenTaken = true;
 		}
 	}
 

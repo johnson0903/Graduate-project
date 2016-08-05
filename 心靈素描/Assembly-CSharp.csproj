@@ -47,9 +47,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Bedroom\BedRoom_BookcaseAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom\BedRoom_DoorAI.cs" />
-     <Compile Include="Assets\Scripts\Bedroom\Bedroom_PencilTombPaintAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom\Bedroom_PillowAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom\PencilTombAI.cs" />
+     <Compile Include="Assets\Scripts\Bedroom\PencilTombPaint_DoorAI.cs" />
      <Compile Include="Assets\Scripts\ChangeCursor.cs" />
      <Compile Include="Assets\Scripts\Default\CameraController.cs" />
      <Compile Include="Assets\Scripts\Default\Dialog.cs" />

@@ -43,28 +43,54 @@ public class PlayerInventory : MonoBehaviour {
 
 	public void SelectItem() {
 		
-		if ((Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && selectedItemCount > 5) {
+		if ((Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.W)) && selectedItemCount > 5) {
 			selectedItemCount -= 5;
-		} else if ((Input.GetKeyDown (KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) && selectedItemCount <= inventory.Count - 5) {
+		} else if ((Input.GetKeyDown (KeyCode.DownArrow) || Input.GetKeyDown (KeyCode.S)) && selectedItemCount <= inventory.Count - 5) {
 			selectedItemCount += 5;
-		} else if ((Input.GetKeyDown (KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && selectedItemCount > 1) {
+		} else if ((Input.GetKeyDown (KeyCode.LeftArrow) || Input.GetKeyDown (KeyCode.A)) && selectedItemCount > 1) {
 			selectedItemCount -= 1;
-		} else if ((Input.GetKeyDown (KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && selectedItemCount < inventory.Count) {
+		} else if ((Input.GetKeyDown (KeyCode.RightArrow) || Input.GetKeyDown (KeyCode.D)) && selectedItemCount < inventory.Count) {
 			selectedItemCount += 1;
 		}
 
-		for (int i = 1; i < inventory.Count + 1; i++) {
-			if (i == selectedItemCount)
-				inventory [i - 1].GetComponent<Image> ().color = Color.white;
-			else
-				inventory [i - 1].GetComponent<Image> ().color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
-		}
-
 		if (inventory.Count != 0) {
+			bag.transform.FindChild ("ItemDescription").FindChild ("Name").gameObject.SetActive (true);
+			bag.transform.FindChild ("ItemDescription").FindChild ("Description").gameObject.SetActive (true);
 			bag.transform.FindChild ("ItemDescription").FindChild ("Name").GetComponent<Text> ().text = inventory [selectedItemCount - 1].GetComponent<ItemData> ().name;
 			bag.transform.FindChild ("ItemDescription").FindChild ("Description").GetComponent<Text> ().text = inventory [selectedItemCount - 1].GetComponent<ItemData> ().description;
-		}
 
+			for (int i = 1; i < inventory.Count + 1; i++) {
+				if (i == selectedItemCount)
+					inventory [i - 1].GetComponent<Image> ().color = Color.white;
+				else
+					inventory [i - 1].GetComponent<Image> ().color = new Color (0.5f, 0.5f, 0.5f, 0.5f);
+			}
+
+			if (inventory [selectedItemCount - 1].GetComponent<ItemData> ().CanBeUsed)
+				bag.transform.FindChild ("ItemDescription").FindChild ("UsingHint").gameObject.SetActive (true);
+			else
+				bag.transform.FindChild ("ItemDescription").FindChild ("UsingHint").gameObject.SetActive (false);
+			
+			if (Input.GetKeyDown (KeyCode.Space)) {
+				inventory [selectedItemCount - 1].GetComponent<ItemData> ().UseItem ();
+				StartCoroutine (AutoCloseBag ());
+			}
+		} else {
+			bag.transform.FindChild ("ItemDescription").FindChild ("UsingHint").gameObject.SetActive (false);
+			bag.transform.FindChild ("ItemDescription").FindChild ("Name").gameObject.SetActive (false);
+			bag.transform.FindChild ("ItemDescription").FindChild ("Description").gameObject.SetActive (false);
+		}
+	
+	}
+
+	public IEnumerator AutoCloseBag(){
+		yield return null;
+		bag.SetActive (false);
+		this.GetComponent<PlayerController> ().YouCanMove ();
+	}
+
+	public void RecoverSelectedItemCount(){
+		selectedItemCount = 1;
 	}
 
 	public bool isSomethingInInventory(string name) {

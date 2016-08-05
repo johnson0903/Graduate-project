@@ -1,14 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ItemData : MonoBehaviour {
 
 	public string name;
 	public string description;
+	public bool changeSceneMode;
+	public int whatSceneToGo;
 
-	public bool IsUsable
+	public void UseItem ()
 	{
-		get;
-		set;
+		if (changeSceneMode)
+			SceneManager.LoadScene (whatSceneToGo);
+	}
+
+	public bool CanBeUsed {
+		get { return changeSceneMode; }
 	}
 }

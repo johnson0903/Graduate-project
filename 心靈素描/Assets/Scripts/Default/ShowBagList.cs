@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 public class ShowBagList : MonoBehaviour
 {
-	public GameObject bagList;
-
+	private GameObject bagList;
 	private PlayerController playerController;
 	private DialogManager dialogManager;
 	// Use this for initialization
 	void Start()
 	{
+		bagList = this.transform.FindChild ("BagList").gameObject;
 		playerController = FindObjectOfType<PlayerController>();
 		dialogManager = FindObjectOfType<DialogManager>();
 		bagList.SetActive(false);
@@ -26,6 +26,7 @@ public class ShowBagList : MonoBehaviour
 			} else {
 				playerController.YouCanMove ();
 				bagList.SetActive (false);
+				playerController.gameObject.GetComponent<PlayerInventory>().RecoverSelectedItemCount ();
 			}
 		}
 	}

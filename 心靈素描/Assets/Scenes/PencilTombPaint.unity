@@ -96,7 +96,7 @@ GameObject:
   - 61: {fileID: 393398489}
   - 114: {fileID: 393398491}
   - 212: {fileID: 393398492}
-  - 114: {fileID: 393398488}
+  - 114: {fileID: 393398493}
   m_Layer: 0
   m_Name: Door
   m_TagString: NPC
@@ -104,17 +104,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &393398488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 393398487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b067fa7a55cf4b4095b996db886ea0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &393398489
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -182,6 +171,17 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &393398493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 393398487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e61fe355cd3bcf4c81beaeb4208584e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &712595905
 GameObject:
   m_ObjectHideFlags: 0

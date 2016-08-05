@@ -26,6 +26,7 @@ public class PencilTombAI : MonoBehaviour {
 				dialogHolder.TalkDialog ("一枝鉛筆插在土堆上"),
 				dialogHolder.TalkDialog ("像是墳墓一樣..."),
 				dialogHolder.AskDialog ("挖挖看", "摸摸看", new Dialog[] { dialogHolder.TalkDialog ("冰冰的觸感 讓人很不舒服") }),
+				dialogHolder.TalkDialog ("沙沙沙沙....."),
 				dialogHolder.TalkDialog ("挖到了一個硬硬的東西"),
 				dialogHolder.PickUpItemDialog ("獲得了 美工刀", boxCutter)
 			};
