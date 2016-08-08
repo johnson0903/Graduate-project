@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody2D playerRigidbody;
 	private float walkSpeed;
 
+	private static float originPositionX;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -35,6 +37,20 @@ public class PlayerController : MonoBehaviour
 	public void YouCanMove()
 	{
 		walkSpeed = speed;
+	}
+
+	public void LogOriginPositionX()
+	{
+		originPositionX = this.transform.position.x;
+	}
+
+	public void MoveToOriginPositionX()
+	{
+		this.transform.position = new Vector3 (originPositionX, this.transform.position.y, this.transform.position.z);
+	}
+
+	public static float OriginPositionX {
+		get{ return originPositionX; }
 	}
 		
 }

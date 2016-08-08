@@ -41,7 +41,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: "\u7F8E\u5DE5\u5200"
-  description: "\u6211\u662F\u4E00\u628A\u7F8E\u5DE5\u5200"
+  description: "\u6211\u662F\u4E00\u628A\u7F8E\u5DE5\u5200\u3002"
+  changeSceneMode: 0
+  whatSceneToGo: 0
 --- !u!212 &21269974
 SpriteRenderer:
   m_ObjectHideFlags: 1

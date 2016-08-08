@@ -36,20 +36,14 @@ public class PencilTombPaint_DoorAI : MonoBehaviour {
 					dialogHolder.TalkDialog ("再調查一下好了")
 				}), dialogHolder.TalkDialog ("..................")
 			};
-
 	}
-
-
+		
 	void OnDialogOver (object sender, EventArgs e)
 	{
-		if(SceneManager.GetActiveScene ().buildIndex == 2)
-			isDialogPopUpInPencilTombPaint = true;
-
+		isDialogPopUpInPencilTombPaint = true;
 		if (dialogHolder.AskDialogAnswer == 1) {
-			if (SceneManager.GetActiveScene ().buildIndex == 0)
-				SceneManager.LoadScene (2);
-			else
-				SceneManager.LoadScene (0);
+			player.GetComponent<PlayerController> ().MoveToOriginPositionX ();
+			SceneManager.LoadScene (0);
 		}
 	}
 }

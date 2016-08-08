@@ -9,7 +9,7 @@ public class Flip : MonoBehaviour {
 	void Update () {
 		if (this.GetComponent<Rigidbody2D>().velocity.x < 0 && isFacingRight)
 			FlipPlayer ();
-		if (this.GetComponent<Rigidbody2D>().velocity.x > 0 && !isFacingRight)
+		else if (this.GetComponent<Rigidbody2D>().velocity.x > 0 && !isFacingRight)
 			FlipPlayer ();
 	}
 		

@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21207532}
   - 114: {fileID: 11499242}
   m_Layer: 0
-  m_Name: Paint_pencilTomb
+  m_Name: PencilTombPaint
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: "\u5947\u602A\u7684\u5857\u9D091"
-  description: "\u4E0A\u9762\u756B\u8457\u5947\u602A\u7684\u5716\u6848"
+  description: "\u4E0A\u9762\u756B\u8457\u5947\u602A\u7684\u8272\u584A\uFF0C\u611F\u89BA\u7CBE\u795E\u8981\u88AB\u5438\u9032\u53BB\u4F3C\u7684\u3002"
   changeSceneMode: 1
   whatSceneToGo: 2
 --- !u!212 &21207532

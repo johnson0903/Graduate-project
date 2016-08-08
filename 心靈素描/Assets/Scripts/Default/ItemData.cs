@@ -11,11 +11,18 @@ public class ItemData : MonoBehaviour {
 
 	public void UseItem ()
 	{
-		if (changeSceneMode)
+		if (changeSceneMode && CanBeUsed) {
+			FindObjectOfType<PlayerController>().LogOriginPositionX ();
 			SceneManager.LoadScene (whatSceneToGo);
+		}
 	}
 
 	public bool CanBeUsed {
-		get { return changeSceneMode; }
+		get { 
+			if (changeSceneMode && SceneManager.GetActiveScene ().buildIndex != whatSceneToGo)
+				return true;
+			else
+				return false;
+		}
 	}
 }

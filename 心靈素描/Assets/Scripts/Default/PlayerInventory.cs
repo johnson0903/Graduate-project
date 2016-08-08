@@ -54,8 +54,11 @@ public class PlayerInventory : MonoBehaviour {
 		}
 
 		if (inventory.Count != 0) {
+			bag.transform.FindChild ("ItemDescription").FindChild ("Image").gameObject.SetActive (true);
 			bag.transform.FindChild ("ItemDescription").FindChild ("Name").gameObject.SetActive (true);
 			bag.transform.FindChild ("ItemDescription").FindChild ("Description").gameObject.SetActive (true);
+
+			bag.transform.FindChild ("ItemDescription").FindChild ("Image").GetComponent<Image> ().sprite = inventory [selectedItemCount - 1].GetComponent<SpriteRenderer> ().sprite;
 			bag.transform.FindChild ("ItemDescription").FindChild ("Name").GetComponent<Text> ().text = inventory [selectedItemCount - 1].GetComponent<ItemData> ().name;
 			bag.transform.FindChild ("ItemDescription").FindChild ("Description").GetComponent<Text> ().text = inventory [selectedItemCount - 1].GetComponent<ItemData> ().description;
 
@@ -66,19 +69,22 @@ public class PlayerInventory : MonoBehaviour {
 					inventory [i - 1].GetComponent<Image> ().color = new Color (0.5f, 0.5f, 0.5f, 0.5f);
 			}
 
-			if (inventory [selectedItemCount - 1].GetComponent<ItemData> ().CanBeUsed)
+			if (inventory [selectedItemCount - 1].GetComponent<ItemData> ().CanBeUsed) {
 				bag.transform.FindChild ("ItemDescription").FindChild ("UsingHint").gameObject.SetActive (true);
+				if (Input.GetKeyDown (KeyCode.Space)) {
+					inventory [selectedItemCount - 1].GetComponent<ItemData> ().UseItem ();
+					StartCoroutine (AutoCloseBag ());
+				}
+			}
 			else
 				bag.transform.FindChild ("ItemDescription").FindChild ("UsingHint").gameObject.SetActive (false);
 			
-			if (Input.GetKeyDown (KeyCode.Space)) {
-				inventory [selectedItemCount - 1].GetComponent<ItemData> ().UseItem ();
-				StartCoroutine (AutoCloseBag ());
-			}
+
 		} else {
-			bag.transform.FindChild ("ItemDescription").FindChild ("UsingHint").gameObject.SetActive (false);
+			bag.transform.FindChild ("ItemDescription").FindChild ("Image").gameObject.SetActive (false);
 			bag.transform.FindChild ("ItemDescription").FindChild ("Name").gameObject.SetActive (false);
 			bag.transform.FindChild ("ItemDescription").FindChild ("Description").gameObject.SetActive (false);
+			bag.transform.FindChild ("ItemDescription").FindChild ("UsingHint").gameObject.SetActive (false);
 		}
 	
 	}
