@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Dialog
 {
@@ -34,7 +35,7 @@ public class Dialog
 		set;
 	}
 
-	public Dialog[] Answer2_Dialogs
+	public new List<Dialog> Answer2_Dialogs
 	{
 		get;
 		set;

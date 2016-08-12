@@ -2,12 +2,13 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using System;
+using System.Collections.Generic;
 
 public class PencilTombPaint_DoorAI : MonoBehaviour {
 
 	private GameObject player;
 	private DialogHolder dialogHolder;
-	private static bool isDialogPopUpInPencilTombPaint;
+	private static bool hasDialogPopUpInPencilTombPaint;
 
 	// Use this for initialization
 	void Start () {
@@ -17,22 +18,22 @@ public class PencilTombPaint_DoorAI : MonoBehaviour {
 
 		player.transform.position = new Vector3 (this.transform.position.x, player.transform.position.y, player.transform.position.z);
 
-		if(!isDialogPopUpInPencilTombPaint)
+		if(!hasDialogPopUpInPencilTombPaint)
 			dialogHolder.IsAutoPopUp = true;
 	}
 
 	// Update is called once per frame
 	void Update () {
 
-		if (!isDialogPopUpInPencilTombPaint)
-			dialogHolder.Dialogs = new Dialog[] {
+		if (!hasDialogPopUpInPencilTombPaint)
+			dialogHolder.Dialogs = new List<Dialog> {
 				dialogHolder.TalkDialog (".......?"),
 				dialogHolder.TalkDialog ("這裡是哪裡"),
 			};
 		else
-			dialogHolder.Dialogs = new Dialog[] {
+			dialogHolder.Dialogs = new List<Dialog> {
 				dialogHolder.TalkDialog (".........."),
-				dialogHolder.AskDialog ("回去", "待著", new Dialog[] {
+			dialogHolder.AskDialog ("回去", "待著", new List<Dialog> {
 					dialogHolder.TalkDialog ("再調查一下好了")
 				}), dialogHolder.TalkDialog ("..................")
 			};
@@ -40,8 +41,9 @@ public class PencilTombPaint_DoorAI : MonoBehaviour {
 		
 	void OnDialogOver (object sender, EventArgs e)
 	{
-		isDialogPopUpInPencilTombPaint = true;
-		if (dialogHolder.AskDialogAnswer == 1) {
+		if (!hasDialogPopUpInPencilTombPaint)
+			hasDialogPopUpInPencilTombPaint = true;
+		else if (dialogHolder.AskDialogAnswerList [0] == 1) {
 			player.GetComponent<PlayerController> ().MoveToOriginPositionX ();
 			SceneManager.LoadScene (0);
 		}

@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 public class DialogHolder : MonoBehaviour
 {
 	public event EventHandler DialogOverEvent;
 
 	private DialogManager dialogManager;
-	private Dialog[] dialogs;
+	private List<Dialog> dialogs;
 	private bool isPlayerInRange;
 	private bool isAutoPopUp;
 
@@ -39,7 +40,7 @@ public class DialogHolder : MonoBehaviour
 		return dialog;
 	}
 
-	public Dialog AskDialog(string answer1, string answer2, Dialog[] answer2_dialogs)
+	public Dialog AskDialog(string answer1, string answer2, List<Dialog> answer2_dialogs)
 	{
 		Dialog dialog = new Dialog();
 		dialog.Mode = "Ask";
@@ -79,9 +80,9 @@ public class DialogHolder : MonoBehaviour
 		get { return isPlayerInRange; }
 	}
 
-	public int AskDialogAnswer
+	public List<int> AskDialogAnswerList
 	{
-		get { return dialogManager.AskDialogAnswer; }
+		get { return dialogManager.AskDialogAnswerList; }
 	}
 
 	public bool IsAutoPopUp
@@ -90,7 +91,7 @@ public class DialogHolder : MonoBehaviour
 		set { isAutoPopUp = value; }
 	}
 
-	public Dialog[] Dialogs
+	public List<Dialog> Dialogs
 	{
 		get { return dialogs; }
 		set { dialogs = value; }
