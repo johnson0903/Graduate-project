@@ -5,8 +5,7 @@ using System.Collections.Generic;
 
 public class Bedroom_PillowAI : MonoBehaviour {
 
-	public GameObject key;
-	public GameObject water;
+	public GameObject Bedroomkey;
 
 	private GameObject player;
 	private DialogHolder dialogHolder;
@@ -33,7 +32,7 @@ public class Bedroom_PillowAI : MonoBehaviour {
 						dialogHolder.TalkDialog ("貪睡鬼")
 					}),
 					dialogHolder.TalkDialog ("嘶嘶嘶嘶...."),
-					dialogHolder.PickUpItemDialog ("獲得了 廁所的鑰匙", key)
+					dialogHolder.PickUpItemDialog ("獲得了 臥室的鑰匙", Bedroomkey)
 				};
 			} else    //如果身上沒有美工刀
 				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("軟綿綿的枕頭"),
@@ -41,7 +40,6 @@ public class Bedroom_PillowAI : MonoBehaviour {
 					dialogHolder.AskDialog ("摸摸看", "躺躺看", new List<Dialog> {
 						dialogHolder.TalkDialog ("......"),
 						dialogHolder.TalkDialog ("貪睡鬼"),
-						dialogHolder.PickUpItemDialog ("獲得了 水", water)
 					}),
 					dialogHolder.TalkDialog ("軟綿綿的"),
 					dialogHolder.TalkDialog ("但是好像有個硬硬的東西")

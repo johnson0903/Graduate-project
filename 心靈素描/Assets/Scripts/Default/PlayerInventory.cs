@@ -31,14 +31,16 @@ public class PlayerInventory : MonoBehaviour {
 	}
 
 	public void DropItem(string name) {
-		for (int i = 0; i < inventory.Count; i++)
-		{
-			if (inventory [i].name == name)
-			{	
+		for (int i = 0; i < inventory.Count; i++) {
+			if (inventory [i].name == name) {	
 				Destroy (inventory [i]);
 				inventory.RemoveAt (i);
+				break;
 			}
 		}
+
+		for (int i = 0; i < inventory.Count; i++)
+			inventory[i].transform.localPosition = new Vector3 (-400 + i % 5 * 120, 90 - i / 5 * 110, 0.0f);
 	}
 
 	public void SelectItem() {

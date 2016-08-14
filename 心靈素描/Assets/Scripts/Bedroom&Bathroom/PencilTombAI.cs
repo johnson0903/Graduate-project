@@ -11,7 +11,6 @@ public class PencilTombAI : MonoBehaviour {
 	private GameObject player;
 	private DialogHolder dialogHolder;
 	private static bool beenDrivenAway;
-	private static bool isBoxCutterTaken;
 
 	private static int pencilTombTalkCount;
 
@@ -41,8 +40,8 @@ public class PencilTombAI : MonoBehaviour {
 					dialogHolder.TalkDialog ("「喂 你小子！」"),
 					dialogHolder.TalkDialog (".......？！"),
 					dialogHolder.TalkDialog ("「你媽沒教你沒經過別人允許不要隨便挖別人身體嗎？」"),
-					dialogHolder.TalkDialog ("從...從墳墓裡...聲音...？"),
-					dialogHolder.TalkDialog ("「真是的...土壤太乾已經讓我很不舒服了」"),
+					dialogHolder.TalkDialog ("從... 從墳墓裡... 聲音...？"),
+					dialogHolder.TalkDialog ("「真是的... 土壤太乾已經讓我很不舒服了」"),
 					dialogHolder.TalkDialog ("「你來這裡做什麼的？」"),
 					dialogHolder.AskDialog ("不知道", "這裡是哪裡呢？", new List<Dialog> {
 						dialogHolder.TalkDialog ("「你不知道這裡是哪嗎？」"),
@@ -53,9 +52,9 @@ public class PencilTombAI : MonoBehaviour {
 						dialogHolder.TalkDialog ("我從外面進來的..."),
 						dialogHolder.TalkDialog ("「外面？原來人類做得到這種事嗎？」"),
 						dialogHolder.TalkDialog ("「這樣的話 真希望主人能夠進來摸摸我啊」"),
-						dialogHolder.TalkDialog ("「啊....講太多話身體好乾...土要裂開了」"),
-						dialogHolder.TalkDialog ("「這個世界的乾季還真是難熬 要是有一點水的話...」"),
-						dialogHolder.TalkDialog ("「不跟你說了 再說我背上的鉛筆都要掉下來了」")
+						dialogHolder.TalkDialog ("「啊.... 講太多話身體好乾... 土要裂開了」"),
+						dialogHolder.TalkDialog ("「這個世界的乾季還真是難熬... 要是有一點水的話...」"),
+						dialogHolder.TalkDialog ("「不跟你說了... 再說我背上的鉛筆都要掉下來了」")
 					}),
 					dialogHolder.TalkDialog ("「不知道還來煩我？」"),
 					dialogHolder.TalkDialog ("「給我滾出去！」")
@@ -73,32 +72,33 @@ public class PencilTombAI : MonoBehaviour {
 						dialogHolder.TalkDialog ("我從外面進來的..."),
 						dialogHolder.TalkDialog ("「外面？原來人類做得到這種事嗎？」"),
 						dialogHolder.TalkDialog ("「這樣的話 真希望主人能夠進來摸摸我啊」"),
-						dialogHolder.TalkDialog ("「啊....講太多話身體好乾...土要裂開了」"),
-						dialogHolder.TalkDialog ("「這個世界的乾季還真是難熬 要是有一點水的話...」"),
-						dialogHolder.TalkDialog ("「不跟你說了 再說我背上的鉛筆都要掉下來了」")
+						dialogHolder.TalkDialog ("「啊.... 講太多話身體好乾... 土要裂開了」"),
+						dialogHolder.TalkDialog ("「這個世界的乾季還真是難熬... 要是有一點水的話...」"),
+						dialogHolder.TalkDialog ("「不跟你說了... 再說我背上的鉛筆都要乾到掉下來了」")
 					}),
 					dialogHolder.TalkDialog ("「........」"),
 					dialogHolder.TalkDialog ("「滾」")
 				};
 		} else if (pencilTombTalkCount == 1) {
-			if (player.GetComponent<PlayerInventory> ().isSomethingInInventory ("Water"))
+			if (player.GetComponent<PlayerInventory> ().isSomethingInInventory ("WaterBottle"))
 				dialogHolder.Dialogs = new List<Dialog> {
 					dialogHolder.TalkDialog ("「啊....」"),
 					dialogHolder.TalkDialog ("「好乾啊......」"),
 					dialogHolder.AskDialog ("把水澆在土上", "那個....", new List<Dialog> {
-						dialogHolder.TalkDialog ("「不要跟我說話」"),
-						dialogHolder.TalkDialog ("「啊....啊..啊」")
+						dialogHolder.TalkDialog ("「不要... 跟我說話」"),
+						dialogHolder.TalkDialog ("「啊....啊...啊」")
 					}),
-					dialogHolder.TalkDialog ("「喔喔....喔喔喔喔！」"),
+					dialogHolder.TalkDialog ("「喔喔.... 喔喔喔喔！」"),
 					dialogHolder.TalkDialog ("「終....終於下雨了嗎」"),
 					dialogHolder.TalkDialog ("「不對啊 乾季怎麼會下雨」"),
 					dialogHolder.TalkDialog ("那個..."),
 					dialogHolder.TalkDialog ("「喔 是你啊！」"),
-					dialogHolder.TalkDialog ("「太好了你這傢伙 立大功啦！」"),
+					dialogHolder.TalkDialog ("「幹的好你這傢伙 立大功啦！」"),
 					dialogHolder.TalkDialog ("「這樣的濕度 應該可以撐到雨季了」"),
 					dialogHolder.TalkDialog ("「太棒了 該怎麼感謝你呢？」"),
+					dialogHolder.TalkDialog ("「嗯..........」"),
 					dialogHolder.TalkDialog ("「啊 就讓你挖我的身體吧 裡面有很多好東西喔」"),
-					dialogHolder.TalkDialog ("謝..謝謝你"),
+					dialogHolder.TalkDialog ("謝...謝謝你"),
 					dialogHolder.TalkDialog ("沙沙沙....."),
 					dialogHolder.PickUpItemDialog ("獲得了 美工刀", boxCutter),
 					dialogHolder.TalkDialog ("「感謝你喔 好心的傢伙！」")
@@ -133,17 +133,13 @@ public class PencilTombAI : MonoBehaviour {
 						beenDrivenAway = true;
 						player.GetComponent<PlayerController> ().MoveToOriginPositionX ();
 						SceneManager.LoadScene (0);
-					} else if (dialogHolder.AskDialogAnswerList [1] == 2) {
+					} else if (dialogHolder.AskDialogAnswerList [1] == 2)
 						pencilTombTalkCount++;
-					}
-				} 
+				}
 			}
-		}
-		if (pencilTombTalkCount == 1) {
-			if (player.GetComponent<PlayerInventory> ().isSomethingInInventory ("Water") && dialogHolder.AskDialogAnswerList [0] == 1) {
-				isBoxCutterTaken = true;
-				pencilTombTalkCount++;
-			}
+		} else if (pencilTombTalkCount == 1 && player.GetComponent<PlayerInventory> ().isSomethingInInventory ("WaterBottle") && dialogHolder.AskDialogAnswerList [0] == 1) {
+			player.GetComponent<PlayerInventory> ().DropItem ("WaterBottle");
+			pencilTombTalkCount++;
 		}
 	}
 }

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Collections.Generic;
 
-public class BedRoom_DoorAI : MonoBehaviour {
+public class Bedroom_DoorAI : MonoBehaviour {
 
 	private GameObject player;
 	private DialogHolder dialogHolder;
