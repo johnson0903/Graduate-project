@@ -19,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - BlockingLayer
+  - 
   - 
   - 
   - 
@@ -53,9 +53,15 @@ TagManager:
   - name: Floor
     uniqueID: 1861650685
     locked: 0
-  - name: Items
+  - name: Item_Back
     uniqueID: 3393972251
     locked: 0
-  - name: Units
+  - name: Player
     uniqueID: 3391165315
+    locked: 0
+  - name: Item_Forward
+    uniqueID: 72937353
+    locked: 0
+  - name: UI
+    uniqueID: 651394027
     locked: 0

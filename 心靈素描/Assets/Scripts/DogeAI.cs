@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DogeAI : MonoBehaviour {
 
@@ -16,10 +17,10 @@ public class DogeAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (isDogeFed) {
-			dialogHolder.Dialogs = new Dialog[] { dialogHolder.TalkDialog ("好吃好吃"), dialogHolder.TalkDialog ("讓你過") };
+			dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("好吃好吃"), dialogHolder.TalkDialog ("讓你過") };
 			this.GetComponent<BoxCollider2D> ().isTrigger = true;
 		} else {
-			dialogHolder.Dialogs = new Dialog[] { dialogHolder.TalkDialog ("不給過"), dialogHolder.TalkDialog ("不給過啦") };
+			dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("不給過"), dialogHolder.TalkDialog ("不給過啦") };
 			this.GetComponent<BoxCollider2D> ().isTrigger = false;
 		}
 	}
