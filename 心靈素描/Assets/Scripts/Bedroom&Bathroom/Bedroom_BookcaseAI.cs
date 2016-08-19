@@ -41,7 +41,7 @@ public class Bedroom_BookcaseAI : MonoBehaviour {
 				dialogHolder.AskDialog ("隨便拿起一本看看", "找尋其他地方", new List<Dialog> { dialogHolder.TalkDialog ("不要亂動好了") }),
 				dialogHolder.TalkDialog ("《6上國語 新超群學習成就評量》"),
 				dialogHolder.TalkDialog ("＂請完成下列成語：＂"),
-				dialogHolder.TalkDialog ("＂自掘(  )墓 － 比喻自取滅亡，自毀前程＂"),
+				dialogHolder.TalkDialog ("＂自掘(    )墓 － 比喻自取滅亡，自毀前程＂"),
 				dialogHolder.TalkDialog ("盡是一些看不懂的東西..."),
 			};
 		} else {
