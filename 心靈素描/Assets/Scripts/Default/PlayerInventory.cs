@@ -45,15 +45,15 @@ public class PlayerInventory : MonoBehaviour {
 
 	public void SelectItem() {
 		
-		if ((Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.W)) && selectedItemCount > 5) {
+		if ((Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.W)) && selectedItemCount > 5)
 			selectedItemCount -= 5;
-		} else if ((Input.GetKeyDown (KeyCode.DownArrow) || Input.GetKeyDown (KeyCode.S)) && selectedItemCount <= inventory.Count - 5) {
+		else if ((Input.GetKeyDown (KeyCode.DownArrow) || Input.GetKeyDown (KeyCode.S)) && selectedItemCount <= inventory.Count - 5)
 			selectedItemCount += 5;
-		} else if ((Input.GetKeyDown (KeyCode.LeftArrow) || Input.GetKeyDown (KeyCode.A)) && selectedItemCount > 1) {
+		else if ((Input.GetKeyDown (KeyCode.LeftArrow) || Input.GetKeyDown (KeyCode.A)) && selectedItemCount > 1)
 			selectedItemCount -= 1;
-		} else if ((Input.GetKeyDown (KeyCode.RightArrow) || Input.GetKeyDown (KeyCode.D)) && selectedItemCount < inventory.Count) {
+		else if ((Input.GetKeyDown (KeyCode.RightArrow) || Input.GetKeyDown (KeyCode.D)) && selectedItemCount < inventory.Count)
 			selectedItemCount += 1;
-		}
+		
 
 		if (inventory.Count != 0) {
 			bag.transform.FindChild ("ItemDescription").FindChild ("Image").gameObject.SetActive (true);
@@ -77,11 +77,8 @@ public class PlayerInventory : MonoBehaviour {
 					inventory [selectedItemCount - 1].GetComponent<ItemData> ().UseItem ();
 					StartCoroutine (AutoCloseBag ());
 				}
-			}
-			else
+			} else
 				bag.transform.FindChild ("ItemDescription").FindChild ("UsingHint").gameObject.SetActive (false);
-			
-
 		} else {
 			bag.transform.FindChild ("ItemDescription").FindChild ("Image").gameObject.SetActive (false);
 			bag.transform.FindChild ("ItemDescription").FindChild ("Name").gameObject.SetActive (false);
