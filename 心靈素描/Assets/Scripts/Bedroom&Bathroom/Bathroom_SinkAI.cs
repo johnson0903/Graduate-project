@@ -21,7 +21,7 @@ public class Bathroom_SinkAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
-		if (player.GetComponent<PlayerInventory> ().isSomethingInInventory ("Bottle")) {  
+		if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("Bottle")) {  
 			dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("用陶瓷做的 擦得發亮的洗手台"),
 				dialogHolder.TalkDialog ("水龍頭有水可以用的樣子"),
 				dialogHolder.AskDialog ("將空瓶裝滿水", "不理他", new List<Dialog> {
@@ -38,7 +38,7 @@ public class Bathroom_SinkAI : MonoBehaviour {
 
 	void OnDialogOver(object sender, EventArgs e)
 	{	
-		if (player.GetComponent<PlayerInventory> ().isSomethingInInventory ("Bottle") && dialogHolder.AskDialogAnswerList [0] == 1)
+		if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("Bottle") && dialogHolder.AskDialogAnswerList [0] == 1)
 			player.GetComponent<PlayerInventory> ().DropItem ("Bottle");
 	}
 }

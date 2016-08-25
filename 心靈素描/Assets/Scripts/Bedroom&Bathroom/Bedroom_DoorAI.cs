@@ -27,7 +27,7 @@ public class Bedroom_DoorAI : MonoBehaviour {
 	void Update () {
 
 		if (!isBedroomDoorOpen) {
-			if (player.GetComponent<PlayerInventory> ().isSomethingInInventory ("BedroomKey")) {
+			if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BedroomKey")) {
 				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("使用 臥室的鑰匙") };
 			} else {
 				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("門關得緊緊的...") };
@@ -42,10 +42,10 @@ public class Bedroom_DoorAI : MonoBehaviour {
 
 	void OnDialogOver (object sender, EventArgs e)
 	{
-		if (player.GetComponent<PlayerInventory> ().isSomethingInInventory ("BedroomKey") || isBedroomDoorOpen) {
+		if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BedroomKey") || isBedroomDoorOpen) {
 			isBedroomDoorOpen = true;
 			ChangeSceneByBedroomDoor = true;
-			if (player.GetComponent<PlayerInventory> ().isSomethingInInventory ("BedroomKey"))
+			if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BedroomKey"))
 				player.GetComponent<PlayerInventory> ().DropItem ("BedroomKey");
 			if (SceneManager.GetActiveScene ().buildIndex == 0)
 				SceneManager.LoadScene (1);

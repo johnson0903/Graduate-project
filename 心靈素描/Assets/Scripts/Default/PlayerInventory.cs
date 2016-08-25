@@ -98,7 +98,7 @@ public class PlayerInventory : MonoBehaviour {
 		selectedItemCount = 1;
 	}
 
-	public bool isSomethingInInventory(string name) {
+	public bool IsSomethingInInventory(string name) {
 		bool isFound = false;
 		for (int i = 0; i < inventory.Count; i++)
 		{
@@ -107,4 +107,5 @@ public class PlayerInventory : MonoBehaviour {
 		}
 		return isFound;
 	}
+		
 }

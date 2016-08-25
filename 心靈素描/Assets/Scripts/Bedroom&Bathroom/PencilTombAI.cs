@@ -80,7 +80,7 @@ public class PencilTombAI : MonoBehaviour {
 					dialogHolder.TalkDialog ("「滾」")
 				};
 		} else if (pencilTombTalkCount == 1) {
-			if (player.GetComponent<PlayerInventory> ().isSomethingInInventory ("WaterBottle"))
+			if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("WaterBottle"))
 				dialogHolder.Dialogs = new List<Dialog> {
 					dialogHolder.TalkDialog ("「啊....」"),
 					dialogHolder.TalkDialog ("「好乾啊......」"),
@@ -137,7 +137,7 @@ public class PencilTombAI : MonoBehaviour {
 						pencilTombTalkCount++;
 				}
 			}
-		} else if (pencilTombTalkCount == 1 && player.GetComponent<PlayerInventory> ().isSomethingInInventory ("WaterBottle") && dialogHolder.AskDialogAnswerList [0] == 1) {
+		} else if (pencilTombTalkCount == 1 && player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("WaterBottle") && dialogHolder.AskDialogAnswerList [0] == 1) {
 			player.GetComponent<PlayerInventory> ().DropItem ("WaterBottle");
 			pencilTombTalkCount++;
 		}

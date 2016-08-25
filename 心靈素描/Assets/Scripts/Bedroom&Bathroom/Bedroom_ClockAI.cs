@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class Bedroom_ClockAI : MonoBehaviour {
 
+	public GameObject fourCrossPaint;
+
 	private GameObject player;
 	private DialogHolder dialogHolder;
 
@@ -21,7 +23,8 @@ public class Bedroom_ClockAI : MonoBehaviour {
 	{
 		dialogHolder.Dialogs = new List<Dialog> { 
 			dialogHolder.TalkDialog ("古老的時鐘 發出規律的滴答滴答聲"),
-			dialogHolder.TalkDialog ("上面顯示著三點鐘")
+			dialogHolder.TalkDialog ("上面顯示著三點鐘"),
+			dialogHolder.PickUpItemDialog("給你畫", fourCrossPaint)
 		};
 	}
 
