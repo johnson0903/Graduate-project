@@ -20,7 +20,7 @@ public class DialogHolder : MonoBehaviour
 	void Update()
 	{
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			if (!isAutoPopUp && dialogs != null && isPlayerInRange)
+			if (!isAutoPopUp && dialogs != null && isPlayerInRange) 
 				dialogManager.ContinueDialog (this.gameObject);
 		}
 	}
