@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_TrasCanAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_BoxAI.cs" />
+     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_DoorAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_IronBoxAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_MissionCompleteDialog.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPuzzle.cs" />

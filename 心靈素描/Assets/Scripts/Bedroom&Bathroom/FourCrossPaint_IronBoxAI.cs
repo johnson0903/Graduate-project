@@ -7,7 +7,8 @@ public class FourCrossPaint_IronBoxAI : MonoBehaviour {
 
 	private GameObject player;
 	private DialogHolder dialogHolder;
-	private static bool isFourCrossPuzzleCompleted;
+	private bool isFourCrossPuzzleCompleted;
+
 	private static bool isTreasureTaken;
 
 	// Use this for initialization

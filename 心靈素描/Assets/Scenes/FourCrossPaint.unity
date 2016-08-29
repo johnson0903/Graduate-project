@@ -628,6 +628,7 @@ GameObject:
   - 212: {fileID: 1056878366}
   - 61: {fileID: 1056878365}
   - 114: {fileID: 1056878368}
+  - 114: {fileID: 1056878369}
   m_Layer: 0
   m_Name: Door
   m_TagString: NPC
@@ -700,6 +701,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1056878369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1056878364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef2b077ab5eb06b4a962f119c45a5277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1304298267
@@ -788,6 +800,10 @@ MonoBehaviour:
   angryCross: {fileID: 816375271}
   sadCross: {fileID: 1966066561}
   boringCross: {fileID: 1576011824}
+  happyMask: {fileID: 193196, guid: ef1688fc082f07a4189662f8dd2f9897, type: 2}
+  angryMask: {fileID: 199450, guid: 8ee363e8564d6ce4490aa55f419b834e, type: 2}
+  sadMask: {fileID: 103764, guid: 59819a26801a7e64dab0d344b6a7aa3e, type: 2}
+  boringMask: {fileID: 182334, guid: dcbecc019844c31499174a6eae025d38, type: 2}
   ironBox: {fileID: 1712277032}
   missionCompleteDialog: {fileID: 1633405444}
 --- !u!4 &1432997362
@@ -948,7 +964,7 @@ GameObject:
   - 114: {fileID: 1633405446}
   - 114: {fileID: 1633405445}
   m_Layer: 0
-  m_Name: MissinCompleteDialog
+  m_Name: MissionCompleteDialog
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

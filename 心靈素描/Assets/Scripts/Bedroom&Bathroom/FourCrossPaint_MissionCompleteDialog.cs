@@ -26,7 +26,7 @@ public class FourCrossPaint_MissionCompleteDialog : MonoBehaviour {
 
 	void OnDialogOver(object sender, EventArgs e)
 	{	
-		
+		dialogHolder.Dialogs = null;
 	}
 
 }
