@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour {
 				cameraX = cameraMinX;
 			else if (cameraX > cameraMaxX)
 				cameraX = cameraMaxX;
-			transform.position = Vector3.Lerp (transform.position, new Vector3(cameraX, 0.0f, player.position.z), 0.1f) + new Vector3 (0, 0, -10);
+			transform.position = Vector3.Lerp (transform.position, new Vector3(cameraX, transform.position.y, player.position.z), 0.1f) + new Vector3 (0, 0, -10);
 		}
 	}
 }

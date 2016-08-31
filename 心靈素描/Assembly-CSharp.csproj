@@ -45,6 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BalancePaint_LeftAI.cs" />
+     <Compile Include="Assets\BalancePaint_RightAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bathroom_SinkAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_BathroomDoorAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_BookcaseAI.cs" />
@@ -74,6 +76,8 @@
      <Compile Include="Assets\Scripts\Default\ShowBagList.cs" />
      <Compile Include="Assets\Scripts\Default\ShowHintImage.cs" />
      <Compile Include="Assets\Scripts\DogeAI.cs" />
+     <Compile Include="Assets\UmbrellaGirlPaint_LeftAI.cs" />
+     <Compile Include="Assets\UmbrellaGirlPaint_RightAI.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
