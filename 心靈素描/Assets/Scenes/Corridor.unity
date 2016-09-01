@@ -573,6 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 667ebefc3ada02841ab47b0a5bf72485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodUmbrella: {fileID: 132896, guid: 9a2877e776929fc48b1648aa0adf45df, type: 2}
 --- !u!1001 &671695847
 Prefab:
   m_ObjectHideFlags: 0

@@ -20,7 +20,8 @@ public class UmbrellaGirlPaint_RightAI : MonoBehaviour {
 	void Update()
 	{
 
-		dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("牆上掛著一幅看起來相當詭異的畫") };
+		dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("牆上掛著一幅女人的畫像"),
+			dialogHolder.TalkDialog ("似乎在看著這邊的樣子...") };
 
 	}
 
