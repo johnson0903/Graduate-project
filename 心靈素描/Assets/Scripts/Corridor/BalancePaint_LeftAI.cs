@@ -20,7 +20,9 @@ public class BalancePaint_LeftAI : MonoBehaviour {
 	void Update()
 	{
 
-		dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("牆上掛著一幅看起來相當詭異的畫") };
+		dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("一幅左右平衡天秤的畫"),
+			dialogHolder.TalkDialog ("兩側的空盤暗示著什麼？")
+		};
 
 	}
 
