@@ -48,11 +48,13 @@
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bathroom_SinkAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_BathroomDoorAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_BookcaseAI.cs" />
+     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_ClockAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_DoorAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_PillowAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_TrasCanAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\PencilTombAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\PencilTombPaint_DoorAI.cs" />
+     <Compile Include="Assets\Scripts\CandyHouse\GingerbreadAI.cs" />
      <Compile Include="Assets\Scripts\ChangeCursor.cs" />
      <Compile Include="Assets\Scripts\Default\CameraController.cs" />
      <Compile Include="Assets\Scripts\Default\Dialog.cs" />
