@@ -27,7 +27,7 @@ public class DogeAI : MonoBehaviour {
 
 	void OnMouseDown ()
 	{
-		if (!isDogeFed && player.GetComponent<PlayerInventory> ().isSomethingInInventory ("Bone")) {
+		if (!isDogeFed && player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("Bone")) {
 			isDogeFed = true;
 			player.GetComponent<PlayerInventory> ().DropItem ("Bone");
 		}

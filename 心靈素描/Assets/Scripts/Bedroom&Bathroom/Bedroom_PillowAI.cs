@@ -24,7 +24,7 @@ public class Bedroom_PillowAI : MonoBehaviour {
 	{
 		//如果枕頭裡的鑰匙還沒被拿走
 		if (!isPillowKeyTaken) {
-			if (player.GetComponent<PlayerInventory> ().isSomethingInInventory ("BoxCutter")) {     //如果身上有美工刀
+			if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BoxCutter")) {     //如果身上有美工刀
 				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("軟綿綿的枕頭"),
 					dialogHolder.TalkDialog ("感覺躺起來很舒服"),
 					dialogHolder.AskDialog ("用美工刀劃開枕頭", "躺躺看", new List<Dialog> {
@@ -53,7 +53,7 @@ public class Bedroom_PillowAI : MonoBehaviour {
 
 	void OnDialogOver(object sender, EventArgs e)
 	{	
-		if (!isPillowKeyTaken && player.GetComponent<PlayerInventory> ().isSomethingInInventory ("BoxCutter") && dialogHolder.AskDialogAnswerList[0] == 1)
+		if (!isPillowKeyTaken && player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BoxCutter") && dialogHolder.AskDialogAnswerList[0] == 1)
 			isPillowKeyTaken = true;
 	}
 }

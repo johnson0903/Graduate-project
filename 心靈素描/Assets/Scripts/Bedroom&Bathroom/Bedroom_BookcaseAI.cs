@@ -30,8 +30,8 @@ public class Bedroom_BookcaseAI : MonoBehaviour {
 				dialogHolder.TalkDialog ("上面堆滿了許多書"),
 				dialogHolder.AskDialog ("隨便拿起一本看看", "找尋其他地方", new List<Dialog> { dialogHolder.TalkDialog ("不要亂動好了") }),
 				dialogHolder.TalkDialog ("《6上數學 點線面評量講義》"),
-				dialogHolder.TalkDialog ("＂乘法和除法 - 乘法的意義和運算＂"),
-				dialogHolder.TalkDialog ("＂乘法（英語：Multiplication），加法的連續運算，同一數的若干次連加，其運算結果稱為積＂"),
+				dialogHolder.TalkDialog ("＂(一) 線對稱的意義＂"),
+				dialogHolder.TalkDialog ("＂平面上的圖形，透過平移、旋轉與鏡射，可以得到與原圖形全等的圖形。給定一個平面圖形及一條對稱軸，可以透過線對稱這種鏡射概念，得到另一個全等的圖形。＂"),
 				dialogHolder.TalkDialog ("盡是一些看不懂的東西..."),
 			};
 		} else if (bookCaseTalkCount == 1) {

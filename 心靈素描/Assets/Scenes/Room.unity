@@ -2958,6 +2958,7 @@ GameObject:
   - 114: {fileID: 2050749365}
   - 114: {fileID: 2050749366}
   - 61: {fileID: 2050749367}
+  - 114: {fileID: 2050749368}
   m_Layer: 0
   m_Name: Clock
   m_TagString: NPC
@@ -3044,6 +3045,18 @@ BoxCollider2D:
   m_Offset: {x: -0.0038866997, y: -0.30240822}
   serializedVersion: 2
   m_Size: {x: 0.662796, y: 2.3348165}
+--- !u!114 &2050749368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2050749362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5103890874166ee4ea174d0ac5c573b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fourCrossPaint: {fileID: 124266, guid: af4100019dea153409cdab905fb6ea12, type: 2}
 --- !u!4 &2121066549 stripped
 Transform:
   m_PrefabParentObject: {fileID: 480008, guid: e2fdea5df3d9146db90af61c1c777ff3, type: 2}
