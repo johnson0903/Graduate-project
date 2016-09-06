@@ -27,8 +27,8 @@ public class FourCrossPaint_DoorAI : MonoBehaviour {
 
 		if (!hasDialogPopUpInFourCrossPaint)
 			dialogHolder.Dialogs = new List<Dialog> {
+			dialogHolder.TalkDialog ("颯颯颯颯....."),
 			dialogHolder.TalkDialog ("乾燥的風迎面而來"),
-			dialogHolder.TalkDialog ("吹的皮膚不太舒服..."),
 		};
 		else
 			dialogHolder.Dialogs = new List<Dialog> {

@@ -48,7 +48,11 @@ public class FourCrossPaint_BoxAI : MonoBehaviour {
 
 	void OnDialogOver(object sender, EventArgs e)
 	{
-		if (!areFourMasksTaken)
+		if (!areFourMasksTaken) 
 			areFourMasksTaken = true;
+	}
+
+	public bool AreFourMasksTaken {
+		get{ return areFourMasksTaken; }
 	}
 }

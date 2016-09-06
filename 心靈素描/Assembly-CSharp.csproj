@@ -45,7 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\AngryCrossAI.cs" />
+     <Compile Include="Assets\Scripts\AudioSwitcher.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bathroom_SinkAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_BathroomDoorAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_BookcaseAI.cs" />
@@ -53,15 +53,20 @@
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_DoorAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_PillowAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_TrasCanAI.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\BoringCrossAI.cs" />
+     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_BoxAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_DoorAI.cs" />
+     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_IronBoxAI.cs" />
+     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_MissionCompleteDialog.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPuzzle.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\HappyCrossAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\PencilTombAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\PencilTombPaint_DoorAI.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\SadCrossAI.cs" />
+     <Compile Include="Assets\Scripts\CandyHouse\GingerbreadAI.cs" />
      <Compile Include="Assets\Scripts\ChangeCursor.cs" />
+     <Compile Include="Assets\Scripts\Corridor\BalancePaint_LeftAI.cs" />
+     <Compile Include="Assets\Scripts\Corridor\BalancePaint_RightAI.cs" />
+     <Compile Include="Assets\Scripts\Corridor\UmbrellaGirlPaint_LeftAI.cs" />
+     <Compile Include="Assets\Scripts\Corridor\UmbrellaGirlPaint_RightAI.cs" />
      <Compile Include="Assets\Scripts\Default\CameraController.cs" />
      <Compile Include="Assets\Scripts\Default\Dialog.cs" />
      <Compile Include="Assets\Scripts\Default\DialogHolder.cs" />
@@ -75,6 +80,7 @@
      <Compile Include="Assets\Scripts\Default\ShowBagList.cs" />
      <Compile Include="Assets\Scripts\Default\ShowHintImage.cs" />
      <Compile Include="Assets\Scripts\DogeAI.cs" />
+     <Compile Include="Assets\TeleportPlayer.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

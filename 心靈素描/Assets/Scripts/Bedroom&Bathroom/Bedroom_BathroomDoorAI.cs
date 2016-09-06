@@ -32,6 +32,7 @@ public class Bedroom_BathroomDoorAI : MonoBehaviour {
 
 	void OnDialogOver (object sender, EventArgs e)
 	{
+		ChangeSceneByBathroomDoor = true;
 		if (SceneManager.GetActiveScene ().buildIndex == 0)
 			SceneManager.LoadScene (1);
 		else

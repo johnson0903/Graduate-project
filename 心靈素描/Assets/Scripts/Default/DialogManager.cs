@@ -15,6 +15,7 @@ public class DialogManager : MonoBehaviour
 	private GameObject player;
 
 	private PlayerController playerController;
+	private GameObject talkingObeject;
 	private bool isDialogActive;
 	private int askDialogAnswer;
 	private int currentDialogIndex;
@@ -104,17 +105,16 @@ public class DialogManager : MonoBehaviour
 
 	public void ContinueDialog(GameObject gameobject)
 	{
-		GameObject talkingObeject = gameobject;
-
 		if (!player.GetComponent<PlayerInventory> ().bag.activeSelf) {
 			if (!isDialogActive) {
+				talkingObeject = gameobject;
 				dialogs = talkingObeject.GetComponent<DialogHolder> ().Dialogs;
 				playerController.DontMove ();
 				isDialogActive = true;
 				currentDialogIndex = 0;
 				ShowDialogByMode ();
 				askDialogAnswerList.Clear ();
-			} else {
+			} else if (talkingObeject == gameobject){
 				currentDialogIndex++;
 				if (currentDialogIndex >= dialogs.Count) {
 					isDialogActive = false;

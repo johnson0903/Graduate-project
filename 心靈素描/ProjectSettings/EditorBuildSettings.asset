@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/PencilTombPaint.unity
   - enabled: 1
     path: Assets/Scenes/FourCrossPaint.unity
+  - enabled: 1
+    path: Assets/Scenes/Corridor.unity
