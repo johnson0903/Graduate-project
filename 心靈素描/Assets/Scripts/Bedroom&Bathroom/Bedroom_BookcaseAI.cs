@@ -5,8 +5,6 @@ using System.Collections.Generic;
 
 public class Bedroom_BookcaseAI : MonoBehaviour {
 
-	public GameObject pencilTombPaint;
-
 	private GameObject player;
 	private DialogHolder dialogHolder;
 
@@ -49,17 +47,18 @@ public class Bedroom_BookcaseAI : MonoBehaviour {
 				dialogHolder.TalkDialog ("散發著木頭香味的書櫃"),
 				dialogHolder.TalkDialog ("上面堆滿了許多書"),
 				dialogHolder.AskDialog ("隨便拿起一本看看", "找尋其他地方", new List<Dialog> { dialogHolder.TalkDialog ("不要亂動好了") }),
-				dialogHolder.TalkDialog ("《藝術與人文 6上》"),
-				dialogHolder.TalkDialog ("＂探索與創作＂"),
-				dialogHolder.TalkDialog ("＂使每位學生能自我探索，覺知環境與個人的關係，運用媒材與形式，從事藝術創作，以豐富生活與心靈。＂"),
-				dialogHolder.TalkDialog ("發現書裡面夾了一張紙"),
-				dialogHolder.PickUpItemDialog ("獲得了 奇怪的塗鴉", pencilTombPaint)
+				dialogHolder.TalkDialog ("發現了一本夾在教科書之中 顯得相當嬌小的日記"),
+				dialogHolder.TalkDialog ("＂2016 / 9 / 3＂"),
+				dialogHolder.TalkDialog ("＂今天又被媽媽罵了。＂"),
+				dialogHolder.TalkDialog ("＂比你辛苦比你累的人多的事 你有什麼資格抱怨？ 被這樣訓斥了。＂"),
+				dialogHolder.TalkDialog ("＂為什麼除了成績與才能，連痛苦也必須和他人比較呢？＂"),
+				dialogHolder.TalkDialog ("＂想要逃離這個世界，活著到底有－＂"),
+				dialogHolder.TalkDialog ("後面的部分被像是水一樣的東西弄糊了 看不清楚")
 			};							
 		}
 
 	}
-
-
+		
 	void OnDialogOver(object sender, EventArgs e) {
 		if (dialogHolder.AskDialogAnswerList [0] == 1) {
 			if (!pencilTombPaintHasBeenTaken) {
