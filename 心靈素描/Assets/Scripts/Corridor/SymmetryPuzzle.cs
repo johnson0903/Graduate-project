@@ -7,6 +7,7 @@ public class SymmetryPuzzle : MonoBehaviour {
 	public GameObject umBrellaGirl_Left;
 	public GameObject umBrellaGirl_Right;
 	public Sprite umbrellaGirlWithBlood;
+	public GameObject missionCompleteDialog;
 
 	private static bool isSymmetryPuzzleOver;
 
@@ -20,11 +21,12 @@ public class SymmetryPuzzle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (umBrellaGirl_Left.transform.FindChild("GirlWithUmbrella").GetComponent<SpriteRenderer> ().sprite == umbrellaGirlWithBlood &&
+		if (!isSymmetryPuzzleOver &&
+			umBrellaGirl_Left.transform.FindChild("GirlWithUmbrella").GetComponent<SpriteRenderer> ().sprite == umbrellaGirlWithBlood &&
 			umBrellaGirl_Right.transform.FindChild("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite == umbrellaGirlWithBlood &&
 		    (clock.GetComponent<Corridor_ClockAI> ().Hour == 0 || clock.GetComponent<Corridor_ClockAI> ().Hour == 6)) {
 			isSymmetryPuzzleOver = true;
-			Debug.Log ("66666");
+			missionCompleteDialog.GetComponent<Corridor_MissionCompleteDialog> ().MissionComplete ();
 		}
 	}
 }

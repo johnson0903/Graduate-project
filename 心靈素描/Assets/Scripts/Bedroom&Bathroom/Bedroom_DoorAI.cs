@@ -9,8 +9,10 @@ public class Bedroom_DoorAI : MonoBehaviour
 	private GameObject player;
 	private DialogHolder dialogHolder;
 	private AudioSwitcher audioSW;
+
 	private static bool isBedroomDoorOpen;
 	private static bool ChangeSceneByBedroomDoor;
+	private static bool hasDialogPopUpInCorridor;
 
 	// Use this for initialization
 	void Start ()
@@ -25,24 +27,23 @@ public class Bedroom_DoorAI : MonoBehaviour
 			player.transform.position = new Vector3 (this.transform.position.x, player.transform.position.y, player.transform.position.z);
 			ChangeSceneByBedroomDoor = false;
 		}
+
+		if(SceneManager.GetActiveScene ().buildIndex == 4 && !hasDialogPopUpInCorridor)
+			dialogHolder.IsAutoPopUp = true;
 	}
 
 	// Update is called once per frame
 	void Update ()
 	{
 
-		if (!isBedroomDoorOpen)
-		{
+		if (!isBedroomDoorOpen) {
 			if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BedroomKey"))
-			{
 				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("使用 臥室的鑰匙") };
-			} else
-			{
+			else {
 				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("門關得緊緊的...") };
 				audioSW.playSoundEffect (0);
 			}
-		} else
-		{
+		} else {
 			if (SceneManager.GetActiveScene ().buildIndex == 0)
 				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("通往走廊") };
 			else

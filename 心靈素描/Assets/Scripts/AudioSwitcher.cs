@@ -13,7 +13,7 @@ public class AudioSwitcher : MonoBehaviour {
 	}
 
 	public void playSoundEffect(int i){
-		audiosource.clip = audioClips[i];
+//		audiosource.clip = audioClips[i];
 //		audiosource.Play();
 //		Debug.Log(i);
 	}
