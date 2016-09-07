@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Corridor_ClockAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bathroom_SinkAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_BathroomDoorAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_BookcaseAI.cs" />
@@ -60,10 +61,9 @@
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPuzzle.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\PencilTombAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\PencilTombPaint_DoorAI.cs" />
-     <Compile Include="Assets\Scripts\CandyHouse\GingerbreadAI.cs" />
      <Compile Include="Assets\Scripts\ChangeCursor.cs" />
-     <Compile Include="Assets\Scripts\Corridor\BalancePaint_LeftAI.cs" />
-     <Compile Include="Assets\Scripts\Corridor\BalancePaint_RightAI.cs" />
+     <Compile Include="Assets\Scripts\Corridor\FastFowardPaintAI.cs" />
+     <Compile Include="Assets\Scripts\Corridor\GoBackPaintAI.cs" />
      <Compile Include="Assets\Scripts\Corridor\UmbrellaGirlPaint_LeftAI.cs" />
      <Compile Include="Assets\Scripts\Corridor\UmbrellaGirlPaint_RightAI.cs" />
      <Compile Include="Assets\Scripts\Default\CameraController.cs" />
@@ -79,6 +79,7 @@
      <Compile Include="Assets\Scripts\Default\ShowBagList.cs" />
      <Compile Include="Assets\Scripts\Default\ShowHintImage.cs" />
      <Compile Include="Assets\Scripts\DogeAI.cs" />
+     <Compile Include="Assets\SymmetryPuzzle.cs" />
      <Compile Include="Assets\TeleportPlayer.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
