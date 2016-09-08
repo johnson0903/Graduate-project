@@ -27,15 +27,11 @@ public class Bedroom_DoorAI : MonoBehaviour
 			player.transform.position = new Vector3 (this.transform.position.x, player.transform.position.y, player.transform.position.z);
 			ChangeSceneByBedroomDoor = false;
 		}
-
-		if(SceneManager.GetActiveScene ().buildIndex == 4 && !hasDialogPopUpInCorridor)
-			dialogHolder.IsAutoPopUp = true;
 	}
 
 	// Update is called once per frame
 	void Update ()
 	{
-
 		if (!isBedroomDoorOpen) {
 			if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BedroomKey"))
 				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("使用 臥室的鑰匙") };

@@ -8,6 +8,8 @@ public class SymmetryPuzzle : MonoBehaviour {
 	public GameObject umBrellaGirl_Right;
 	public Sprite umbrellaGirlWithBlood;
 	public GameObject missionCompleteDialog;
+	public GameObject teleportPoint_Left;
+	public GameObject teleportPoint_Right;
 
 	private static bool isSymmetryPuzzleOver;
 
@@ -27,6 +29,8 @@ public class SymmetryPuzzle : MonoBehaviour {
 		    (clock.GetComponent<Corridor_ClockAI> ().Hour == 0 || clock.GetComponent<Corridor_ClockAI> ().Hour == 6)) {
 			isSymmetryPuzzleOver = true;
 			missionCompleteDialog.GetComponent<Corridor_MissionCompleteDialog> ().MissionComplete ();
+			teleportPoint_Left.GetComponent<BoxCollider2D> ().isTrigger = false;
+			teleportPoint_Right.GetComponent<BoxCollider2D> ().isTrigger = false;
 		}
 	}
 }

@@ -35,7 +35,7 @@ public class Dialog
 		set;
 	}
 
-	public new List<Dialog> Answer2_Dialogs
+	public List<Dialog> Answer2_Dialogs
 	{
 		get;
 		set;
