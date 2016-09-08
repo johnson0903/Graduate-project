@@ -10,8 +10,8 @@ public class DialogManager : MonoBehaviour
 	public GameObject answer1;
 	public GameObject answer2;
 	public GameObject pickUpItemImage;
-    private AudioSource audioSource;
 
+    private AudioSource audioSource;
 	private List<Dialog> dialogs;
 	private GameObject player;
 
@@ -103,6 +103,10 @@ public class DialogManager : MonoBehaviour
 			pickUpItemImage.transform.GetChild (0).GetComponent<Image> ().sprite = dialogs [currentDialogIndex].Item.GetComponent<SpriteRenderer> ().sprite;
 		} else if (dialogs[currentDialogIndex].Mode == "PlaySound")
         {
+			dText.text = dialogs [currentDialogIndex].Content;
+			answer1.SetActive (false);
+			answer2.SetActive (false);
+			pickUpItemImage.SetActive (false);
             audioSource.clip = dialogs[currentDialogIndex].audioClip;
             audioSource.Play();
         }
