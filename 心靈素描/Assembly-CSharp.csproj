@@ -3,9 +3,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.20506</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
     <ProjectGuid>{CB89FD39-D799-F147-D765-A37D4978B9E9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -34,59 +33,60 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.XML" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AudioSwitcher.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bathroom_SinkAI.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_BathroomDoorAI.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_BookcaseAI.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_ClockAI.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_DoorAI.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_PillowAI.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_TrasCanAI.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossAI.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_BoxAI.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_DoorAI.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_IronBoxAI.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_MissionCompleteDialog.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPuzzle.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\PencilTombAI.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\PencilTombPaint_DoorAI.cs" />
-     <Compile Include="Assets\Scripts\CandyHouse\GingerbreadAI.cs" />
-     <Compile Include="Assets\Scripts\ChangeCursor.cs" />
-     <Compile Include="Assets\Scripts\Corridor\BalancePaint_LeftAI.cs" />
-     <Compile Include="Assets\Scripts\Corridor\BalancePaint_RightAI.cs" />
-     <Compile Include="Assets\Scripts\Corridor\UmbrellaGirlPaint_LeftAI.cs" />
-     <Compile Include="Assets\Scripts\Corridor\UmbrellaGirlPaint_RightAI.cs" />
-     <Compile Include="Assets\Scripts\Default\CameraController.cs" />
-     <Compile Include="Assets\Scripts\Default\Dialog.cs" />
-     <Compile Include="Assets\Scripts\Default\DialogHolder.cs" />
-     <Compile Include="Assets\Scripts\Default\DialogManager.cs" />
-     <Compile Include="Assets\Scripts\Default\DontDestroyMeOnLoad.cs" />
-     <Compile Include="Assets\Scripts\Default\Flip.cs" />
-     <Compile Include="Assets\Scripts\Default\IsInTalkRange.cs" />
-     <Compile Include="Assets\Scripts\Default\ItemData.cs" />
-     <Compile Include="Assets\Scripts\Default\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\Default\PlayerInventory.cs" />
-     <Compile Include="Assets\Scripts\Default\ShowBagList.cs" />
-     <Compile Include="Assets\Scripts\Default\ShowHintImage.cs" />
-     <Compile Include="Assets\Scripts\DogeAI.cs" />
-     <Compile Include="Assets\TeleportPlayer.cs" />
- <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
+    <Compile Include="Assets\Corridor_MissionCompleteDialog.cs" />
+    <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bathroom_SinkAI.cs" />
+    <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_BathroomDoorAI.cs" />
+    <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_BookcaseAI.cs" />
+    <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_ClockAI.cs" />
+    <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_DoorAI.cs" />
+    <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_PillowAI.cs" />
+    <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_TrasCanAI.cs" />
+    <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossAI.cs" />
+    <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_BoxAI.cs" />
+    <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_DoorAI.cs" />
+    <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_IronBoxAI.cs" />
+    <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_MissionCompleteDialog.cs" />
+    <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPuzzle.cs" />
+    <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\PencilTombAI.cs" />
+    <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\PencilTombPaint_DoorAI.cs" />
+    <Compile Include="Assets\Scripts\ChangeCursor.cs" />
+    <Compile Include="Assets\Scripts\Corridor\Corridor_ClockAI.cs" />
+    <Compile Include="Assets\Scripts\Corridor\FastFowardPaintAI.cs" />
+    <Compile Include="Assets\Scripts\Corridor\GoBackPaintAI.cs" />
+    <Compile Include="Assets\Scripts\Corridor\SymmetryPuzzle.cs" />
+    <Compile Include="Assets\Scripts\Corridor\TeleportPlayer.cs" />
+    <Compile Include="Assets\Scripts\Corridor\UmbrellaGirlPaint_LeftAI.cs" />
+    <Compile Include="Assets\Scripts\Corridor\UmbrellaGirlPaint_RightAI.cs" />
+    <Compile Include="Assets\Scripts\Default\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Default\Dialog.cs" />
+    <Compile Include="Assets\Scripts\Default\DialogHolder.cs" />
+    <Compile Include="Assets\Scripts\Default\DialogManager.cs" />
+    <Compile Include="Assets\Scripts\Default\DontDestroyMeOnLoad.cs" />
+    <Compile Include="Assets\Scripts\Default\Flip.cs" />
+    <Compile Include="Assets\Scripts\Default\IsInTalkRange.cs" />
+    <Compile Include="Assets\Scripts\Default\ItemData.cs" />
+    <Compile Include="Assets\Scripts\Default\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Default\PlayerInventory.cs" />
+    <Compile Include="Assets\Scripts\Default\ShowBagList.cs" />
+    <Compile Include="Assets\Scripts\Default\ShowHintImage.cs" />
+    <Compile Include="Assets\Scripts\DogeAI.cs" />
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\Networking\UnityEngine.Networking.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -96,5 +96,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  
 </Project>

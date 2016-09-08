@@ -8,11 +8,14 @@ public class Bedroom_DoorAI : MonoBehaviour
 {
 	private GameObject player;
 	private DialogHolder dialogHolder;
+
 	private const int DOOR_LOCKED = 0;
 	private const int DOOR_OPEN = 1;
 	private const int DOOR_CLOSED = 2;
+
 	private static bool isBedroomDoorOpen;
 	private static bool ChangeSceneByBedroomDoor;
+	private static bool hasDialogPopUpInCorridor;
 
 	// Use this for initialization
 	void Start ()
@@ -25,6 +28,9 @@ public class Bedroom_DoorAI : MonoBehaviour
 			player.transform.position = new Vector3 (this.transform.position.x, player.transform.position.y, player.transform.position.z);
 			ChangeSceneByBedroomDoor = false;
 		}
+
+		if(SceneManager.GetActiveScene ().buildIndex == 4 && !hasDialogPopUpInCorridor)
+			dialogHolder.IsAutoPopUp = true;
 	}
 
 	// Update is called once per frame
@@ -32,12 +38,15 @@ public class Bedroom_DoorAI : MonoBehaviour
 	{
 
 		if (!isBedroomDoorOpen) {
+
 			if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BedroomKey")) {
 				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundEffectDialog ("使用 臥室的鑰匙", DOOR_OPEN) };
 			} else {
 				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundEffectDialog ("門關得緊緊的...", DOOR_LOCKED) };
 			}
-		} else {
+		} 
+		else 
+		{
 			if (SceneManager.GetActiveScene ().buildIndex == 0)
 				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("通往走廊") };
 			else

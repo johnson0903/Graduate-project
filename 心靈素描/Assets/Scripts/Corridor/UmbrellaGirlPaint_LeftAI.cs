@@ -18,6 +18,9 @@ public class UmbrellaGirlPaint_LeftAI : MonoBehaviour {
 		player = FindObjectOfType<PlayerController>().gameObject;
 		dialogHolder = this.GetComponent<DialogHolder>();
 		this.GetComponent<DialogHolder>().DialogOverEvent += OnDialogOver;
+
+		if(isKilled)
+			this.transform.FindChild("GirlWithUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
 	}
 
 	// Update is called once per frame
@@ -26,10 +29,7 @@ public class UmbrellaGirlPaint_LeftAI : MonoBehaviour {
 		if (!isKilled) {
 			dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("一幅拿著傘的女人畫像"),
 				dialogHolder.TalkDialog ("似乎在看著這邊的樣子..."),
-				dialogHolder.AskDialog ("盯著看", "離開", new List<Dialog>{ dialogHolder.TalkDialog ("有點恐怖的感覺") }),
-				dialogHolder.TalkDialog ("........"),
-				dialogHolder.TalkDialog ("不給我進去的感覺"),
-				dialogHolder.AskDialog ("拿走她的傘", "離開", new List<Dialog>{ dialogHolder.TalkDialog ("頭有點痛...") }),
+				dialogHolder.AskDialog ("拿走她的傘", "離開", new List<Dialog>{ dialogHolder.TalkDialog ("有點恐怖的感覺...") }),
 				dialogHolder.TalkDialog ("......."),
 				dialogHolder.TalkDialog ("他抓得好緊...."),
 				dialogHolder.AskDialog ("用力", "放手", new List<Dialog>{ dialogHolder.TalkDialog ("頭有點痛...") }),
@@ -45,9 +45,9 @@ public class UmbrellaGirlPaint_LeftAI : MonoBehaviour {
 
 	void OnDialogOver(object sender, EventArgs e)
 	{	
-		if (dialogHolder.AskDialogAnswerList.Count > 2 && dialogHolder.AskDialogAnswerList [2] == 1) {
+		if (dialogHolder.AskDialogAnswerList.Count > 1 && dialogHolder.AskDialogAnswerList [1] == 1) {
 			isKilled = true;
-			this.GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
+			this.transform.FindChild("GirlWithUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
 		}
 	}
 

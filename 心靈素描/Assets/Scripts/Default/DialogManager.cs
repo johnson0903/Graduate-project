@@ -109,7 +109,7 @@ public class DialogManager : MonoBehaviour
         
 	}
 
-	public void ContinueDialog(GameObject gameobject)
+	public void StartDialog(GameObject gameobject)
 	{
 		if (!player.GetComponent<PlayerInventory> ().bag.activeSelf) {
 			if (!isDialogActive) {
@@ -120,16 +120,26 @@ public class DialogManager : MonoBehaviour
 				currentDialogIndex = 0;
 				ShowDialogByMode ();
 				askDialogAnswerList.Clear ();
-			} else if (talkingObeject == gameobject){
-				currentDialogIndex++;
-				if (currentDialogIndex >= dialogs.Count) {
-					isDialogActive = false;
-					talkingObeject.GetComponent<DialogHolder> ().TellObjectDialogIsOver ();
-					playerController.YouCanMove ();
-				} else
-					ShowDialogByMode ();
 			}
 		}
+	}
+
+	public void ContinueDialog(GameObject gameobject)
+	{
+		if (talkingObeject == gameobject) {
+			currentDialogIndex++;
+			if (currentDialogIndex >= dialogs.Count) {
+				StartCoroutine (CloseDialog ());
+			} else
+				ShowDialogByMode ();
+		}
+	}
+
+	public IEnumerator CloseDialog() {
+		yield return null;
+		isDialogActive = false;
+		talkingObeject.GetComponent<DialogHolder> ().TellObjectDialogIsOver ();
+		playerController.YouCanMove ();
 	}
 
 	public bool IsDialogActive {

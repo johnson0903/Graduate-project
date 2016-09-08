@@ -21,14 +21,18 @@ public class DialogHolder : MonoBehaviour
 	void Update()
 	{
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			if (!isAutoPopUp && dialogs != null && isPlayerInRange) 
-				dialogManager.ContinueDialog (this.gameObject);
+			if (!isAutoPopUp && dialogs != null) {
+				if (!dialogManager.IsDialogActive && isPlayerInRange)
+					dialogManager.StartDialog (this.gameObject);
+				else
+					dialogManager.ContinueDialog (this.gameObject);
+			}
 		}
 	}
 
 	void OnTriggerStay2D(Collider2D other) {
 		if (isAutoPopUp && dialogs != null && isPlayerInRange) {
-			dialogManager.ContinueDialog (this.gameObject);
+			dialogManager.StartDialog (this.gameObject);
 			isAutoPopUp = false;
 		}
 	}

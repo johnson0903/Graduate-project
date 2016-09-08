@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public class UmbrellaGirlPaint_RightAI : MonoBehaviour {
 
 	public Sprite umbrellaGirlWithBlood;
-	public GameObject bloodUmbrella;
 
 	private GameObject player;
 	private DialogHolder dialogHolder;
@@ -18,6 +17,9 @@ public class UmbrellaGirlPaint_RightAI : MonoBehaviour {
 		player = FindObjectOfType<PlayerController>().gameObject;
 		dialogHolder = this.GetComponent<DialogHolder>();
 		this.GetComponent<DialogHolder>().DialogOverEvent += OnDialogOver;
+
+		if(isKilled)
+			this.transform.FindChild("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
 	}
 
 	// Update is called once per frame
@@ -30,12 +32,11 @@ public class UmbrellaGirlPaint_RightAI : MonoBehaviour {
 					dialogHolder.AskDialog ("給他雨傘", "離開", new List<Dialog>{ dialogHolder.TalkDialog ("有點恐怖的感覺") }),
 					dialogHolder.TalkDialog ("將雨傘給了女人"),
 					dialogHolder.TalkDialog ("畫中的女人浮起了一抹微笑"),
-					dialogHolder.TalkDialog ("......."),
-					dialogHolder.TalkDialog ("畫中的女人突然拿起傘 劃破了自己的喉嚨"),
+					dialogHolder.TalkDialog (".......喀喀"),
+					dialogHolder.TalkDialog ("她突然拿起傘 劃破了自己的喉嚨"),
 					dialogHolder.TalkDialog ("嘶....嘶嘶....."),
 					dialogHolder.TalkDialog ("從圖裡面湧出了許多紅色的顏料"),
-					dialogHolder.TalkDialog ("雨傘從女人鬆開的右手中掉了下來"),
-					dialogHolder.PickUpItemDialog ("獲得了 沾著顏料的雨傘", bloodUmbrella)
+					dialogHolder.TalkDialog ("雨傘從女人鬆開的右手中掉了下來 落在了畫之中")
 				};
 			} else
 				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("一幅畫著女人的畫像"),
@@ -58,7 +59,7 @@ public class UmbrellaGirlPaint_RightAI : MonoBehaviour {
 				if (dialogHolder.AskDialogAnswerList.Count > 0 && dialogHolder.AskDialogAnswerList [0] == 1) {
 					isKilled = true;
 					player.GetComponent<PlayerInventory> ().DropItem ("BloodUmbrella");
-					this.GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
+					this.transform.FindChild("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
 				}
 			}
 		} 
