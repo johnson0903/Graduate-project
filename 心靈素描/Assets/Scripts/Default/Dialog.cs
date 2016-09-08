@@ -40,4 +40,10 @@ public class Dialog
 		get;
 		set;
 	}
+
+    public AudioClip audioClip
+    {
+        get;
+        set;
+    }
 }
