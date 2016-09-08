@@ -6,8 +6,9 @@ using System.Collections.Generic;
 public class DialogHolder : MonoBehaviour
 {
 	public event EventHandler DialogOverEvent;
+    public AudioClip[] audioClips;
 
-	private DialogManager dialogManager;
+    private DialogManager dialogManager;
 	private List<Dialog> dialogs;
 	private bool isPlayerInRange;
 	private bool isAutoPopUp;
@@ -58,6 +59,15 @@ public class DialogHolder : MonoBehaviour
 		dialog.Item = pickUpItem;
 		return dialog;
 	}
+
+    public Dialog PlaySoundEffectDialog(string soundContent, int soundEffectIndex)
+    {
+        Dialog dialog = new Dialog();
+        dialog.Mode = "PlaySound";
+        dialog.Content = soundContent;
+        dialog.audioClip = audioClips[soundEffectIndex];
+        return dialog;
+    }
 
 	public void TellObjectDialogIsOver()
 	{

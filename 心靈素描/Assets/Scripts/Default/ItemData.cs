@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class ItemData : MonoBehaviour {
 
-	public string name;
+	public string itemName;
 	public string description;
 	public bool changeSceneMode;
 	public int whatSceneToGo;

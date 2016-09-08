@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class Bedroom_BookcaseAI : MonoBehaviour {
 
-	private GameObject player;
 	private DialogHolder dialogHolder;
 
 	private static int bookCaseTalkCount;
@@ -14,7 +13,6 @@ public class Bedroom_BookcaseAI : MonoBehaviour {
 	// Use this for initialization
 	void Start()
 	{
-		player = FindObjectOfType<PlayerController>().gameObject;
 		dialogHolder = this.GetComponent<DialogHolder>();
 		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
 	}

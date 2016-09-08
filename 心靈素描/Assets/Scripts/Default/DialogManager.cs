@@ -10,6 +10,7 @@ public class DialogManager : MonoBehaviour
 	public GameObject answer1;
 	public GameObject answer2;
 	public GameObject pickUpItemImage;
+    private AudioSource audioSource;
 
 	private List<Dialog> dialogs;
 	private GameObject player;
@@ -26,6 +27,7 @@ public class DialogManager : MonoBehaviour
 	{
 		player = FindObjectOfType<PlayerController> ().gameObject;
 		playerController = player.GetComponent<PlayerController> ();
+        audioSource = GetComponent<AudioSource>();
 		answer1.SetActive (false);
 		answer2.SetActive (false);
 		pickUpItemImage.SetActive (false);
@@ -71,8 +73,7 @@ public class DialogManager : MonoBehaviour
 		//根據上一個對話的回答，檢查之後的對話是否要被替換
 		if (currentDialogIndex > 0 && dialogs [currentDialogIndex - 1].Mode == "Ask") {
 			askDialogAnswerList.Add (askDialogAnswer);
-			if (askDialogAnswer == 1)
-				dialogs = dialogs; //不變
+            if (askDialogAnswer == 1) { }
 			else if (askDialogAnswer == 2) {
 				dialogs.RemoveRange (currentDialogIndex, dialogs.Count - currentDialogIndex);
 				dialogs.AddRange (dialogs [currentDialogIndex - 1].Answer2_Dialogs);
@@ -100,7 +101,12 @@ public class DialogManager : MonoBehaviour
 			answer2.SetActive (false);
 			pickUpItemImage.SetActive (true);
 			pickUpItemImage.transform.GetChild (0).GetComponent<Image> ().sprite = dialogs [currentDialogIndex].Item.GetComponent<SpriteRenderer> ().sprite;
-		}
+		} else if (dialogs[currentDialogIndex].Mode == "PlaySound")
+        {
+            audioSource.clip = dialogs[currentDialogIndex].audioClip;
+            audioSource.Play();
+        }
+        
 	}
 
 	public void ContinueDialog(GameObject gameobject)

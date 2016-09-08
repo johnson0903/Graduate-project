@@ -7,14 +7,12 @@ public class Bedroom_TrasCanAI : MonoBehaviour {
 
 	public GameObject bottle;
 
-	private GameObject player;
 	private DialogHolder dialogHolder;
 	private static bool isBottleTaken;
 
 	// Use this for initialization
 	void Start()
 	{
-		player = FindObjectOfType<PlayerController>().gameObject;
 		dialogHolder = this.GetComponent<DialogHolder>();
 		this.GetComponent<DialogHolder>().DialogOverEvent += OnDialogOver;
 	}
