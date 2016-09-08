@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips: []
 --- !u!61 &83103965
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -735,6 +736,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 570002833}
   - 114: {fileID: 570002834}
+  - 82: {fileID: 570002835}
   m_Layer: 5
   m_Name: Dialog Manager
   m_TagString: Untagged
@@ -775,6 +777,80 @@ MonoBehaviour:
   answer1: {fileID: 539160327}
   answer2: {fileID: 562935848}
   pickUpItemImage: {fileID: 478018154}
+--- !u!82 &570002835
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 570002832}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1001 &630267347
 Prefab:
   m_ObjectHideFlags: 0
@@ -990,6 +1066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips: []
 --- !u!61 &671428511
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1320,6 +1397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips: []
 --- !u!114 &743683655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1697,7 +1775,6 @@ GameObject:
   - 114: {fileID: 974423057}
   - 114: {fileID: 974423060}
   - 114: {fileID: 974423054}
-  - 114: {fileID: 974423061}
   - 82: {fileID: 974423059}
   m_Layer: 0
   m_Name: Door
@@ -1755,6 +1832,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: d4478a33775de5b48ba0d9e5f86c5b41, type: 3}
+  - {fileID: 8300000, guid: 5500fd71f707789449dd23bc32645aa2, type: 3}
+  - {fileID: 8300000, guid: 7e8d4c85f5a904047ae621468964543f, type: 3}
 --- !u!212 &974423058
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1870,21 +1951,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c5be7b90e3054e44bcf3b1a2abc0fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &974423061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 974423053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca27c082d7136b94b8a00495497116ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioClips:
-  - {fileID: 8300000, guid: d4478a33775de5b48ba0d9e5f86c5b41, type: 3}
-  - {fileID: 8300000, guid: 5500fd71f707789449dd23bc32645aa2, type: 3}
-  - {fileID: 8300000, guid: 7e8d4c85f5a904047ae621468964543f, type: 3}
 --- !u!1 &986059269
 GameObject:
   m_ObjectHideFlags: 0
@@ -3067,6 +3133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips: []
 --- !u!114 &2011389325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3239,6 +3306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips: []
 --- !u!61 &2050749367
 BoxCollider2D:
   m_ObjectHideFlags: 0

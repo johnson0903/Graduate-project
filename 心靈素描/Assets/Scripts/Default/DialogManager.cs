@@ -73,8 +73,8 @@ public class DialogManager : MonoBehaviour
 		//根據上一個對話的回答，檢查之後的對話是否要被替換
 		if (currentDialogIndex > 0 && dialogs [currentDialogIndex - 1].Mode == "Ask") {
 			askDialogAnswerList.Add (askDialogAnswer);
-            if (askDialogAnswer == 1) { }
-			else if (askDialogAnswer == 2) {
+			if (askDialogAnswer == 1) {
+			} else if (askDialogAnswer == 2) {
 				dialogs.RemoveRange (currentDialogIndex, dialogs.Count - currentDialogIndex);
 				dialogs.AddRange (dialogs [currentDialogIndex - 1].Answer2_Dialogs);
 			}	
@@ -101,15 +101,14 @@ public class DialogManager : MonoBehaviour
 			answer2.SetActive (false);
 			pickUpItemImage.SetActive (true);
 			pickUpItemImage.transform.GetChild (0).GetComponent<Image> ().sprite = dialogs [currentDialogIndex].Item.GetComponent<SpriteRenderer> ().sprite;
-		} else if (dialogs[currentDialogIndex].Mode == "PlaySound")
-        {
+		} else if (dialogs [currentDialogIndex].Mode == "PlaySound") {
 			dText.text = dialogs [currentDialogIndex].Content;
 			answer1.SetActive (false);
 			answer2.SetActive (false);
 			pickUpItemImage.SetActive (false);
-            audioSource.clip = dialogs[currentDialogIndex].audioClip;
-            audioSource.Play();
-        }
+			audioSource.clip = dialogs [currentDialogIndex].audioClip;
+			audioSource.Play ();
+		}
         
 	}
 
@@ -132,9 +131,9 @@ public class DialogManager : MonoBehaviour
 	{
 		if (talkingObeject == gameobject) {
 			currentDialogIndex++;
-			if (currentDialogIndex >= dialogs.Count) {
+			if (currentDialogIndex >= dialogs.Count)
 				StartCoroutine (CloseDialog ());
-			} else
+			else
 				ShowDialogByMode ();
 		}
 	}

@@ -58,7 +58,7 @@ public class Bedroom_BookcaseAI : MonoBehaviour {
 	}
 		
 	void OnDialogOver(object sender, EventArgs e) {
-		if (dialogHolder.AskDialogAnswerList [0] == 1) {
+		if (dialogHolder.AskDialogAnswerList.Count > 0 && dialogHolder.AskDialogAnswerList [0] == 1) {
 			if (!pencilTombPaintHasBeenTaken) {
 				if (bookCaseTalkCount == 2) {
 					pencilTombPaintHasBeenTaken = true;

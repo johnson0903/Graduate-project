@@ -22,9 +22,10 @@ public class DialogHolder : MonoBehaviour
 	{
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			if (!isAutoPopUp && dialogs != null) {
-				if (!dialogManager.IsDialogActive && isPlayerInRange)
-					dialogManager.StartDialog (this.gameObject);
-				else
+				if (!dialogManager.IsDialogActive) {
+					if (isPlayerInRange)
+						dialogManager.StartDialog (this.gameObject);
+				} else
 					dialogManager.ContinueDialog (this.gameObject);
 			}
 		}
@@ -64,12 +65,12 @@ public class DialogHolder : MonoBehaviour
 		return dialog;
 	}
 
-    public Dialog PlaySoundEffectDialog(string soundContent, int soundEffectIndex)
+    public Dialog PlaySoundDialog(string soundContent, int soundIndex)
     {
         Dialog dialog = new Dialog();
         dialog.Mode = "PlaySound";
         dialog.Content = soundContent;
-        dialog.audioClip = audioClips[soundEffectIndex];
+        dialog.audioClip = audioClips[soundIndex];
         return dialog;
     }
 

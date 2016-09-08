@@ -47,7 +47,6 @@
   <ItemGroup>
      <Compile Include="Assets\Corridor_MissionCompleteDialog.cs" />
      <Compile Include="Assets\Corridor_PopUpDialog.cs" />
-     <Compile Include="Assets\Scripts\AudioSwitcher.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bathroom_SinkAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_BathroomDoorAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_BookcaseAI.cs" />

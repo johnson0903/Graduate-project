@@ -35,9 +35,9 @@ public class Bedroom_DoorAI : MonoBehaviour
 	{
 		if (!isBedroomDoorOpen) {
 			if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BedroomKey")) {
-				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundEffectDialog ("使用臥室的鑰匙", DOOR_OPEN) };
+				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog ("使用臥室的鑰匙", DOOR_OPEN) };
 			} else {
-				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundEffectDialog ("門關得緊緊的...", DOOR_LOCKED) };
+				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog ("門關得緊緊的...", DOOR_LOCKED) };
 			}
 		} 
 		else 
@@ -51,7 +51,7 @@ public class Bedroom_DoorAI : MonoBehaviour
 
 	void OnDialogOver (object sender, EventArgs e)
 	{
-		if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BedroomKey") || isBedroomDoorOpen) {
+		//if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BedroomKey") || isBedroomDoorOpen) {
 			isBedroomDoorOpen = true;
 			ChangeSceneByBedroomDoor = true;
 			if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BedroomKey"))
@@ -62,5 +62,5 @@ public class Bedroom_DoorAI : MonoBehaviour
 				SceneManager.LoadScene (0);
 			}
 		}
-	}
+	//}
 }

@@ -329,6 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips: []
 --- !u!61 &382548167
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -441,6 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips: []
 --- !u!61 &433025882
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -520,6 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips: []
 --- !u!61 &555003385
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -620,6 +623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips: []
 --- !u!61 &586049347
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1014,6 +1018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips: []
 --- !u!61 &1083842308
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1148,7 +1153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9525a4e684bab03479c7cc151fc221ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportX: -42
+  teleportX: -55
 --- !u!1 &1219314122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,6 +1233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips: []
 --- !u!1001 &1374169142
 Prefab:
   m_ObjectHideFlags: 0
@@ -1315,6 +1321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips: []
 --- !u!114 &1377265626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1668,7 +1675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9525a4e684bab03479c7cc151fc221ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportX: 43
+  teleportX: 55
 --- !u!1 &2113875926
 GameObject:
   m_ObjectHideFlags: 0
