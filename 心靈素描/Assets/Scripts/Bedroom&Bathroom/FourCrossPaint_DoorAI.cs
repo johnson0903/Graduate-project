@@ -8,12 +8,15 @@ public class FourCrossPaint_DoorAI : MonoBehaviour {
 
 	private GameObject player;
 	private DialogHolder dialogHolder;
+	private SceneLoader sceneLoader;
+
 	private static bool hasDialogPopUpInFourCrossPaint;
 
 	// Use this for initialization
 	void Start () {
 		player = FindObjectOfType<PlayerController> ().gameObject;
 		dialogHolder = this.GetComponent<DialogHolder> ();
+		sceneLoader = FindObjectOfType<SceneLoader> ();
 		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
 
 		player.transform.position = new Vector3 (this.transform.position.x, player.transform.position.y, player.transform.position.z);
@@ -45,7 +48,7 @@ public class FourCrossPaint_DoorAI : MonoBehaviour {
 			hasDialogPopUpInFourCrossPaint = true;
 		else if (dialogHolder.AskDialogAnswerList [0] == 1) {
 			player.GetComponent<PlayerController> ().MoveToOriginPositionX ();
-			SceneManager.LoadScene (0);
+			sceneLoader.LoadScene (0);
 		}
 	}
 }

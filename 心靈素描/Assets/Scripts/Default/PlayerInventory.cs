@@ -62,7 +62,7 @@ public class PlayerInventory : MonoBehaviour {
 			bag.transform.FindChild ("ItemDescription").FindChild ("Description").gameObject.SetActive (true);
 
 			bag.transform.FindChild ("ItemDescription").FindChild ("Image").GetComponent<Image> ().sprite = inventory [selectedItemCount - 1].GetComponent<SpriteRenderer> ().sprite;
-			bag.transform.FindChild ("ItemDescription").FindChild ("Name").GetComponent<Text> ().text = inventory [selectedItemCount - 1].GetComponent<ItemData> ().name;
+			bag.transform.FindChild ("ItemDescription").FindChild ("Name").GetComponent<Text> ().text = inventory [selectedItemCount - 1].GetComponent<ItemData> ().itemName;
 			bag.transform.FindChild ("ItemDescription").FindChild ("Description").GetComponent<Text> ().text = inventory [selectedItemCount - 1].GetComponent<ItemData> ().description;
 
 			for (int i = 1; i < inventory.Count + 1; i++) {

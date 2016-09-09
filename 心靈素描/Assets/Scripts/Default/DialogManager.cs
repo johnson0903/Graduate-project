@@ -141,8 +141,8 @@ public class DialogManager : MonoBehaviour
 	public IEnumerator CloseDialog() {
 		yield return null;
 		isDialogActive = false;
-		talkingObeject.GetComponent<DialogHolder> ().TellObjectDialogIsOver ();
 		playerController.YouCanMove ();
+		talkingObeject.GetComponent<DialogHolder> ().TellObjectDialogIsOver ();
 	}
 
 	public bool IsDialogActive {

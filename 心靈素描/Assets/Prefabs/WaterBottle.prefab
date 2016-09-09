@@ -40,10 +40,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833f2aa08ce6cd64682a386c9c50b6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: "\u88DD\u8457\u6C34\u7684\u74F6\u5B50"
+  itemName: "\u88DD\u8457\u6C34\u7684\u74F6\u5B50"
   description: "\u74F6\u5B50\u88E1\u88DD\u8457\u6E05\u6F88\u7684\u6C34\uFF0C\u7528\u9014\u61C9\u8A72\u76F8\u7576\u591A\u3002"
-  changeSceneMode: 0
-  whatSceneToGo: 0
 --- !u!212 &21291466
 SpriteRenderer:
   m_ObjectHideFlags: 1

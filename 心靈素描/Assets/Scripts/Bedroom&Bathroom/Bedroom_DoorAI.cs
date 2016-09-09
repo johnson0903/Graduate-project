@@ -8,6 +8,7 @@ public class Bedroom_DoorAI : MonoBehaviour
 {
 	private GameObject player;
 	private DialogHolder dialogHolder;
+	private SceneLoader sceneLoader;
 
 	private const int DOOR_LOCKED = 0;
 	private const int DOOR_OPEN = 1;
@@ -22,6 +23,7 @@ public class Bedroom_DoorAI : MonoBehaviour
 	{
 		player = FindObjectOfType<PlayerController> ().gameObject;
 		dialogHolder = this.GetComponent<DialogHolder> ();
+		sceneLoader = FindObjectOfType<SceneLoader> ();
 		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
 
 		if (ChangeSceneByBedroomDoor) {	
@@ -52,15 +54,15 @@ public class Bedroom_DoorAI : MonoBehaviour
 	void OnDialogOver (object sender, EventArgs e)
 	{
 		//if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BedroomKey") || isBedroomDoorOpen) {
-			isBedroomDoorOpen = true;
-			ChangeSceneByBedroomDoor = true;
-			if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BedroomKey"))
-				player.GetComponent<PlayerInventory> ().DropItem ("BedroomKey");
-			if (SceneManager.GetActiveScene ().buildIndex == 0) {
-				SceneManager.LoadScene (4);
-			} else {
-				SceneManager.LoadScene (0);
-			}
+		isBedroomDoorOpen = true;
+		ChangeSceneByBedroomDoor = true;
+		if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BedroomKey"))
+			player.GetComponent<PlayerInventory> ().DropItem ("BedroomKey");
+		if (SceneManager.GetActiveScene ().buildIndex == 0) {
+			sceneLoader.LoadScene (4);
+		} else {
+			sceneLoader.LoadScene (0);
 		}
+	}
 	//}
 }

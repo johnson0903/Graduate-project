@@ -8,12 +8,15 @@ public class Bedroom_BathroomDoorAI : MonoBehaviour {
 
 	private GameObject player;
 	private DialogHolder dialogHolder;
+	private SceneLoader sceneLoader;
+
 	private static bool ChangeSceneByBathroomDoor;
 
 	// Use this for initialization
 	void Start () {
 		player = FindObjectOfType<PlayerController> ().gameObject;
 		dialogHolder = this.GetComponent<DialogHolder> ();
+		sceneLoader = FindObjectOfType<SceneLoader> ();
 		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
 
 		if (ChangeSceneByBathroomDoor) {	
@@ -34,9 +37,9 @@ public class Bedroom_BathroomDoorAI : MonoBehaviour {
 	{
 		ChangeSceneByBathroomDoor = true;
 		if (SceneManager.GetActiveScene ().buildIndex == 0)
-			SceneManager.LoadScene (1);
+			sceneLoader.LoadScene (1);
 		else
-			SceneManager.LoadScene (0);
+			sceneLoader.LoadScene (0);
 	}
 
 }

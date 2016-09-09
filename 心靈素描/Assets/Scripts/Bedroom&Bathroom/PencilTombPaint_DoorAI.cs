@@ -8,6 +8,8 @@ public class PencilTombPaint_DoorAI : MonoBehaviour {
 
 	private GameObject player;
 	private DialogHolder dialogHolder;
+	private SceneLoader sceneLoader;
+
 	private static bool hasDialogPopUpInPencilTombPaint;
 	private static bool ChangeSceneByPencilTombDoor;
 
@@ -15,6 +17,7 @@ public class PencilTombPaint_DoorAI : MonoBehaviour {
 	void Start () {
 		player = FindObjectOfType<PlayerController> ().gameObject;
 		dialogHolder = this.GetComponent<DialogHolder> ();
+		sceneLoader = FindObjectOfType<SceneLoader> ();
 		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
 
 		if (ChangeSceneByPencilTombDoor) {	
@@ -56,14 +59,14 @@ public class PencilTombPaint_DoorAI : MonoBehaviour {
 		if (SceneManager.GetActiveScene ().buildIndex == 0) {
 			if (dialogHolder.AskDialogAnswerList [0] == 1) {
 				ChangeSceneByPencilTombDoor = true;
-				SceneManager.LoadScene (2);		
+				sceneLoader.LoadScene (2);		
 			}
 		} else {
 			if (!hasDialogPopUpInPencilTombPaint)
 				hasDialogPopUpInPencilTombPaint = true;
 			else if (dialogHolder.AskDialogAnswerList [0] == 1) {
 				ChangeSceneByPencilTombDoor = true;
-				SceneManager.LoadScene (0);
+				sceneLoader.LoadScene (0);
 			}
 		}
 	}
