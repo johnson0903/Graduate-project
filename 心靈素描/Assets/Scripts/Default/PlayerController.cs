@@ -52,5 +52,9 @@ public class PlayerController : MonoBehaviour
 	public static float OriginPositionX {
 		get{ return originPositionX; }
 	}
+
+	public float Speed {
+		get{ return speed; }
+	}
 		
 }

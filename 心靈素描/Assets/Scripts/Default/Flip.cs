@@ -15,9 +15,11 @@ public class Flip : MonoBehaviour {
 		
 
 	void FlipPlayer(){
-		isFacingRight = !isFacingRight; 	
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+		if (this.GetComponent<PlayerController> ().Speed != 0) {
+			isFacingRight = !isFacingRight; 	
+			Vector3 theScale = transform.localScale;
+			theScale.x *= -1;
+			transform.localScale = theScale;
+		}
 	}
 }

@@ -4,9 +4,10 @@ using System.Collections;
 public class SymmetryPuzzle : MonoBehaviour {
 
 	public GameObject clock;
-	public GameObject umBrellaGirl_Left;
-	public GameObject umBrellaGirl_Right;
-	public Sprite umbrellaGirlWithBlood;
+	public GameObject umBrellaGirlPaint_Left;
+	public GameObject umBrellaGirlPaint_Right;
+	public Sprite umbrellaGirlWithBlood_Left;
+	public Sprite umbrellaGirlWithBlood_Right;
 	public GameObject missionCompleteDialog;
 	public GameObject teleportPoint_Left;
 	public GameObject teleportPoint_Right;
@@ -16,16 +17,16 @@ public class SymmetryPuzzle : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if (isSymmetryPuzzleOver) {
-			umBrellaGirl_Left.transform.FindChild("GirlWithUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
-			umBrellaGirl_Right.transform.FindChild("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
+			umBrellaGirlPaint_Left.transform.FindChild("GirlWithUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood_Left;
+			umBrellaGirlPaint_Right.transform.FindChild("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood_Right;
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (!isSymmetryPuzzleOver &&
-			umBrellaGirl_Left.transform.FindChild("GirlWithUmbrella").GetComponent<SpriteRenderer> ().sprite == umbrellaGirlWithBlood &&
-			umBrellaGirl_Right.transform.FindChild("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite == umbrellaGirlWithBlood &&
+			umBrellaGirlPaint_Left.transform.FindChild("GirlWithUmbrella").GetComponent<SpriteRenderer> ().sprite == umbrellaGirlWithBlood_Left &&
+			umBrellaGirlPaint_Right.transform.FindChild("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite == umbrellaGirlWithBlood_Right &&
 		    (clock.GetComponent<Corridor_ClockAI> ().Hour == 0 || clock.GetComponent<Corridor_ClockAI> ().Hour == 6)) {
 			isSymmetryPuzzleOver = true;
 			missionCompleteDialog.GetComponent<Corridor_MissionCompleteDialog> ().MissionComplete ();

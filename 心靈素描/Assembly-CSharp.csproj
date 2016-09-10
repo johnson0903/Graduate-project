@@ -84,6 +84,8 @@
      <Compile Include="Assets\Scripts\Default\ShowBagList.cs" />
      <Compile Include="Assets\Scripts\Default\ShowHintImage.cs" />
      <Compile Include="Assets\Scripts\DogeAI.cs" />
+     <Compile Include="Assets\UmbrellaGirlAI.cs" />
+     <Compile Include="Assets\UmbrellaGirlTriggerAI.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

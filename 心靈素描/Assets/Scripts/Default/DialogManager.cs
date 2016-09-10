@@ -16,6 +16,7 @@ public class DialogManager : MonoBehaviour
 	private GameObject player;
 
 	private PlayerController playerController;
+
 	private GameObject talkingObeject;
 	private bool isDialogActive;
 	private int askDialogAnswer;

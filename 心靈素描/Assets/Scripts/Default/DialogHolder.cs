@@ -9,6 +9,7 @@ public class DialogHolder : MonoBehaviour
     public AudioClip[] audioClips;
 
     private DialogManager dialogManager;
+	private SceneLoader sceneLoader;
 	private List<Dialog> dialogs;
 	private bool isPlayerInRange;
 	private bool isAutoPopUp;
@@ -16,12 +17,13 @@ public class DialogHolder : MonoBehaviour
 	void Start()
 	{
 		dialogManager = FindObjectOfType<DialogManager>();
+		sceneLoader = FindObjectOfType<SceneLoader> ();
 	}
 
 	void Update()
 	{
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			if (!isAutoPopUp && dialogs != null) {
+			if (!isAutoPopUp && dialogs != null && !sceneLoader.IsLoading) {
 				if (!dialogManager.IsDialogActive) {
 					if (isPlayerInRange)
 						dialogManager.StartDialog (this.gameObject);
@@ -32,7 +34,7 @@ public class DialogHolder : MonoBehaviour
 	}
 
 	void OnTriggerStay2D(Collider2D other) {
-		if (isAutoPopUp && dialogs != null && isPlayerInRange) {
+		if (isAutoPopUp && dialogs != null && isPlayerInRange && !sceneLoader.IsLoading) {
 			dialogManager.StartDialog (this.gameObject);
 			isAutoPopUp = false;
 		}

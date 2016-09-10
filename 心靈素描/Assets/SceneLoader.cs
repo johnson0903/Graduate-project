@@ -11,6 +11,8 @@ public class SceneLoader : MonoBehaviour {
 	private bool isFadingIn;
 	private bool isFadingOut;
 
+	private bool isLoading;
+
 	// Use this for initialization
 	void Start () {
 		dialogManager = FindObjectOfType<DialogManager> ();
@@ -26,16 +28,18 @@ public class SceneLoader : MonoBehaviour {
 			GetComponent<Image> ().color = new Color (1, 1, 1, Mathf.Lerp (GetComponent<Image> ().color.a, 0, 0.1f));
 			if (!dialogManager.IsDialogActive && GetComponent<Image> ().color.a <= 0.01) {
 				isFadingOut = false;
+				isLoading = false;
 				playerController.YouCanMove ();
 			}
 		}
 	}
 
 	public void LoadScene(int whatSceneToLoad) {
+		playerController.DontMove ();
 		isFadingIn = true;
 		isFadingOut = false;
 		sceneNum = whatSceneToLoad;
-		playerController.DontMove ();
+		isLoading = true;
 		Invoke ("LoadSceneAfterOneSecond", 1);
 	}
 
@@ -43,5 +47,9 @@ public class SceneLoader : MonoBehaviour {
 		SceneManager.LoadScene (sceneNum);
 		isFadingIn = false;
 		isFadingOut = true;
+	}
+
+	public bool IsLoading {
+		get{ return isLoading; }
 	}
 }
