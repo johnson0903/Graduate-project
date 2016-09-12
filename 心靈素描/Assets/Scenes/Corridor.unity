@@ -531,7 +531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: 2cbc49c32e9a48741a1cf4cdd8316638, type: 3}
 --- !u!61 &382548167
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1295,7 +1296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: 2cbc49c32e9a48741a1cf4cdd8316638, type: 3}
 --- !u!61 &1083842308
 BoxCollider2D:
   m_ObjectHideFlags: 0

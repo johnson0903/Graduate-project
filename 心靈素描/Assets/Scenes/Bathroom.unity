@@ -168,8 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c5be7b90e3054e44bcf3b1a2abc0fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintImage1: {fileID: 21300000, guid: 26011fb013996461b8c09ea22de828c6, type: 3}
-  hintImage2: {fileID: 21300000, guid: e280b4382a3d34c27b860e7dd5cbadc9, type: 3}
 --- !u!4 &137016417
 Transform:
   m_ObjectHideFlags: 0
@@ -208,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips: []
 --- !u!1 &246908687
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,8 +548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c5be7b90e3054e44bcf3b1a2abc0fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintImage1: {fileID: 21300000, guid: 26011fb013996461b8c09ea22de828c6, type: 3}
-  hintImage2: {fileID: 21300000, guid: e280b4382a3d34c27b860e7dd5cbadc9, type: 3}
 --- !u!114 &1881647056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,6 +559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 90e53cec2a0a9374f9663c568f3cee6c, type: 3}
 --- !u!61 &1881647057
 BoxCollider2D:
   m_ObjectHideFlags: 0
