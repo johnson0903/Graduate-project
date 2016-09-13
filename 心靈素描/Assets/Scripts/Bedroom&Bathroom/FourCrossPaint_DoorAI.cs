@@ -48,7 +48,7 @@ public class FourCrossPaint_DoorAI : MonoBehaviour {
 			hasDialogPopUpInFourCrossPaint = true;
 		else if (dialogHolder.AskDialogAnswerList [0] == 1) {
 			player.GetComponent<PlayerController> ().MoveToOriginPositionX ();
-			sceneLoader.LoadScene (0);
+			sceneLoader.LoadSceneAndMovePlayer (0, new Vector3(0, player.transform.position.y, 0), 1);
 		}
 	}
 }

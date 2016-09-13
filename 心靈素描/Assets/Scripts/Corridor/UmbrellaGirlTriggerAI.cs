@@ -27,14 +27,14 @@ public class UmbrellaGirlTriggerAI : MonoBehaviour {
 		if (!isShockedInCorridor) {
 			if (umBrellaGirlPaint_Left.transform.FindChild ("GirlWithUmbrella").GetComponent<SpriteRenderer> ().sprite == umbrellaGirlWithBlood_Left &&
 			    umBrellaGirlPaint_Right.transform.FindChild ("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite == umbrellaGirlWithBlood_Right) {
+				dialogHolder.Dialogs = new List<Dialog> {
+					dialogHolder.TalkDialog ("........."),
+					dialogHolder.TalkDialog ("......!!!"),
+				};
 				dialogHolder.IsAutoPopUp = true;
 				umbrellaGirl.SetActive (true);
 				umBrellaGirlPaint_Left.transform.FindChild ("GirlWithUmbrella").GetComponent<SpriteRenderer> ().sprite = black;
 			}
-			dialogHolder.Dialogs = new List<Dialog> {
-				dialogHolder.TalkDialog ("........."),
-				dialogHolder.TalkDialog ("......!!!"),
-			};
 		} else
 			dialogHolder.Dialogs = null;
 

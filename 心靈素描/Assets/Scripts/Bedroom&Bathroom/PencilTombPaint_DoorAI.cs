@@ -59,14 +59,14 @@ public class PencilTombPaint_DoorAI : MonoBehaviour {
 		if (SceneManager.GetActiveScene ().buildIndex == 0) {
 			if (dialogHolder.AskDialogAnswerList [0] == 1) {
 				ChangeSceneByPencilTombDoor = true;
-				sceneLoader.LoadScene (2);		
+				sceneLoader.LoadSceneAndMovePlayer (2, new Vector3 (-17.8f, player.transform.position.y, 0), 1);		
 			}
 		} else {
 			if (!hasDialogPopUpInPencilTombPaint)
 				hasDialogPopUpInPencilTombPaint = true;
 			else if (dialogHolder.AskDialogAnswerList [0] == 1) {
 				ChangeSceneByPencilTombDoor = true;
-				sceneLoader.LoadScene (0);
+				sceneLoader.LoadSceneAndMovePlayer (0, new Vector3 (-17.5f, player.transform.position.y, 0), 1);
 			}
 		}
 	}

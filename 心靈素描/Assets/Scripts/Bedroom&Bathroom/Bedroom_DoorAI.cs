@@ -15,7 +15,6 @@ public class Bedroom_DoorAI : MonoBehaviour
 	private const int DOOR_CLOSED = 2;
 
 	private static bool isBedroomDoorOpen;
-	private static bool ChangeSceneByBedroomDoor;
 	private static bool hasDialogPopUpInCorridor;
 
 	// Use this for initialization
@@ -25,11 +24,6 @@ public class Bedroom_DoorAI : MonoBehaviour
 		dialogHolder = this.GetComponent<DialogHolder> ();
 		sceneLoader = FindObjectOfType<SceneLoader> ();
 		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
-
-		if (ChangeSceneByBedroomDoor) {	
-			player.transform.position = new Vector3 (this.transform.position.x, player.transform.position.y, player.transform.position.z);
-			ChangeSceneByBedroomDoor = false;
-		}
 	}
 
 	// Update is called once per frame
@@ -55,13 +49,12 @@ public class Bedroom_DoorAI : MonoBehaviour
 	{
 		//if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BedroomKey") || isBedroomDoorOpen) {
 		isBedroomDoorOpen = true;
-		ChangeSceneByBedroomDoor = true;
 		if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BedroomKey"))
 			player.GetComponent<PlayerInventory> ().DropItem ("BedroomKey");
 		if (SceneManager.GetActiveScene ().buildIndex == 0) {
-			sceneLoader.LoadScene (4);
+			sceneLoader.LoadSceneAndMovePlayer (4, new Vector3(0, player.transform.position.y, 0), 1);
 		} else {
-			sceneLoader.LoadScene (0);
+			sceneLoader.LoadSceneAndMovePlayer (0, new Vector3(28, player.transform.position.y, 0), -1);
 		}
 	}
 	//}

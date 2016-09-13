@@ -10,19 +10,12 @@ public class Bedroom_BathroomDoorAI : MonoBehaviour {
 	private DialogHolder dialogHolder;
 	private SceneLoader sceneLoader;
 
-	private static bool ChangeSceneByBathroomDoor;
-
 	// Use this for initialization
 	void Start () {
 		player = FindObjectOfType<PlayerController> ().gameObject;
 		dialogHolder = this.GetComponent<DialogHolder> ();
 		sceneLoader = FindObjectOfType<SceneLoader> ();
 		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
-
-		if (ChangeSceneByBathroomDoor) {	
-			player.transform.position = new Vector3 (this.transform.position.x, player.transform.position.y, player.transform.position.z);
-			ChangeSceneByBathroomDoor = false;
-		}
 	}
 
 	// Update is called once per frame
@@ -35,11 +28,10 @@ public class Bedroom_BathroomDoorAI : MonoBehaviour {
 
 	void OnDialogOver (object sender, EventArgs e)
 	{
-		ChangeSceneByBathroomDoor = true;
 		if (SceneManager.GetActiveScene ().buildIndex == 0)
-			sceneLoader.LoadScene (1);
+			sceneLoader.LoadSceneAndMovePlayer (1, new Vector3(17, player.transform.position.y, 0), -1);
 		else
-			sceneLoader.LoadScene (0);
+			sceneLoader.LoadSceneAndMovePlayer (0, new Vector3(18.8f, player.transform.position.y, 0), 1);
 	}
 
 }
