@@ -39,9 +39,9 @@ public class Bedroom_DoorAI : MonoBehaviour
 		else 
 		{
 			if (SceneManager.GetActiveScene ().buildIndex == 0)
-				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("通往走廊") };
+				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog ("通往走廊", DOOR_OPEN) };
 			else
-				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("通往臥室") };
+				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog ("通往臥室", DOOR_OPEN) };
 		}
 	}
 
