@@ -19,36 +19,45 @@ public class FourCrossPaint_DoorAI : MonoBehaviour {
 		sceneLoader = FindObjectOfType<SceneLoader> ();
 		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
 
-		player.transform.position = new Vector3 (this.transform.position.x, player.transform.position.y, player.transform.position.z);
-
-		if(!hasDialogPopUpInFourCrossPaint)
+		if(SceneManager.GetActiveScene ().buildIndex == 3 && !hasDialogPopUpInFourCrossPaint)
 			dialogHolder.IsAutoPopUp = true;
 	}
 
 	// Update is called once per frame
 	void Update () {
-
-		if (!hasDialogPopUpInFourCrossPaint)
+		if (SceneManager.GetActiveScene ().buildIndex == 6) {
 			dialogHolder.Dialogs = new List<Dialog> {
-			dialogHolder.TalkDialog ("颯颯颯颯....."),
-			dialogHolder.TalkDialog ("乾燥的風迎面而來"),
-		};
-		else
-			dialogHolder.Dialogs = new List<Dialog> {
-			dialogHolder.TalkDialog (".........."),
-			dialogHolder.AskDialog ("回去", "待著", new List<Dialog> {
-				dialogHolder.TalkDialog ("再調查一下好了")
-			}), dialogHolder.TalkDialog ("..................")
-		};
+				dialogHolder.TalkDialog ("牆上掛著一幅奇怪的畫"),
+				dialogHolder.AskDialog ("繼續盯著看", "離開", new List<Dialog> {
+					dialogHolder.TalkDialog ("有種奇怪的感覺...")
+				}), dialogHolder.TalkDialog ("感覺...意志要被吸進去了")
+			};
+		} else {
+			if (!hasDialogPopUpInFourCrossPaint)
+				dialogHolder.Dialogs = new List<Dialog> {
+				dialogHolder.TalkDialog ("一望無際的沙漠景象"),
+				dialogHolder.TalkDialog ("有點乾燥的風迎面而來"),
+			};
+			else
+				dialogHolder.Dialogs = new List<Dialog> {
+				dialogHolder.TalkDialog (".........."),
+				dialogHolder.AskDialog ("回去", "待著", new List<Dialog> {
+					dialogHolder.TalkDialog ("再調查一下好了")
+				}), dialogHolder.TalkDialog ("..................")
+			};
+		}
 	}
 
 	void OnDialogOver (object sender, EventArgs e)
 	{
-		if (!hasDialogPopUpInFourCrossPaint)
-			hasDialogPopUpInFourCrossPaint = true;
-		else if (dialogHolder.AskDialogAnswerList [0] == 1) {
-			player.GetComponent<PlayerController> ().MoveToOriginPositionX ();
-			sceneLoader.LoadSceneAndMovePlayer (0, new Vector3(0, player.transform.position.y, 0), 1);
+		if (SceneManager.GetActiveScene ().buildIndex == 6) {
+			if (dialogHolder.AskDialogAnswerList [0] == 1)
+				sceneLoader.LoadSceneAndMovePlayer (3, new Vector3 (-15, player.transform.position.y, 0), 1);				
+		} else {
+			if (!hasDialogPopUpInFourCrossPaint)
+				hasDialogPopUpInFourCrossPaint = true;
+			else if (dialogHolder.AskDialogAnswerList [0] == 1)
+				sceneLoader.LoadSceneAndMovePlayer (6, new Vector3 (-15, player.transform.position.y, 0), 1);
 		}
 	}
 }

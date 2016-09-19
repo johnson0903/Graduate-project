@@ -11,7 +11,6 @@ public class PencilTombPaint_DoorAI : MonoBehaviour {
 	private SceneLoader sceneLoader;
 
 	private static bool hasDialogPopUpInPencilTombPaint;
-	private static bool ChangeSceneByPencilTombDoor;
 
 	// Use this for initialization
 	void Start () {
@@ -19,11 +18,6 @@ public class PencilTombPaint_DoorAI : MonoBehaviour {
 		dialogHolder = this.GetComponent<DialogHolder> ();
 		sceneLoader = FindObjectOfType<SceneLoader> ();
 		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
-
-		if (ChangeSceneByPencilTombDoor) {	
-			player.transform.position = new Vector3 (this.transform.position.x, player.transform.position.y, player.transform.position.z);
-			ChangeSceneByPencilTombDoor = false;
-		}
 			
 		if(SceneManager.GetActiveScene ().buildIndex == 2 && !hasDialogPopUpInPencilTombPaint)
 			dialogHolder.IsAutoPopUp = true;
@@ -57,17 +51,13 @@ public class PencilTombPaint_DoorAI : MonoBehaviour {
 	void OnDialogOver (object sender, EventArgs e)
 	{
 		if (SceneManager.GetActiveScene ().buildIndex == 0) {
-			if (dialogHolder.AskDialogAnswerList [0] == 1) {
-				ChangeSceneByPencilTombDoor = true;
-				sceneLoader.LoadSceneAndMovePlayer (2, new Vector3 (-17.8f, player.transform.position.y, 0), 1);		
-			}
+			if (dialogHolder.AskDialogAnswerList [0] == 1)
+				sceneLoader.LoadSceneAndMovePlayer (2, new Vector3 (-17.8f, player.transform.position.y, 0), 1);				
 		} else {
 			if (!hasDialogPopUpInPencilTombPaint)
 				hasDialogPopUpInPencilTombPaint = true;
-			else if (dialogHolder.AskDialogAnswerList [0] == 1) {
-				ChangeSceneByPencilTombDoor = true;
+			else if (dialogHolder.AskDialogAnswerList [0] == 1)
 				sceneLoader.LoadSceneAndMovePlayer (0, new Vector3 (-17.5f, player.transform.position.y, 0), 1);
-			}
 		}
 	}
 
