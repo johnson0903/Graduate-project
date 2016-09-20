@@ -45,7 +45,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\DadPaintAI.cs" />
+     <Compile Include="Assets\MomPaintAI.cs" />
      <Compile Include="Assets\MusicSwitcher.cs" />
+     <Compile Include="Assets\ParentsDoorAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bathroom_SinkAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_BathroomDoorAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bedroom_BookcaseAI.cs" />
