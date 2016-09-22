@@ -62,7 +62,7 @@
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_IronBoxAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPaint_MissionCompleteDialog.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\FourCrossPuzzle.cs" />
-     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\PencilTombAI.cs" />
+     <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\HiganFlowerAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\PencilTombPaint_DoorAI.cs" />
      <Compile Include="Assets\Scripts\ChangeCursor.cs" />
      <Compile Include="Assets\Scripts\Corridor\Corridor_ClockAI.cs" />

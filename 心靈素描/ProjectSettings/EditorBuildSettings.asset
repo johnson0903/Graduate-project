@@ -10,7 +10,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bathroom.unity
   - enabled: 1
-    path: Assets/Scenes/PencilTombPaint.unity
+    path: Assets/Scenes/HiganFlowerPaint.unity
   - enabled: 1
     path: Assets/Scenes/FourCrossPaint.unity
   - enabled: 1
