@@ -52,7 +52,7 @@ public class Bedroom_DoorAI : MonoBehaviour
 		if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BedroomKey"))
 			player.GetComponent<PlayerInventory> ().DropItem ("BedroomKey");
 		if (SceneManager.GetActiveScene ().buildIndex == 0) {
-			sceneLoader.LoadSceneAndMovePlayer (4, new Vector3(0, player.transform.position.y, 0), 1);
+			sceneLoader.LoadSceneAndMovePlayer (6, new Vector3(-25, player.transform.position.y, 0), 1);
 		} else {
 			sceneLoader.LoadSceneAndMovePlayer (0, new Vector3(28, player.transform.position.y, 0), -1);
 		}

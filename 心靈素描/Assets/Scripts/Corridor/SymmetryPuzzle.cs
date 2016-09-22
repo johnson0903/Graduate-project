@@ -7,6 +7,7 @@ public class SymmetryPuzzle : MonoBehaviour {
 	public GameObject backGround;
 
 	public GameObject goBackPaint;
+	public GameObject fastFowardPaint;
 	public GameObject umBrellaGirlPaint_Left;
 	public GameObject umBrellaGirlPaint_Right;
 	public GameObject missionCompleteDialog;
@@ -26,6 +27,7 @@ public class SymmetryPuzzle : MonoBehaviour {
 	void Start () {
 		if (isSymmetryPuzzleOver) {
 			goBackPaint.SetActive (false);
+			fastFowardPaint.GetComponent<FastFowardPaintAI> ().MissionComplete ();
 			umBrellaGirlPaint_Left.SetActive (false);
 			umBrellaGirlPaint_Right.transform.FindChild ("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood_Right;
 			FindObjectOfType<CameraController> ().gameObject.transform.Translate (new Vector3 (10, 0, 0));

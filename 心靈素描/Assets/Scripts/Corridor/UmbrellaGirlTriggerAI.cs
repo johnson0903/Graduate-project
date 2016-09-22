@@ -27,7 +27,6 @@ public class UmbrellaGirlTriggerAI : MonoBehaviour {
 		if (!isShockedInCorridor) {
 			if (umBrellaGirlPaint_Left.transform.FindChild ("GirlWithUmbrella").GetComponent<SpriteRenderer> ().sprite == umbrellaGirlWithBlood_Left &&
 			    umBrellaGirlPaint_Right.transform.FindChild ("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite == umbrellaGirlWithBlood_Right) {
-				Debug.Log (this.name);
 				dialogHolder.Dialogs = new List<Dialog> {
 					dialogHolder.TalkDialog ("........."),
 					dialogHolder.TalkDialog ("......!!!"),
@@ -38,12 +37,6 @@ public class UmbrellaGirlTriggerAI : MonoBehaviour {
 			}
 		} else
 			dialogHolder.Dialogs = null;
-
-		if (umbrellaGirl.GetComponent<UmbrellaGirlAI> ().IsOver) {
-			umBrellaGirlPaint_Left.transform.FindChild ("GirlWithUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood_Left;
-			umbrellaGirl.SetActive (false);
-		}
-		
 	}
 
 	void OnDialogOver (object sender, EventArgs e)

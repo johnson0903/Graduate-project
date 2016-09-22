@@ -19,14 +19,18 @@ public class ShowBagList : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Input.GetKeyDown (KeyCode.E) && !dialogManager.dBox.activeSelf) {
+		if (!dialogManager.dBox.activeSelf) {
 			if (!bagList.activeSelf) {
-				playerController.DontMove ();
-				bagList.SetActive (true);
+				if (Input.GetKeyDown (KeyCode.E)) {
+					playerController.DontMove ();
+					bagList.SetActive (true);
+				}
 			} else {
-				playerController.YouCanMove ();
-				bagList.SetActive (false);
-				playerController.gameObject.GetComponent<PlayerInventory>().RecoverSelectedItemCount ();
+				if (Input.GetKeyDown (KeyCode.E) || Input.GetKeyDown (KeyCode.Escape)) {
+					playerController.YouCanMove ();
+					bagList.SetActive (false);
+					playerController.gameObject.GetComponent<PlayerInventory> ().RecoverSelectedItemCount ();
+				}
 			}
 		}
 	}

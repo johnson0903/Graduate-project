@@ -8,7 +8,8 @@ public class DialogManager : MonoBehaviour
 	public GameObject dBox;
 	public Text dText;
 	public GameObject answer1;
-	public GameObject answer2;
+	public GameObject answer2;	
+	public GameObject escape;
 	public GameObject pickUpItemImage;
 
     private AudioSource audioSource;
@@ -39,8 +40,13 @@ public class DialogManager : MonoBehaviour
 	{
 		dBox.SetActive (isDialogActive);
 
-		if (answer1.activeSelf && answer2.gameObject.activeSelf)
+		if (answer1.activeSelf && answer2.gameObject.activeSelf) {
 			ShowAnswerMenu ();
+			if (Input.GetKeyDown (KeyCode.Escape)) {
+				isDialogActive = false;
+				playerController.YouCanMove ();
+			}
+		}
 	}
 
 	void ShowAnswerMenu()
@@ -85,11 +91,13 @@ public class DialogManager : MonoBehaviour
 			dText.text = dialogs [currentDialogIndex].Content;
 			answer1.SetActive (false);
 			answer2.SetActive (false);
+			escape.SetActive (false);
 			pickUpItemImage.SetActive (false);
 		} else if (dialogs [currentDialogIndex].Mode == "Ask") {
 			askDialogAnswer = 1;
 			answer1.SetActive (true);
 			answer2.SetActive (true);
+			escape.SetActive (true);
 			pickUpItemImage.SetActive (false);
 			answer1.GetComponentInChildren<Text> ().text = dialogs [currentDialogIndex].Answer1;
 			answer2.GetComponentInChildren<Text> ().text = dialogs [currentDialogIndex].Answer2;
@@ -100,12 +108,14 @@ public class DialogManager : MonoBehaviour
 			player.GetComponent<PlayerInventory> ().PickUpItem (g);
 			answer1.SetActive (false);
 			answer2.SetActive (false);
+			escape.SetActive (false);
 			pickUpItemImage.SetActive (true);
 			pickUpItemImage.transform.GetChild (0).GetComponent<Image> ().sprite = dialogs [currentDialogIndex].Item.GetComponent<SpriteRenderer> ().sprite;
 		} else if (dialogs [currentDialogIndex].Mode == "PlaySound") {
 			dText.text = dialogs [currentDialogIndex].Content;
 			answer1.SetActive (false);
 			answer2.SetActive (false);
+			escape.SetActive (false);
 			pickUpItemImage.SetActive (false);
 			audioSource.clip = dialogs [currentDialogIndex].audioClip;
 			audioSource.Play ();

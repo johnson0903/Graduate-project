@@ -23,6 +23,7 @@ public class GoBackPaintAI : MonoBehaviour {
 	void Update()
 	{
 		dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("一幅全黑的畫 中央畫著大大的綠色三角形"),
+			dialogHolder.TalkDialog ("中央還在不停地閃爍..."),
 			dialogHolder.AskDialog ("摸摸看", "離開", new List<Dialog>{ dialogHolder.TalkDialog ("感覺這圖案在哪裡看過...") }),
 			dialogHolder.TalkDialog ("你摸了位於中央的綠色三角形"),
 			dialogHolder.PlaySoundDialog ("喀啦－", SPILLING_SFX),

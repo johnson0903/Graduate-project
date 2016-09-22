@@ -91,6 +91,7 @@
      <Compile Include="Assets\Scripts\Default\ShowHintImage.cs" />
      <Compile Include="Assets\Scripts\DogeAI.cs" />
      <Compile Include="Assets\Scripts\MusicController.cs" />
+     <Compile Include="Assets\Twinkle.cs" />
      <Compile Include="Assets\bgmManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

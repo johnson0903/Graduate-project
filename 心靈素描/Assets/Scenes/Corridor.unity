@@ -1732,6 +1732,7 @@ MonoBehaviour:
   clock: {fileID: 1954194581}
   backGround: {fileID: 995175601}
   goBackPaint: {fileID: 382548162}
+  fastFowardPaint: {fileID: 1083842303}
   umBrellaGirlPaint_Left: {fileID: 586049342}
   umBrellaGirlPaint_Right: {fileID: 433025877}
   missionCompleteDialog: {fileID: 555003381}
@@ -1936,6 +1937,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2021951858}
   - 212: {fileID: 2021951859}
+  - 114: {fileID: 2021951860}
   m_Layer: 0
   m_Name: FastFoward
   m_TagString: Untagged
@@ -1985,6 +1987,19 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &2021951860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2021951857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ed759a858fa2942a38450a86d04fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  twoDLight: {fileID: 2100000, guid: cc9fe511e77c48a43827c4dfc2d232ff, type: 2}
+  normal: {fileID: 2100000, guid: 87f7df6b2693f8c44b6860c609b493ba, type: 2}
 --- !u!1 &2033492690
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,6 +2094,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2113875927}
   - 212: {fileID: 2113875928}
+  - 114: {fileID: 2113875929}
   m_Layer: 0
   m_Name: GoBack
   m_TagString: Untagged
@@ -2128,3 +2144,16 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &2113875929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2113875926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ed759a858fa2942a38450a86d04fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  twoDLight: {fileID: 2100000, guid: cc9fe511e77c48a43827c4dfc2d232ff, type: 2}
+  normal: {fileID: 2100000, guid: 87f7df6b2693f8c44b6860c609b493ba, type: 2}

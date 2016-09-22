@@ -49,9 +49,6 @@ public class UmbrellaGirlPaint_RightAI : MonoBehaviour {
 			};
 	}
 
-
-
-
 	void OnDialogOver(object sender, EventArgs e)
 	{	
 		if (!isKilled) {
