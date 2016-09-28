@@ -11,6 +11,8 @@ public class DialogManager : MonoBehaviour
 	public GameObject answer2;	
 	public GameObject escape;
 	public GameObject pickUpItemImage;
+	public AudioClip mouseEffectClip;
+	public AudioClip dialogOpenClip;
 
     private AudioSource audioSource;
 	private List<Dialog> dialogs;
@@ -43,6 +45,7 @@ public class DialogManager : MonoBehaviour
 		if (answer1.activeSelf && answer2.gameObject.activeSelf) {
 			ShowAnswerMenu ();
 			if (Input.GetKeyDown (KeyCode.Escape)) {
+				audioSource.PlayOneShot (mouseEffectClip);
 				isDialogActive = false;
 				playerController.YouCanMove ();
 			}
@@ -68,10 +71,12 @@ public class DialogManager : MonoBehaviour
 
 		if (Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.W) ||
 		    Input.GetKeyDown (KeyCode.DownArrow) || Input.GetKeyDown (KeyCode.S)) {
+			audioSource.PlayOneShot (mouseEffectClip);
 			if (askDialogAnswer == 1)
 				askDialogAnswer = 2;
 			else
 				askDialogAnswer = 1;
+			
 		}
 	}
 
@@ -127,6 +132,7 @@ public class DialogManager : MonoBehaviour
 	{
 		if (!player.GetComponent<PlayerInventory> ().bag.activeSelf) {
 			if (!isDialogActive) {
+				audioSource.PlayOneShot (dialogOpenClip);
 				talkingObeject = gameobject;
 				dialogs = talkingObeject.GetComponent<DialogHolder> ().Dialogs;
 				playerController.DontMove ();
