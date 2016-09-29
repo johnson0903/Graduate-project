@@ -778,6 +778,8 @@ MonoBehaviour:
   answer2: {fileID: 562935848}
   escape: {fileID: 1097928314}
   pickUpItemImage: {fileID: 478018154}
+  mouseEffectClip: {fileID: 8300000, guid: 2877cb209c238644f808513b88823d9c, type: 3}
+  dialogOpenClip: {fileID: 8300000, guid: cdb8d6bdd2fbe6d48a6d4ed41cdfb427, type: 3}
 --- !u!82 &570002835
 AudioSource:
   m_ObjectHideFlags: 0
