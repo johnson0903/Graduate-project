@@ -19,7 +19,8 @@ public class ParentsDoorAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
-		dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("門鎖的相當緊")
+		dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("明明門沒鎖 卻怎麼樣也打不開"),
+			dialogHolder.TalkDialog ("感覺到了兩個詭異的視線在盯著自己...")
 		};
 	}
 
