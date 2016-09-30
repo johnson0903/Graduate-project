@@ -45,7 +45,7 @@ public class DialogManager : MonoBehaviour
 		if (answer1.activeSelf && answer2.gameObject.activeSelf) {
 			ShowAnswerMenu ();
 			if (Input.GetKeyDown (KeyCode.Escape)) {
-				audioSource.PlayOneShot (mouseEffectClip);
+				audioSource.PlayOneShot (dialogOpenClip, .5f);
 				isDialogActive = false;
 				playerController.YouCanMove ();
 			}
@@ -71,7 +71,7 @@ public class DialogManager : MonoBehaviour
 
 		if (Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.W) ||
 		    Input.GetKeyDown (KeyCode.DownArrow) || Input.GetKeyDown (KeyCode.S)) {
-			audioSource.PlayOneShot (mouseEffectClip);
+			audioSource.PlayOneShot (mouseEffectClip, .5f);
 			if (askDialogAnswer == 1)
 				askDialogAnswer = 2;
 			else
@@ -132,7 +132,7 @@ public class DialogManager : MonoBehaviour
 	{
 		if (!player.GetComponent<PlayerInventory> ().bag.activeSelf) {
 			if (!isDialogActive) {
-				audioSource.PlayOneShot (dialogOpenClip);
+				audioSource.PlayOneShot (dialogOpenClip, .5f);
 				talkingObeject = gameobject;
 				dialogs = talkingObeject.GetComponent<DialogHolder> ().Dialogs;
 				playerController.DontMove ();
@@ -149,9 +149,12 @@ public class DialogManager : MonoBehaviour
 		if (talkingObeject == gameobject) {
 			currentDialogIndex++;
 			if (currentDialogIndex >= dialogs.Count)
-				StartCoroutine (CloseDialog ());
-			else
-				ShowDialogByMode ();
+				StartCoroutine(CloseDialog());
+			else { 
+				ShowDialogByMode();
+				audioSource.PlayOneShot(mouseEffectClip, .5f);
+			}
+				
 		}
 	}
 
@@ -159,6 +162,7 @@ public class DialogManager : MonoBehaviour
 		yield return null;
 		isDialogActive = false;
 		playerController.YouCanMove ();
+		audioSource.PlayOneShot(dialogOpenClip, .5f);
 		talkingObeject.GetComponent<DialogHolder> ().TellObjectDialogIsOver ();
 	}
 

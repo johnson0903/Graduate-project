@@ -778,8 +778,8 @@ MonoBehaviour:
   answer2: {fileID: 562935848}
   escape: {fileID: 1097928314}
   pickUpItemImage: {fileID: 478018154}
-  mouseEffectClip: {fileID: 8300000, guid: 2877cb209c238644f808513b88823d9c, type: 3}
-  dialogOpenClip: {fileID: 8300000, guid: cdb8d6bdd2fbe6d48a6d4ed41cdfb427, type: 3}
+  mouseEffectClip: {fileID: 8300000, guid: 98db113c486c04cfa85fd21d0a3b118f, type: 3}
+  dialogOpenClip: {fileID: 8300000, guid: 82751105b0e4b46b190e627cdd8c6cb9, type: 3}
 --- !u!82 &570002835
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1069,7 +1069,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: b6df3dc93715a41d2b78e01bbb6708c6, type: 3}
+  - {fileID: 8300000, guid: 7e8d4c85f5a904047ae621468964543f, type: 3}
 --- !u!61 &671428511
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1940,7 +1942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: d4478a33775de5b48ba0d9e5f86c5b41, type: 3}
-  - {fileID: 8300000, guid: 5500fd71f707789449dd23bc32645aa2, type: 3}
+  - {fileID: 8300000, guid: b6df3dc93715a41d2b78e01bbb6708c6, type: 3}
   - {fileID: 8300000, guid: 7e8d4c85f5a904047ae621468964543f, type: 3}
 --- !u!212 &974423058
 SpriteRenderer:
