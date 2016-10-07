@@ -589,7 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: 2cbc49c32e9a48741a1cf4cdd8316638, type: 3}
+  - {fileID: 8300000, guid: 8140466e79a3649ac8fa5ba2acc089b5, type: 3}
 --- !u!61 &382548167
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1281,7 +1281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: 2cbc49c32e9a48741a1cf4cdd8316638, type: 3}
+  - {fileID: 8300000, guid: 8140466e79a3649ac8fa5ba2acc089b5, type: 3}
 --- !u!61 &1083842308
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1500,7 +1500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: d4478a33775de5b48ba0d9e5f86c5b41, type: 3}
-  - {fileID: 8300000, guid: 5500fd71f707789449dd23bc32645aa2, type: 3}
+  - {fileID: 8300000, guid: b6df3dc93715a41d2b78e01bbb6708c6, type: 3}
   - {fileID: 8300000, guid: 7e8d4c85f5a904047ae621468964543f, type: 3}
 --- !u!1001 &1374169142
 Prefab:
