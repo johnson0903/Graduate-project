@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Twinkle : MonoBehaviour {
+public class ImageTwinkle : MonoBehaviour {
 
 	public Material twoDLight;
 	public Material normal;
