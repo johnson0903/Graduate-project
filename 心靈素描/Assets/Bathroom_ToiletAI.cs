@@ -3,11 +3,11 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-public class ParentsDoorAI : MonoBehaviour {
+public class Bathroom_ToiletAI : MonoBehaviour {
 
 	private GameObject player;
 	private DialogHolder dialogHolder;
-	private const int DOOR_LOCKED = 0;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -19,14 +19,18 @@ public class ParentsDoorAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
-		dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog ("明明門沒鎖 卻怎麼樣也打不開", DOOR_LOCKED),
-			dialogHolder.TalkDialog ("感覺到了兩個詭異的視線在盯著自己...")
+		dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("用陶瓷做的 純白色的馬桶"),
+			dialogHolder.TalkDialog ("馬桶蓋子是蓋上的"),
+			dialogHolder.AskDialog ("將蓋子打開", "不理他", new List<Dialog> {
+				dialogHolder.TalkDialog ("調查其他地方吧")
+			}),
+			dialogHolder.TalkDialog ("嘎拉－"),
+			dialogHolder.TalkDialog ("..........！？")
 		};
 	}
 
-
 	void OnDialogOver(object sender, EventArgs e)
 	{	
-
+		
 	}
 }

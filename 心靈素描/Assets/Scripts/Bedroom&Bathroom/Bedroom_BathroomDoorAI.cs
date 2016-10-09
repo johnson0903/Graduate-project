@@ -25,7 +25,7 @@ public class Bedroom_BathroomDoorAI : MonoBehaviour {
 		if (SceneManager.GetActiveScene().buildIndex == 0)
 			dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog("通往廁所", DOOR_OPEN) };
 		else
-			dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog("通往臥室", DOOR_CLOSED) };
+			dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog("通往臥室", DOOR_OPEN) };
 	}
 
 	void OnDialogOver (object sender, EventArgs e)

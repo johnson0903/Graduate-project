@@ -19,7 +19,10 @@ public class SceneLoader : MonoBehaviour {
 	void Start () {
 		dialogManager = FindObjectOfType<DialogManager> ();
 		player = FindObjectOfType<PlayerController> ().gameObject;
-		GetComponent<Image> ().color = new Color (1, 1, 1, 0);
+		GetComponent<Image> ().color = new Color (1, 1, 1, 1);
+
+		isFadingIn = false;
+		isFadingOut = true;
 	}
 
 	void Update()
@@ -63,4 +66,5 @@ public class SceneLoader : MonoBehaviour {
 	public bool IsLoading {
 		get{ return isLoading; }
 	}
+
 }
