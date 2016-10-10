@@ -67,12 +67,13 @@ public class DialogHolder : MonoBehaviour
 		return dialog;
 	}
 
-    public Dialog PlaySoundDialog(string soundContent, int soundIndex)
+	public Dialog PlaySoundDialog(string soundContent, int soundIndex, float volumn)
     {
         Dialog dialog = new Dialog();
         dialog.Mode = "PlaySound";
         dialog.Content = soundContent;
         dialog.audioClip = audioClips[soundIndex];
+		dialog.ClipVolumn = volumn;
         return dialog;
     }
 

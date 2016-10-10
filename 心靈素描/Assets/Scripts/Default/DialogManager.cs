@@ -45,7 +45,7 @@ public class DialogManager : MonoBehaviour
 		if (answer1.activeSelf && answer2.gameObject.activeSelf) {
 			ShowAnswerMenu ();
 			if (Input.GetKeyDown (KeyCode.Escape)) {
-				audioSource.PlayOneShot (dialogOpenClip, .5f);
+				audioSource.PlayOneShot (dialogOpenClip, .3f);
 				isDialogActive = false;
 				playerController.YouCanMove ();
 			}
@@ -71,7 +71,7 @@ public class DialogManager : MonoBehaviour
 
 		if (Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.W) ||
 		    Input.GetKeyDown (KeyCode.DownArrow) || Input.GetKeyDown (KeyCode.S)) {
-			audioSource.PlayOneShot (mouseEffectClip, .5f);
+			audioSource.PlayOneShot (mouseEffectClip, .3f);
 			if (askDialogAnswer == 1)
 				askDialogAnswer = 2;
 			else
@@ -123,7 +123,7 @@ public class DialogManager : MonoBehaviour
 			escape.SetActive (false);
 			pickUpItemImage.SetActive (false);
 			audioSource.clip = dialogs [currentDialogIndex].audioClip;
-			audioSource.Play ();
+			audioSource.PlayOneShot(audioSource.clip, dialogs[currentDialogIndex].ClipVolumn);
 		}
         
 	}
@@ -132,7 +132,7 @@ public class DialogManager : MonoBehaviour
 	{
 		if (!player.GetComponent<PlayerInventory> ().bag.activeSelf) {
 			if (!isDialogActive) {
-				audioSource.PlayOneShot (dialogOpenClip, .5f);
+				audioSource.PlayOneShot (dialogOpenClip, .3f);
 				talkingObeject = gameobject;
 				dialogs = talkingObeject.GetComponent<DialogHolder> ().Dialogs;
 				playerController.DontMove ();
@@ -152,7 +152,7 @@ public class DialogManager : MonoBehaviour
 				StartCoroutine(CloseDialog());
 			else { 
 				ShowDialogByMode();
-				audioSource.PlayOneShot(mouseEffectClip, .5f);
+				audioSource.PlayOneShot(mouseEffectClip, .3f);
 			}
 				
 		}
@@ -162,7 +162,7 @@ public class DialogManager : MonoBehaviour
 		yield return null;
 		isDialogActive = false;
 		playerController.YouCanMove ();
-		audioSource.PlayOneShot(dialogOpenClip, .5f);
+		audioSource.PlayOneShot(dialogOpenClip, .3f);
 		talkingObeject.GetComponent<DialogHolder> ().TellObjectDialogIsOver ();
 	}
 

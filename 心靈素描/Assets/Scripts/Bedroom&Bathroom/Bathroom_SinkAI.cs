@@ -28,7 +28,7 @@ public class Bathroom_SinkAI : MonoBehaviour {
 				dialogHolder.AskDialog ("將空瓶裝滿水", "不理他", new List<Dialog> {
 					dialogHolder.TalkDialog ("調查其他地方吧")
 				}),
-				dialogHolder.PlaySoundDialog ("啾嚕嚕嚕嚕....", WATER_SFX),
+				dialogHolder.PlaySoundDialog ("啾嚕嚕嚕嚕....", WATER_SFX, .3f),
 				dialogHolder.PickUpItemDialog ("獲得了 裝著水的瓶子", waterBottle)
 			};
 		} else

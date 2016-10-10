@@ -46,4 +46,10 @@ public class Dialog
         get;
         set;
     }
+
+	public float ClipVolumn
+	{
+		get;
+		set;
+	}
 }
