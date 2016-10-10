@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Collections.Generic;
 
-public class PencilTombPaint_DoorAI : MonoBehaviour {
+public class HiganFlowerPaint_DoorAI : MonoBehaviour {
 
 	private GameObject player;
 	private DialogHolder dialogHolder;
@@ -19,13 +19,13 @@ public class PencilTombPaint_DoorAI : MonoBehaviour {
 		sceneLoader = FindObjectOfType<SceneLoader> ();
 		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
 			
-		if(SceneManager.GetActiveScene ().buildIndex == 2 && !hasDialogPopUpInPencilTombPaint)
+		if(SceneManager.GetActiveScene ().buildIndex == 3 && !hasDialogPopUpInPencilTombPaint)
 			dialogHolder.IsAutoPopUp = true;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (SceneManager.GetActiveScene ().buildIndex == 0) {
+		if (SceneManager.GetActiveScene ().buildIndex == 1) {
 			dialogHolder.Dialogs = new List<Dialog> {
 				dialogHolder.TalkDialog ("牆上掛著一幅奇怪的畫"),
 				dialogHolder.AskDialog ("繼續盯著看", "離開", new List<Dialog> {
@@ -50,14 +50,14 @@ public class PencilTombPaint_DoorAI : MonoBehaviour {
 		
 	void OnDialogOver (object sender, EventArgs e)
 	{
-		if (SceneManager.GetActiveScene ().buildIndex == 0) {
+		if (SceneManager.GetActiveScene ().buildIndex == 1) {
 			if (dialogHolder.AskDialogAnswerList [0] == 1)
-				sceneLoader.LoadSceneAndMovePlayer (2, new Vector3 (-17.8f, player.transform.position.y, 0), 1);				
+				sceneLoader.LoadSceneAndMovePlayer (3, new Vector3 (-17.8f, player.transform.position.y, 0), 1);				
 		} else {
 			if (!hasDialogPopUpInPencilTombPaint)
 				hasDialogPopUpInPencilTombPaint = true;
 			else if (dialogHolder.AskDialogAnswerList [0] == 1)
-				sceneLoader.LoadSceneAndMovePlayer (0, new Vector3 (-17.5f, player.transform.position.y, 0), 1);
+				sceneLoader.LoadSceneAndMovePlayer (1, new Vector3 (-17.5f, player.transform.position.y, 0), 1);
 		}
 	}
 

@@ -48,7 +48,7 @@ public class Bedroom_TrasCanAI : MonoBehaviour {
 
 	void OnDialogOver(object sender, EventArgs e)
 	{	
-		if (!isBottleTaken && dialogHolder.AskDialogAnswerList[0] == 2)
+		if (!isBottleTaken && dialogHolder.AskDialogAnswerList.Count > 0 && dialogHolder.AskDialogAnswerList[0] == 2)
 			isBottleTaken = true;
 	}
 }

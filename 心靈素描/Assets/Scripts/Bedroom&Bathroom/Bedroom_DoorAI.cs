@@ -41,7 +41,7 @@ public class Bedroom_DoorAI : MonoBehaviour
 		}
 		else
 		{
-			if (SceneManager.GetActiveScene().buildIndex == 0)
+			if (SceneManager.GetActiveScene().buildIndex == 1)
 				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog("通往走廊", DOOR_OPEN) };
 			else
 				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog("通往臥室", DOOR_OPEN) };
@@ -50,18 +50,18 @@ public class Bedroom_DoorAI : MonoBehaviour
 
 	void OnDialogOver(object sender, EventArgs e)
 	{
-		if (player.GetComponent<PlayerInventory>().IsSomethingInInventory("BedroomKey") || isBedroomDoorOpen)
-		{
-			isBedroomDoorOpen = true;
-			if (player.GetComponent<PlayerInventory>().IsSomethingInInventory("BedroomKey"))
-				player.GetComponent<PlayerInventory>().DropItem("BedroomKey");
-			if (SceneManager.GetActiveScene().buildIndex == 0)
+		//if (player.GetComponent<PlayerInventory>().IsSomethingInInventory("BedroomKey") || isBedroomDoorOpen)
+		//{
+		//	isBedroomDoorOpen = true;
+		//	if (player.GetComponent<PlayerInventory>().IsSomethingInInventory("BedroomKey"))
+		//		player.GetComponent<PlayerInventory>().DropItem("BedroomKey");
+			if (SceneManager.GetActiveScene().buildIndex == 1)
 			{
 				sceneLoader.LoadSceneAndMovePlayer(6, new Vector3(-25, player.transform.position.y, 0), 1);
 			}
 			else {
-				sceneLoader.LoadSceneAndMovePlayer(0, new Vector3(28, player.transform.position.y, 0), -1);
+				sceneLoader.LoadSceneAndMovePlayer(1, new Vector3(28, player.transform.position.y, 0), -1);
 			}
-		}
+		//}
 	}
 }

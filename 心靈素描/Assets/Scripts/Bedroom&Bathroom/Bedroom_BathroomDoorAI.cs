@@ -22,7 +22,7 @@ public class Bedroom_BathroomDoorAI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (SceneManager.GetActiveScene().buildIndex == 0)
+		if (SceneManager.GetActiveScene().buildIndex == 1)
 			dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog("通往廁所", DOOR_OPEN) };
 		else
 			dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog("通往臥室", DOOR_OPEN) };
@@ -30,10 +30,10 @@ public class Bedroom_BathroomDoorAI : MonoBehaviour {
 
 	void OnDialogOver (object sender, EventArgs e)
 	{
-		if (SceneManager.GetActiveScene().buildIndex == 0)
-			sceneLoader.LoadSceneAndMovePlayer(1, new Vector3(17, player.transform.position.y, 0), -1);
+		if (SceneManager.GetActiveScene().buildIndex == 1)
+			sceneLoader.LoadSceneAndMovePlayer(2, new Vector3(17, player.transform.position.y, 0), -1);
 		else
-			sceneLoader.LoadSceneAndMovePlayer(0, new Vector3(18.8f, player.transform.position.y, 0), 1);
+			sceneLoader.LoadSceneAndMovePlayer(1, new Vector3(18.8f, player.transform.position.y, 0), 1);
 	}
 
 	public IEnumerator WaitForSeconds(int waitTime)
