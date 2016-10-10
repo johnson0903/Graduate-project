@@ -21,3 +21,5 @@ EditorBuildSettings:
     path: Assets/Scenes/LivingRoom.unity
   - enabled: 1
     path: Assets/Scenes/FourCrossPaint.unity
+  - enabled: 1
+    path: Assets/Scenes/Over.unity

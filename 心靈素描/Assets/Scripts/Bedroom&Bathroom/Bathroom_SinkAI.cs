@@ -39,7 +39,7 @@ public class Bathroom_SinkAI : MonoBehaviour {
 
 	void OnDialogOver(object sender, EventArgs e)
 	{	
-		if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("Bottle") && dialogHolder.AskDialogAnswerList [0] == 1)
+		if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("Bottle") && dialogHolder.AskDialogAnswerList.Count > 0 && dialogHolder.AskDialogAnswerList [0] == 1)
 			player.GetComponent<PlayerInventory> ().DropItem ("Bottle");
 	}
 }
