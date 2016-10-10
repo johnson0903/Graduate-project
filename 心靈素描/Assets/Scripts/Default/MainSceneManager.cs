@@ -59,9 +59,9 @@ public class MainSceneManager : MonoBehaviour {
 
 	void SelectButton() {
 		if (selectedButtonCount == 0)
-			selectedButtonImage.transform.position = Vector3.Lerp (selectedButtonImage.transform.position, new Vector3 (568, startGameButton.transform.position.y, 0), 0.2f);
+			selectedButtonImage.GetComponent<Image>().rectTransform.anchoredPosition = Vector2.Lerp (selectedButtonImage.GetComponent<Image>().rectTransform.anchoredPosition, new Vector2 (0, startGameButton.GetComponent<Text>().rectTransform.anchoredPosition.y), 0.2f);
 		else
-			selectedButtonImage.transform.position = Vector3.Lerp (selectedButtonImage.transform.position, new Vector3 (568, settingGameButton.transform.position.y, 0), 0.2f);
+			selectedButtonImage.GetComponent<Image>().rectTransform.anchoredPosition = Vector2.Lerp (selectedButtonImage.GetComponent<Image>().rectTransform.anchoredPosition, new Vector2 (0, settingGameButton.GetComponent<Text>().rectTransform.anchoredPosition.y), 0.2f);
 		
 		if (!gameSettingImage.activeSelf) {
 			if ((Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.W)) && selectedButtonCount == 1)

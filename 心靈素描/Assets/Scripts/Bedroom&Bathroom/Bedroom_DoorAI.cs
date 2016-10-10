@@ -33,7 +33,7 @@ public class Bedroom_DoorAI : MonoBehaviour
 		{
 			if (player.GetComponent<PlayerInventory>().IsSomethingInInventory("BedroomKey"))
 			{
-				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog("使用臥室的鑰匙", DOOR_OPEN, .3f) };
+				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog("使用 臥室的鑰匙", DOOR_OPEN, .3f) };
 			}
 			else {
 				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog("門關得緊緊的...", DOOR_LOCKED, .3f) };
