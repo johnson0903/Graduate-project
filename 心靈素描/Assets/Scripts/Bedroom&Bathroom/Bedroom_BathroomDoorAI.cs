@@ -22,13 +22,8 @@ public class Bedroom_BathroomDoorAI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-<<<<<<< HEAD
-		if (SceneManager.GetActiveScene().buildIndex == 0)
-			dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog("通往廁所", DOOR_OPEN, .3f) };
-=======
 		if (SceneManager.GetActiveScene().buildIndex == 1)
-			dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog("通往廁所", DOOR_OPEN) };
->>>>>>> cd8483c3f8a82c7b3e720d85c10b71c5a9021839
+			dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog("通往廁所", DOOR_OPEN, .3f) };
 		else
 			dialogHolder.Dialogs = new List<Dialog> { dialogHolder.PlaySoundDialog("通往臥室", DOOR_OPEN, .3f) };
 	}
