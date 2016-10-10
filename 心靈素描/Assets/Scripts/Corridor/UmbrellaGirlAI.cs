@@ -32,7 +32,7 @@ public class UmbrellaGirlAI : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other) {
 		if (isMoving && other.CompareTag ("Player")) {
-			sceneLoader.LoadSceneAndMovePlayer (0, new Vector3(26, other.transform.position.y, 0), -1);
+			sceneLoader.LoadSceneAndMovePlayer (1, new Vector3(26, other.transform.position.y, 0), -1);
 			isMoving = false;
 		}
 	}

@@ -30,6 +30,6 @@ public class Corridor_MissionCompleteDialog : MonoBehaviour {
 	void OnDialogOver(object sender, EventArgs e)
 	{	
 		dialogHolder.Dialogs = null;
-		sceneLoader.LoadSceneAndMovePlayer (0, new Vector3(26, player.transform.position.y, 0), -1);
+		sceneLoader.LoadSceneAndMovePlayer (1, new Vector3(26, player.transform.position.y, 0), -1);
 	}
 }

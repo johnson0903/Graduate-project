@@ -410,7 +410,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.99148077, g: 1, b: 0.8455882, a: 1}
   m_Intensity: 8
   m_Range: 80
   m_SpotAngle: 30
@@ -702,7 +702,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: b8568adeac7144ca5a44c54819f2b63b, type: 3}
 --- !u!61 &433025882
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -883,7 +884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: b8568adeac7144ca5a44c54819f2b63b, type: 3}
 --- !u!61 &586049347
 BoxCollider2D:
   m_ObjectHideFlags: 0
