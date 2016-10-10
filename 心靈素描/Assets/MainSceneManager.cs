@@ -17,8 +17,8 @@ public class MainSceneManager : MonoBehaviour {
 	private int selectedButtonCount;
 	private int currentSceneCount;
 
-	bool isFadingIn = false;
-	bool isFadingOut = false;
+	bool isFadingIn;
+	bool isFadingOut;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +32,8 @@ public class MainSceneManager : MonoBehaviour {
 		gameSettingImage.SetActive (false);
 		slideShow1.SetActive (false);
 		slideShow2.SetActive (false);
+		isFadingIn = false;
+		isFadingOut = true;
 	}
 	
 	// Update is called once per frame
@@ -43,7 +45,16 @@ public class MainSceneManager : MonoBehaviour {
 		else if (currentSceneCount == 2)
 			ChangeImageByFade (slideShow1, slideShow2);	
 		else if (currentSceneCount == 3)
-			ChangeSceneByFade (0);	
+			ChangeSceneByFade (1);	
+
+		if (isFadingIn)
+			dark.color = new Color (1, 1, 1, Mathf.Lerp (dark.color.a, 1, 0.05f));
+		else if (isFadingOut) {
+			dark.color = new Color (1, 1, 1, Mathf.Lerp (dark.color.a, 0, 0.05f));
+			if (dark.color.a <= 0.05) 
+				isFadingOut = false;
+		} 
+
 	}
 
 	void SelectButton() {
@@ -61,8 +72,7 @@ public class MainSceneManager : MonoBehaviour {
 				if (selectedButtonCount == 0) {
 					isFadingIn = true;
 					currentSceneCount++;
-				}
-				else
+				} else
 					gameSettingImage.SetActive (true);
 			}
 		} else if (Input.GetKeyDown (KeyCode.Space))
@@ -76,29 +86,14 @@ public class MainSceneManager : MonoBehaviour {
 			isFadingOut = true;
 			currentImage.SetActive (false);
 			nextImage.SetActive (true);
-		}
-
-		if (isFadingIn)
-			dark.color = new Color (1, 1, 1, Mathf.Lerp (dark.color.a, 1, 0.05f));
-		else if (isFadingOut) {
-			dark.color = new Color (1, 1, 1, Mathf.Lerp (dark.color.a, 0, 0.05f));
-			if (dark.color.a <= 0.05)
-				isFadingOut = false;	
-		} else {
-			if (Input.GetKeyDown (KeyCode.Space)) {
-				currentSceneCount++;
-				isFadingIn = true;
-			}
+		} else if (dark.color.a <= 0.05 && Input.GetKeyDown (KeyCode.Space)) {
+			isFadingIn = true;
+			currentSceneCount++;
 		}
 	}
 
 	void ChangeSceneByFade(int whereToGo){
 		if (dark.color.a >= 0.99) 
 			SceneManager.LoadScene (whereToGo);
-		
-		if (isFadingIn)
-			dark.color = new Color (1, 1, 1, Mathf.Lerp (dark.color.a, 1, 0.05f));
-		else if (isFadingOut) 
-			dark.color = new Color (1, 1, 1, Mathf.Lerp (dark.color.a, 0, 0.05f));
 	}
 }

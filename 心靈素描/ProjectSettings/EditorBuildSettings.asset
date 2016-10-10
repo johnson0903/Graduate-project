@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main.unity
+  - enabled: 1
     path: Assets/Scenes/Room.unity
   - enabled: 1
     path: Assets/Scenes/Bathroom.unity
   - enabled: 1
     path: Assets/Scenes/HiganFlowerPaint.unity
-  - enabled: 1
-    path: Assets/Scenes/FourCrossPaint.unity
   - enabled: 1
     path: Assets/Scenes/Corridor.unity
   - enabled: 1
@@ -20,4 +20,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LivingRoom.unity
   - enabled: 1
-    path: Assets/Scenes/Main.unity
+    path: Assets/Scenes/FourCrossPaint.unity

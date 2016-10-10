@@ -19,7 +19,7 @@ public class FourCrossPaint_DoorAI : MonoBehaviour {
 		sceneLoader = FindObjectOfType<SceneLoader> ();
 		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
 
-		if(SceneManager.GetActiveScene ().buildIndex == 3 && !hasDialogPopUpInFourCrossPaint)
+		if(SceneManager.GetActiveScene ().buildIndex == 7 && !hasDialogPopUpInFourCrossPaint)
 			dialogHolder.IsAutoPopUp = true;
 	}
 
@@ -52,7 +52,7 @@ public class FourCrossPaint_DoorAI : MonoBehaviour {
 	{
 		if (SceneManager.GetActiveScene ().buildIndex == 6) {
 			if (dialogHolder.AskDialogAnswerList [0] == 1)
-				sceneLoader.LoadSceneAndMovePlayer (3, new Vector3 (-15, player.transform.position.y, 0), 1);				
+				sceneLoader.LoadSceneAndMovePlayer (7, new Vector3 (-15, player.transform.position.y, 0), 1);				
 		} else {
 			if (!hasDialogPopUpInFourCrossPaint)
 				hasDialogPopUpInFourCrossPaint = true;
