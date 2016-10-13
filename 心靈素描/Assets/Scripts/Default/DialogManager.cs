@@ -24,6 +24,7 @@ public class DialogManager : MonoBehaviour
 	private bool isDialogActive;
 	private int askDialogAnswer;
 	private int currentDialogIndex;
+	private bool isDialogDelay;
 
 	private List<int> askDialogAnswerList = new List<int> ();
 
@@ -115,7 +116,7 @@ public class DialogManager : MonoBehaviour
 			answer2.SetActive (false);
 			escape.SetActive (false);
 			pickUpItemImage.SetActive (true);
-			pickUpItemImage.transform.GetChild (0).GetComponent<Image> ().sprite = dialogs [currentDialogIndex].Item.GetComponent<SpriteRenderer> ().sprite;
+			pickUpItemImage.transform.FindChild("ItemImage").GetComponent<Image> ().sprite = dialogs [currentDialogIndex].Item.GetComponent<SpriteRenderer> ().sprite;
 		} else if (dialogs [currentDialogIndex].Mode == "PlaySound") {
 			dText.text = dialogs [currentDialogIndex].Content;
 			answer1.SetActive (false);
@@ -123,7 +124,9 @@ public class DialogManager : MonoBehaviour
 			escape.SetActive (false);
 			pickUpItemImage.SetActive (false);
 			audioSource.clip = dialogs [currentDialogIndex].audioClip;
-			audioSource.PlayOneShot(audioSource.clip, dialogs[currentDialogIndex].ClipVolumn);
+			audioSource.PlayOneShot (audioSource.clip, dialogs [currentDialogIndex].ClipVolumn);
+			if (audioSource.clip.length > 1.6)
+				lockDialog ();
 		}
         
 	}
@@ -146,24 +149,18 @@ public class DialogManager : MonoBehaviour
 
 	public void ContinueDialog(GameObject gameobject)
 	{
-		if (talkingObeject == gameobject) {
+		if (talkingObeject == gameobject && !isDialogDelay) {
 			currentDialogIndex++;
-			if (currentDialogIndex >= dialogs.Count)
-				StartCoroutine(CloseDialog());
-			else { 
-				ShowDialogByMode();
-				audioSource.PlayOneShot(mouseEffectClip, .3f);
+			if (currentDialogIndex >= dialogs.Count) {
+				isDialogActive = false;
+				playerController.YouCanMove ();
+				audioSource.PlayOneShot (dialogOpenClip, .3f);
+				talkingObeject.GetComponent<DialogHolder> ().TellObjectDialogIsOver ();
+			} else { 
+				ShowDialogByMode ();
+				audioSource.PlayOneShot (mouseEffectClip, .3f);
 			}
-				
 		}
-	}
-
-	public IEnumerator CloseDialog() {
-		yield return null;
-		isDialogActive = false;
-		playerController.YouCanMove ();
-		audioSource.PlayOneShot(dialogOpenClip, .3f);
-		talkingObeject.GetComponent<DialogHolder> ().TellObjectDialogIsOver ();
 	}
 
 	public bool IsDialogActive {
@@ -172,5 +169,14 @@ public class DialogManager : MonoBehaviour
 
 	public List<int> AskDialogAnswerList {
 		get { return askDialogAnswerList; }
+	}
+
+	void lockDialog() {
+		isDialogDelay = true;
+		Invoke ("UnlockDialog", 1);
+	}
+
+	void UnlockDialog() {
+		isDialogDelay = false;
 	}
 }

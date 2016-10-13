@@ -81,12 +81,6 @@ public class PlayerInventory : MonoBehaviour {
 		}
 	}
 
-	public IEnumerator AutoCloseBag(){
-		yield return null;
-		bag.SetActive (false);
-		this.GetComponent<PlayerController> ().YouCanMove ();
-	}
-
 	public void RecoverSelectedItemCount(){
 		selectedItemCount = 1;
 	}

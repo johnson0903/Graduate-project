@@ -57,7 +57,7 @@ public class FourCrossPaint_DoorAI : MonoBehaviour {
 			if (!hasDialogPopUpInFourCrossPaint)
 				hasDialogPopUpInFourCrossPaint = true;
 			else if (dialogHolder.AskDialogAnswerList [0] == 1)
-				sceneLoader.LoadSceneAndMovePlayer (6, new Vector3 (-15, player.transform.position.y, 0), 1);
+				sceneLoader.LoadSceneAndMovePlayer (6, new Vector3 (14, player.transform.position.y, 0), -1);
 		}
 	}
 }

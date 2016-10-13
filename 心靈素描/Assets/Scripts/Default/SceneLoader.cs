@@ -53,6 +53,13 @@ public class SceneLoader : MonoBehaviour {
 	void LoadSceneAfterOneSecond() {
 		SceneManager.LoadScene (sceneNum);
 		player.transform.position = playerPosition;
+			
+		if (sceneNum == 4 || sceneNum == 5)
+			player.GetComponent<SpriteRenderer> ().color = new Color (0.7f, 0.7f, 0.7f, 1);
+		else if (sceneNum == 6)
+			player.GetComponent<SpriteRenderer> ().color = new Color (0.5f, 0.5f, 0.5f, 1);
+		else
+			player.GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 1);
 
 		if (playerScale == 1)
 			player.GetComponent<Flip> ().FlipRight ();
