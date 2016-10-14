@@ -24,7 +24,7 @@ public class PlayerInventory : MonoBehaviour {
 		item.GetComponent<RectTransform> ().SetInsetAndSizeFromParentEdge (RectTransform.Edge.Top, 100, 300);
 		item.GetComponent<RectTransform> ().SetInsetAndSizeFromParentEdge (RectTransform.Edge.Left, 100, 300);
 		item.transform.SetParent (bag.transform);
-		item.transform.localPosition = new Vector3 (-400 + inventory.Count % 5 * 120, 90 - inventory.Count / 5 * 110, 0.0f);
+		item.transform.GetComponent<Image>().rectTransform.anchoredPosition = new Vector2 (90 + inventory.Count % 5 * 115, -140 - inventory.Count / 5 * 110);
 		item.transform.localScale = new Vector3 (0.3f, 0.3f, 0.0f);
 		item.GetComponent<Image> ().sprite = pickUpItem.GetComponent<SpriteRenderer> ().sprite;
 		Destroy (pickUpItem);
@@ -41,7 +41,7 @@ public class PlayerInventory : MonoBehaviour {
 		}
 
 		for (int i = 0; i < inventory.Count; i++)
-			inventory[i].transform.localPosition = new Vector3 (-400 + i % 5 * 120, 90 - i / 5 * 110, 0.0f);
+			inventory[i].GetComponent<Image>().rectTransform.anchoredPosition = new Vector2 (90 + i % 5 * 115, -140 - i / 5 * 110);
 	}
 
 	public void SelectItem() {
@@ -57,6 +57,7 @@ public class PlayerInventory : MonoBehaviour {
 		
 
 		if (inventory.Count != 0) {
+			bag.transform.FindChild ("ItemDescription").FindChild ("ImageBackGround").gameObject.SetActive (true);
 			bag.transform.FindChild ("ItemDescription").FindChild ("Image").gameObject.SetActive (true);
 			bag.transform.FindChild ("ItemDescription").FindChild ("Name").gameObject.SetActive (true);
 			bag.transform.FindChild ("ItemDescription").FindChild ("Description").gameObject.SetActive (true);
@@ -72,27 +73,12 @@ public class PlayerInventory : MonoBehaviour {
 					inventory [i - 1].GetComponent<Image> ().color = new Color (0.5f, 0.5f, 0.5f, 0.5f);
 			}
 
-			if (inventory [selectedItemCount - 1].GetComponent<ItemData> ().CanBeUsed) {
-				bag.transform.FindChild ("ItemDescription").FindChild ("UsingHint").gameObject.SetActive (true);
-				if (Input.GetKeyDown (KeyCode.Space)) {
-					inventory [selectedItemCount - 1].GetComponent<ItemData> ().UseItem ();
-					StartCoroutine (AutoCloseBag ());
-				}
-			} else
-				bag.transform.FindChild ("ItemDescription").FindChild ("UsingHint").gameObject.SetActive (false);
 		} else {
+			bag.transform.FindChild ("ItemDescription").FindChild ("ImageBackGround").gameObject.SetActive (false);
 			bag.transform.FindChild ("ItemDescription").FindChild ("Image").gameObject.SetActive (false);
 			bag.transform.FindChild ("ItemDescription").FindChild ("Name").gameObject.SetActive (false);
 			bag.transform.FindChild ("ItemDescription").FindChild ("Description").gameObject.SetActive (false);
-			bag.transform.FindChild ("ItemDescription").FindChild ("UsingHint").gameObject.SetActive (false);
 		}
-	
-	}
-
-	public IEnumerator AutoCloseBag(){
-		yield return null;
-		bag.SetActive (false);
-		this.GetComponent<PlayerController> ().YouCanMove ();
 	}
 
 	public void RecoverSelectedItemCount(){

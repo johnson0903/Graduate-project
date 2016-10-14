@@ -26,7 +26,7 @@ public class DialogHolder : MonoBehaviour
 			if (!isAutoPopUp && dialogs != null && !sceneLoader.IsLoading) {
 				if (!dialogManager.IsDialogActive) {
 					if (isPlayerInRange)
-						dialogManager.StartDialog (this.gameObject);
+						dialogManager.StartDialog (this.gameObject);	
 				} else
 					dialogManager.ContinueDialog (this.gameObject);
 			}
