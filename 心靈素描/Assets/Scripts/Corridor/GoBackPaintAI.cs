@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class GoBackPaintAI : MonoBehaviour {
 
 	public GameObject clock;
+	public float volumn;
 
 	private const int SPILLING_SFX = 0;
 	private GameObject player;
@@ -26,7 +27,7 @@ public class GoBackPaintAI : MonoBehaviour {
 			dialogHolder.TalkDialog ("中央還在不停地閃爍..."),
 			dialogHolder.AskDialog ("摸摸看", "離開", new List<Dialog>{ dialogHolder.TalkDialog ("感覺這圖案在哪裡看過...") }),
 			dialogHolder.TalkDialog ("你摸了位於中央的綠色三角形"),
-			dialogHolder.PlaySoundDialog ("喀啦－", SPILLING_SFX, .4f),
+			dialogHolder.PlaySoundDialog ("喀啦－", SPILLING_SFX, volumn),
 			dialogHolder.TalkDialog ("從畫裡發出了奇怪的機械音")
 		};
 	}
