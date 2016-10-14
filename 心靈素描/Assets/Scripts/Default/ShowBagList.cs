@@ -7,11 +7,13 @@ public class ShowBagList : MonoBehaviour
 	private GameObject bagList;
 	private PlayerController playerController;
 	private DialogManager dialogManager;
+	private SceneLoader sceneLoader;
 	// Use this for initialization
 	void Start()
 	{
 		bagList = this.transform.FindChild ("BagList").gameObject;
 		playerController = FindObjectOfType<PlayerController>();
+		sceneLoader = FindObjectOfType<SceneLoader>();
 		dialogManager = FindObjectOfType<DialogManager>();
 		bagList.SetActive(false);
 	}
@@ -19,7 +21,7 @@ public class ShowBagList : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (!dialogManager.dBox.activeSelf) {
+		if (!dialogManager.dBox.activeSelf && !sceneLoader.IsLoading) {
 			if (!bagList.activeSelf) {
 				if (Input.GetKeyDown (KeyCode.E)) {
 					playerController.DontMove ();
