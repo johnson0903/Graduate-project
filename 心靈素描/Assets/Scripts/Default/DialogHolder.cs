@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class DialogHolder : MonoBehaviour
 {
 	public event EventHandler DialogOverEvent;
+	public event EventHandler EventDialogEvent;
     public AudioClip[] audioClips;
 
     private DialogManager dialogManager;
@@ -58,29 +59,45 @@ public class DialogHolder : MonoBehaviour
 		return dialog;
 	}
 
-	public Dialog PickUpItemDialog(string pickUpItemContent, GameObject pickUpItem)
+	public Dialog PickUpItemDialog(string talkContent, GameObject pickUpItem)
 	{
 		Dialog dialog = new Dialog();
 		dialog.Mode = "Pick";
-		dialog.Content = pickUpItemContent;
+		dialog.Content = talkContent;
 		dialog.Item = pickUpItem;
 		return dialog;
 	}
 
-	public Dialog PlaySoundDialog(string soundContent, int soundIndex, float volumn)
+	public Dialog PlaySoundDialog(string talkContent, int soundIndex, float volumn)
     {
         Dialog dialog = new Dialog();
         dialog.Mode = "PlaySound";
-        dialog.Content = soundContent;
-        dialog.audioClip = audioClips[soundIndex];
+		dialog.Content = talkContent;
+        dialog.Audio = audioClips[soundIndex];
 		dialog.ClipVolumn = volumn;
         return dialog;
     }
+
+	public Dialog EventDialog(string talkContent, int soundIndex, float volumn)
+	{
+		Dialog dialog = new Dialog();
+		dialog.Mode = "Event";
+		dialog.Content = talkContent;
+		dialog.Audio = audioClips[soundIndex];
+		dialog.ClipVolumn = volumn;
+		return dialog;
+	}
 
 	public void TellObjectDialogIsOver()
 	{
 		if (DialogOverEvent != null)
 			DialogOverEvent(this, EventArgs.Empty);
+	}
+
+	public void TellObjectEventDialogOccur()
+	{
+		if (EventDialogEvent != null)
+			EventDialogEvent(this, EventArgs.Empty);
 	}
 
 	public void EnterRange()

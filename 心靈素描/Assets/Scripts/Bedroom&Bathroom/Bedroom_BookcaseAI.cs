@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class Bedroom_BookcaseAI : MonoBehaviour {
 
+	public GameObject knife;
+
 	private DialogHolder dialogHolder;
 
 	private static int bookCaseTalkCount;
@@ -28,7 +30,7 @@ public class Bedroom_BookcaseAI : MonoBehaviour {
 				dialogHolder.TalkDialog ("《6上數學 點線面評量講義》"),
 				dialogHolder.TalkDialog ("＂(一) 線對稱的意義＂"),
 				dialogHolder.TalkDialog ("＂平面上的圖形，透過平移、旋轉與鏡射，可以得到與原圖形全等的圖形。給定一個平面圖形及一條對稱軸，可以透過線對稱這種鏡射概念，得到另一個全等的圖形。＂"),
-				dialogHolder.TalkDialog ("盡是一些看不懂的東西..."),
+				dialogHolder.PickUpItemDialog ("盡是一些看不懂的東西...", knife),
 			};
 		} else if (bookCaseTalkCount == 1) {
 			dialogHolder.Dialogs = new List<Dialog> {

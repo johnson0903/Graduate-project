@@ -21,6 +21,7 @@ public class HiganFlowerAI : MonoBehaviour {
 		player = FindObjectOfType<PlayerController> ().gameObject;
 		dialogHolder = this.GetComponent<DialogHolder> ();
 		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
+		this.GetComponent<DialogHolder>().EventDialogEvent += OnEventDialogOccur;
 
 		if (higanFlowerTalkCount == 1)
 			higanFlowerTalkCount++;
@@ -39,7 +40,7 @@ public class HiganFlowerAI : MonoBehaviour {
 					}),
 					dialogHolder.TalkDialog ("唰啦－"),
 					dialogHolder.TalkDialog ("從瓶子中流出來的水 迅速地被泥土所吸收"),
-					dialogHolder.TalkDialog ("原本閉合著的花瓣 漸漸地打開了")
+					dialogHolder.EventDialog ("原本閉合著的花瓣 漸漸地打開了", 0, .5f)
 				};
 			else
 				dialogHolder.Dialogs = new List<Dialog> {
@@ -73,11 +74,16 @@ public class HiganFlowerAI : MonoBehaviour {
 			if (player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("WaterBottle") && dialogHolder.AskDialogAnswerList.Count > 0 && dialogHolder.AskDialogAnswerList [0] == 1) {
 				player.GetComponent<PlayerInventory> ().DropItem ("WaterBottle");
 				higanFlowerTalkCount++;
-				oldBackGround.GetComponent<SpriteRenderer> ().sprite = newBackGroundImage;
+
 			}
 		} else if (higanFlowerTalkCount == 1) {
 			higanFlowerTalkCount++;
 		}
+	}
+
+	void OnEventDialogOccur(object sender, EventArgs e)
+	{	
+		oldBackGround.GetComponent<SpriteRenderer> ().sprite = newBackGroundImage;
 	}
 
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class Bedroom_PillowAI : MonoBehaviour {
 
 	public GameObject Bedroomkey;
+	public Sprite brokenPillowImage;
 
 	private GameObject player;
 	private DialogHolder dialogHolder;
@@ -17,6 +18,7 @@ public class Bedroom_PillowAI : MonoBehaviour {
 		player = FindObjectOfType<PlayerController>().gameObject;
 		dialogHolder = this.GetComponent<DialogHolder>();
 		this.GetComponent<DialogHolder>().DialogOverEvent += OnDialogOver;
+		this.GetComponent<DialogHolder>().EventDialogEvent += OnEventDialogOccur;
 	}
 
 	// Update is called once per frame
@@ -31,7 +33,7 @@ public class Bedroom_PillowAI : MonoBehaviour {
 						dialogHolder.TalkDialog ("......"),
 						dialogHolder.TalkDialog ("貪睡鬼")
 					}),
-					dialogHolder.TalkDialog ("嘶嘶嘶嘶...."),
+					dialogHolder.EventDialog ("嘶嘶嘶嘶....", 0 , .5f),
 					dialogHolder.PickUpItemDialog ("獲得了 臥室的鑰匙", Bedroomkey)
 				};
 			} else    //如果身上沒有美工刀
@@ -46,8 +48,8 @@ public class Bedroom_PillowAI : MonoBehaviour {
 				};
 		} else    //枕頭的鑰匙被拿了
 			dialogHolder.Dialogs = new List<Dialog> {
-				dialogHolder.TalkDialog ("撕碎的枕頭散落在床上"),
-				dialogHolder.TalkDialog ("瞧你都幹了什麼")
+				dialogHolder.TalkDialog ("破了洞的枕頭靜靜地躺在床上"),
+			dialogHolder.TalkDialog ("破口周圍滲出了奇怪的液體...")
 			};
 	}
 
@@ -55,5 +57,10 @@ public class Bedroom_PillowAI : MonoBehaviour {
 	{	
 		if (!isPillowKeyTaken && player.GetComponent<PlayerInventory> ().IsSomethingInInventory ("BoxCutter") && dialogHolder.AskDialogAnswerList[0] == 1)
 			isPillowKeyTaken = true;
+	}
+
+	void OnEventDialogOccur(object sender, EventArgs e)
+	{	
+		this.GetComponent<SpriteRenderer> ().sprite = brokenPillowImage;
 	}
 }
