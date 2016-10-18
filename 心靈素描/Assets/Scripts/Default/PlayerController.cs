@@ -32,13 +32,11 @@ public class PlayerController : MonoBehaviour
 	public void DontMove()
 	{
 		walkSpeed = 0;
-		Debug.Log("stop");
 	}
 
 	public void YouCanMove()
 	{
 		walkSpeed = speed;
-		Debug.Log("move");
 	}
 
 	public void LogOriginPositionX()

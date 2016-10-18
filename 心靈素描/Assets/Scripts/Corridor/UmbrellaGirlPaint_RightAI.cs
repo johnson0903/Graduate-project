@@ -17,6 +17,7 @@ public class UmbrellaGirlPaint_RightAI : MonoBehaviour {
 		player = FindObjectOfType<PlayerController>().gameObject;
 		dialogHolder = this.GetComponent<DialogHolder>();
 		this.GetComponent<DialogHolder>().DialogOverEvent += OnDialogOver;
+		this.GetComponent<DialogHolder>().EventDialogEvent += OnEventDialogOccur;
 
 		if(isKilled)
 			this.transform.FindChild("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
@@ -33,7 +34,7 @@ public class UmbrellaGirlPaint_RightAI : MonoBehaviour {
 					dialogHolder.TalkDialog ("將雨傘給了女人"),
 					dialogHolder.TalkDialog ("畫中的女人浮起了一抹微笑"),
 					dialogHolder.TalkDialog (".......喀喀"),
-					dialogHolder.PlaySoundDialog ("她突然拿起傘 劃破了自己的喉嚨",0 , .5f),
+					dialogHolder.EventDialog ("她突然拿起傘 劃破了自己的喉嚨",0 , .5f),
 					dialogHolder.TalkDialog ("嘶....嘶嘶....."),
 					dialogHolder.TalkDialog ("從圖裡面湧出了許多紅色的顏料"),
 					dialogHolder.TalkDialog ("雨傘從女人鬆開的右手中掉了下來 落在了畫之中")
@@ -56,10 +57,14 @@ public class UmbrellaGirlPaint_RightAI : MonoBehaviour {
 				if (dialogHolder.AskDialogAnswerList.Count > 0 && dialogHolder.AskDialogAnswerList [0] == 1) {
 					isKilled = true;
 					player.GetComponent<PlayerInventory> ().DropItem ("BloodUmbrella");
-					this.transform.FindChild("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
 				}
 			}
 		} 
 			
+	}
+
+	void OnEventDialogOccur(object sender, EventArgs e)
+	{	
+		this.transform.FindChild("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
 	}
 }

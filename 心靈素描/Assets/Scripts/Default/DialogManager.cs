@@ -13,6 +13,7 @@ public class DialogManager : MonoBehaviour
 	public GameObject pickUpItemImage;
 	public AudioClip mouseEffectClip;
 	public AudioClip dialogOpenClip;
+	public AudioClip pickUpItemClip;
 
     private AudioSource audioSource;
 	private List<Dialog> dialogs;
@@ -116,17 +117,33 @@ public class DialogManager : MonoBehaviour
 			answer2.SetActive (false);
 			escape.SetActive (false);
 			pickUpItemImage.SetActive (true);
-			pickUpItemImage.transform.FindChild("ItemImage").GetComponent<Image> ().sprite = dialogs [currentDialogIndex].Item.GetComponent<SpriteRenderer> ().sprite;
+			pickUpItemImage.transform.FindChild ("ItemImage").GetComponent<Image> ().sprite = dialogs [currentDialogIndex].Item.GetComponent<SpriteRenderer> ().sprite;
+			audioSource.PlayOneShot (pickUpItemClip, .3f);
 		} else if (dialogs [currentDialogIndex].Mode == "PlaySound") {
 			dText.text = dialogs [currentDialogIndex].Content;
 			answer1.SetActive (false);
 			answer2.SetActive (false);
 			escape.SetActive (false);
 			pickUpItemImage.SetActive (false);
-			audioSource.clip = dialogs [currentDialogIndex].audioClip;
-			audioSource.PlayOneShot (audioSource.clip, dialogs [currentDialogIndex].ClipVolumn);
-			if (audioSource.clip.length > 1.6)
-				lockDialog ();
+			if (dialogs [currentDialogIndex].Audio != null) {
+				audioSource.clip = dialogs [currentDialogIndex].Audio;
+				audioSource.PlayOneShot (audioSource.clip, dialogs [currentDialogIndex].ClipVolumn);
+				if (audioSource.clip.length > 1.6)
+					lockDialog ();
+			}
+		} else if (dialogs [currentDialogIndex].Mode == "Event") {
+			dText.text = dialogs [currentDialogIndex].Content;
+			answer1.SetActive (false);
+			answer2.SetActive (false);
+			escape.SetActive (false);
+			pickUpItemImage.SetActive (false);
+			if (dialogs [currentDialogIndex].Audio != null) {
+				audioSource.clip = dialogs [currentDialogIndex].Audio;
+				audioSource.PlayOneShot (audioSource.clip, dialogs [currentDialogIndex].ClipVolumn);
+				if (audioSource.clip.length > 1.6)
+					lockDialog ();
+			}
+			talkingObeject.GetComponent<DialogHolder> ().TellObjectEventDialogOccur();
 		}
         
 	}
