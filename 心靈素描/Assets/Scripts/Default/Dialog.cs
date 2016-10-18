@@ -41,13 +41,19 @@ public class Dialog
 		set;
 	}
 
-    public AudioClip audioClip
+    public AudioClip Audio
     {
         get;
         set;
     }
 
 	public float ClipVolumn
+	{
+		get;
+		set;
+	}
+
+	public Sprite Image
 	{
 		get;
 		set;

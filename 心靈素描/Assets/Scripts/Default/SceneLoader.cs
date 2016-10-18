@@ -20,7 +20,7 @@ public class SceneLoader : MonoBehaviour {
 		dialogManager = FindObjectOfType<DialogManager> ();
 		player = FindObjectOfType<PlayerController> ().gameObject;
 		GetComponent<Image> ().color = new Color (1, 1, 1, 1);
-
+		isLoading = true;
 		isFadingIn = false;
 		isFadingOut = true;
 	}
