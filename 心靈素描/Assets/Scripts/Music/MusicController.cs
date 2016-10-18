@@ -5,7 +5,7 @@ public class MusicController : MonoBehaviour {
 
 	public AudioSource[] musicTracks;
 	public static bool musicExist;
-	public int currentTrack;
+	public int currentTrack = 0;
 	public bool musicCanPlay;
 
 	void Start () {
@@ -32,7 +32,7 @@ public class MusicController : MonoBehaviour {
 	{
 		musicTracks [currentTrack].Stop ();
 		currentTrack = newTrack;
+		Debug.Log (newTrack);
 		musicTracks [currentTrack].Play ();
 	}
-
 }

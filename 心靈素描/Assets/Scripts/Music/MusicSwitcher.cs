@@ -8,7 +8,7 @@ public class MusicSwitcher : MonoBehaviour {
 	public int newTrack;
 	public bool switchOnStart;
 
-	private static bool isPlaying;
+	private bool isPlaying;
 
 	void Start () {
 		theMC = FindObjectOfType<MusicController> ();
@@ -24,10 +24,12 @@ public class MusicSwitcher : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "Player" && gameObject.activeSelf && !isPlaying) {
-			theMC.SwitchTrack (newTrack);
-			isPlaying = true;
-			gameObject.SetActive (false);
+		if (other.tag == "Player" && gameObject.activeSelf) {
+			if (theMC.currentTrack != newTrack) {
+				theMC.SwitchTrack (newTrack);
+				isPlaying = true;
+				gameObject.SetActive (false);
+			}
 		}
 	}
 }

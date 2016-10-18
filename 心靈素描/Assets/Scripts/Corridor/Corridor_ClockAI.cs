@@ -7,6 +7,7 @@ public class Corridor_ClockAI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		hour = 8;
 	}
 	
