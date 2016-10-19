@@ -30,7 +30,7 @@ public class SceneLoader : MonoBehaviour {
 		if (isFadingIn) {
 			GetComponent<Image> ().color = new Color (1, 1, 1, Mathf.Lerp (GetComponent<Image> ().color.a, 1, 0.05f));
 			if (!dialogManager.IsDialogActive && GetComponent<Image> ().color.a >= 0.99f)
-				LoadSceneAfterOneSecond ();
+				LoadScene ();
 		}
 		else if (isFadingOut) {
 			GetComponent<Image> ().color = new Color (1, 1, 1, Mathf.Lerp (GetComponent<Image> ().color.a, 0, 0.1f));
@@ -52,7 +52,15 @@ public class SceneLoader : MonoBehaviour {
 		playerScale = whereToSee;
 	}
 
-	void LoadSceneAfterOneSecond() {
+	public void LoadSceneAndMovePlayerQuickly(int whatSceneToLoad, Vector3 whereToMove, int whereToSee) {
+		player.GetComponent<PlayerController> ().DontMove ();
+		sceneNum = whatSceneToLoad;
+		playerPosition = whereToMove;
+		playerScale = whereToSee;
+		LoadScene ();
+	}
+
+	void LoadScene() {
 		SceneManager.LoadScene (sceneNum);
 		player.transform.position = playerPosition;
 			
