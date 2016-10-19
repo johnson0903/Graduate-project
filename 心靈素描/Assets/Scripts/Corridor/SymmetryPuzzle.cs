@@ -4,6 +4,7 @@ using System.Collections;
 public class SymmetryPuzzle : MonoBehaviour {
 
 	public GameObject clock;
+	public GameObject brokenClock;
 	public GameObject backGround;
 
 	public GameObject goBackPaint;
@@ -38,8 +39,8 @@ public class SymmetryPuzzle : MonoBehaviour {
 			teleportPoint_Right.SetActive (false);
 			newCollider_Left.SetActive (true);
 			newCollider_Right.SetActive (true);
-			clock.transform.position = new Vector3(-9.8f, -9.7f, 0);
-			clock.transform.Rotate(new Vector3(0, 0, 300));
+			brokenClock.SetActive (true);
+			clock.SetActive (false);
 		}
 	}
 	

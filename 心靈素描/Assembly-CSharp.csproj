@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Audio Clips\DogeAI.cs" />
      <Compile Include="Assets\Bathroom_PopupDialog.cs" />
+     <Compile Include="Assets\Corridor_BrokenClockAI.cs" />
      <Compile Include="Assets\Room_PopupDialogAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bathroom_ShowerHeadAI.cs" />
      <Compile Include="Assets\Scripts\Bedroom&amp;Bathroom\Bathroom_SinkAI.cs" />
