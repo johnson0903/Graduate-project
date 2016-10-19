@@ -34,7 +34,7 @@ public class UmbrellaGirlPaint_LeftAI : MonoBehaviour {
 				dialogHolder.TalkDialog ("......."),
 				dialogHolder.TalkDialog ("他抓得好緊...."),
 				dialogHolder.AskDialog ("用力", "放手", new List<Dialog>{ dialogHolder.TalkDialog ("頭有點痛...") }),
-				dialogHolder.EventDialog ("從圖裡面湧出了許多紅色的顏料", 0, .5f),
+				dialogHolder.EventDialog ("從圖裡面湧出了許多紅色的顏料", true, 0, .5f),
 				dialogHolder.PickUpItemDialog ("獲得了 沾著顏料的雨傘", bloodUmbrella)
 			};
 		} else

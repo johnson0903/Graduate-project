@@ -33,7 +33,7 @@ public class Bedroom_PillowAI : MonoBehaviour {
 						dialogHolder.TalkDialog ("......"),
 						dialogHolder.TalkDialog ("貪睡鬼")
 					}),
-					dialogHolder.EventDialog ("嘶嘶嘶嘶....", 0 , .5f),
+					dialogHolder.EventDialog ("嘶嘶嘶嘶....", false, 0 , .5f),
 					dialogHolder.PickUpItemDialog ("獲得了 臥室的鑰匙", Bedroomkey)
 				};
 			} else    //如果身上沒有美工刀

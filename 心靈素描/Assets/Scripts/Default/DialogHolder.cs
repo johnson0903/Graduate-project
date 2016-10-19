@@ -80,13 +80,15 @@ public class DialogHolder : MonoBehaviour
         return dialog;
     }
 
-	public Dialog EventDialog(string talkContent, int soundIndex, float volumn)
+	public Dialog EventDialog(string talkContent, bool isOpenSound, int soundIndex, float volumn)
 	{
-		Dialog dialog = new Dialog();
+		Dialog dialog = new Dialog ();
 		dialog.Mode = "Event";
 		dialog.Content = talkContent;
-		dialog.Audio = audioClips[soundIndex];
-		dialog.ClipVolumn = volumn;
+		if (isOpenSound) {
+			dialog.Audio = audioClips [soundIndex];
+			dialog.ClipVolumn = volumn;
+		}
 		return dialog;
 	}
 
