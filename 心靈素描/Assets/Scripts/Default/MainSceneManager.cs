@@ -2,14 +2,19 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System;
 
 public class MainSceneManager : MonoBehaviour {
 
 	public GameObject mainScene;
 	public GameObject slideShow1;
 	public GameObject slideShow2;
+	public GameObject slideShow3;
 	public Image dark;
 
+	private DialogManager dialogManager;
+	private DialogHolder dialogHolder;
 	private GameObject startGameButton;
 	private GameObject settingGameButton;
 	private GameObject selectedButtonImage;
@@ -17,11 +22,15 @@ public class MainSceneManager : MonoBehaviour {
 	private int selectedButtonCount;
 	private int currentSceneCount;
 
-	bool isFadingIn;
-	bool isFadingOut;
+	private bool isFadingIn;
+	private bool isFadingOut;
+	private bool isDialogAutoPopup;
 
 	// Use this for initialization
 	void Start () {
+		dialogHolder = this.GetComponent<DialogHolder> ();
+		this.GetComponent<DialogHolder>().DialogOverEvent += OnDialogOver;
+
 		startGameButton = mainScene.transform.FindChild ("StartGameButton").gameObject;
 		settingGameButton = mainScene.transform.FindChild ("SettingGameButton").gameObject;
 		selectedButtonImage = mainScene.transform.FindChild ("SelectedButtonImage").gameObject;
@@ -32,6 +41,7 @@ public class MainSceneManager : MonoBehaviour {
 		gameSettingImage.SetActive (false);
 		slideShow1.SetActive (false);
 		slideShow2.SetActive (false);
+		slideShow3.SetActive (false);
 		isFadingIn = false;
 		isFadingOut = true;
 	}
@@ -40,21 +50,38 @@ public class MainSceneManager : MonoBehaviour {
 	void Update () {
 		if (currentSceneCount == 0)
 			SelectButton ();
-		else if (currentSceneCount == 1)
+		else if (currentSceneCount == 1) {
 			ChangeImageByFade (mainScene, slideShow1);
-		else if (currentSceneCount == 2)
-			ChangeImageByFade (slideShow1, slideShow2);	
-		else if (currentSceneCount == 3)
+			dialogHolder.Dialogs = new List<Dialog> {
+				dialogHolder.TalkDialog ("頭好痛..."),
+				dialogHolder.TalkDialog ("腦袋像是被清空的 想不起來剛剛發生了什麼事")
+			};
+		} else if (currentSceneCount == 2) {
+			ChangeImageByFade (slideShow1, slideShow2);
+			dialogHolder.Dialogs = new List<Dialog> {
+				dialogHolder.TalkDialog ("這裡是哪？"),
+				dialogHolder.TalkDialog ("我倒在這裡...已經有多久了？"),
+				dialogHolder.TalkDialog ("揉著惺忪的雙眼 你緩緩地從床上起身")
+			};
+		} else if (currentSceneCount == 3) {
+			ChangeImageByFade (slideShow2, slideShow3);
+			dialogHolder.Dialogs = new List<Dialog> {
+				dialogHolder.TalkDialog ("你坐在床邊 甚至連自己的名字都想不太起來"),
+				dialogHolder.TalkDialog ("我為什麼... 會在這裡呢...？"),
+				dialogHolder.TalkDialog ("環顧身旁 也沒有一個能夠詢問的對象"),
+				dialogHolder.TalkDialog ("你抱著滿腹的疑問 從床上站了起來"),
+				dialogHolder.TalkDialog ("先掌握一下情況吧")
+			};
+		} else if (currentSceneCount == 4)
 			ChangeSceneByFade (1);	
 
 		if (isFadingIn)
 			dark.color = new Color (1, 1, 1, Mathf.Lerp (dark.color.a, 1, 0.05f));
 		else if (isFadingOut) {
 			dark.color = new Color (1, 1, 1, Mathf.Lerp (dark.color.a, 0, 0.05f));
-			if (dark.color.a <= 0.05) 
+			if (dark.color.a <= 0.05)
 				isFadingOut = false;
-		} 
-
+		}
 	}
 
 	void SelectButton() {
@@ -72,6 +99,7 @@ public class MainSceneManager : MonoBehaviour {
 				if (selectedButtonCount == 0) {
 					isFadingIn = true;
 					currentSceneCount++;
+					isDialogAutoPopup = true;
 				} else
 					gameSettingImage.SetActive (true);
 			}
@@ -86,14 +114,25 @@ public class MainSceneManager : MonoBehaviour {
 			isFadingOut = true;
 			currentImage.SetActive (false);
 			nextImage.SetActive (true);
-		} else if (dark.color.a <= 0.05 && Input.GetKeyDown (KeyCode.Space)) {
-			isFadingIn = true;
-			currentSceneCount++;
+		} else if (dark.color.a <= 0.05) {
+			if (isDialogAutoPopup) {
+				dialogHolder.ShowDialogInMainScene ();
+				isDialogAutoPopup = false;
+			} else if (Input.GetKeyDown (KeyCode.Space))
+				dialogHolder.ShowDialogInMainScene ();
 		}
 	}
-
+		
 	void ChangeSceneByFade(int whereToGo){
 		if (dark.color.a >= 0.99) 
 			SceneManager.LoadScene (whereToGo);
 	}
+
+	void OnDialogOver(object sender, EventArgs e)
+	{	
+		isFadingIn = true;
+		currentSceneCount++;
+		isDialogAutoPopup = true;
+	}
+
 }

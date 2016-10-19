@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class DialogManager : MonoBehaviour
 {
@@ -31,9 +32,11 @@ public class DialogManager : MonoBehaviour
 
 	void Start()
 	{
-		player = FindObjectOfType<PlayerController> ().gameObject;
-		playerController = player.GetComponent<PlayerController> ();
-        audioSource = GetComponent<AudioSource>();
+		if (SceneManager.GetActiveScene ().buildIndex != 0) {
+			player = FindObjectOfType<PlayerController> ().gameObject;
+			playerController = player.GetComponent<PlayerController> ();
+		}
+		audioSource = GetComponent<AudioSource> ();
 		answer1.SetActive (false);
 		answer2.SetActive (false);
 		pickUpItemImage.SetActive (false);
@@ -171,6 +174,34 @@ public class DialogManager : MonoBehaviour
 			if (currentDialogIndex >= dialogs.Count) {
 				isDialogActive = false;
 				playerController.YouCanMove ();
+				audioSource.PlayOneShot (dialogOpenClip, .3f);
+				talkingObeject.GetComponent<DialogHolder> ().TellObjectDialogIsOver ();
+			} else { 
+				ShowDialogByMode ();
+				audioSource.PlayOneShot (mouseEffectClip, .3f);
+			}
+		}
+	}
+
+	public void StartDialogInMainScene(GameObject gameobject)
+	{
+		if (!isDialogActive) {
+			audioSource.PlayOneShot (dialogOpenClip, .3f);
+			talkingObeject = gameobject;
+			dialogs = talkingObeject.GetComponent<DialogHolder> ().Dialogs;
+			isDialogActive = true;
+			currentDialogIndex = 0;
+			ShowDialogByMode ();
+			askDialogAnswerList.Clear ();
+		}
+	}
+
+	public void ContinueDialogInMainScene(GameObject gameobject)
+	{
+		if (talkingObeject == gameobject) {
+			currentDialogIndex++;
+			if (currentDialogIndex >= dialogs.Count) {
+				isDialogActive = false;
 				audioSource.PlayOneShot (dialogOpenClip, .3f);
 				talkingObeject.GetComponent<DialogHolder> ().TellObjectDialogIsOver ();
 			} else { 

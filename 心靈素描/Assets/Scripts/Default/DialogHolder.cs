@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class DialogHolder : MonoBehaviour
 {
@@ -17,14 +18,15 @@ public class DialogHolder : MonoBehaviour
 
 	void Start()
 	{
-		dialogManager = FindObjectOfType<DialogManager>();
-		sceneLoader = FindObjectOfType<SceneLoader> ();
+		dialogManager = FindObjectOfType<DialogManager> ();
+		if (SceneManager.GetActiveScene ().buildIndex != 0)
+			sceneLoader = FindObjectOfType<SceneLoader> ();
 	}
 
 	void Update()
 	{
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			if (!isAutoPopUp && dialogs != null && !sceneLoader.IsLoading) {
+			if (SceneManager.GetActiveScene ().buildIndex != 0 && !isAutoPopUp && dialogs != null && !sceneLoader.IsLoading) {
 				if (!dialogManager.IsDialogActive) {
 					if (isPlayerInRange)
 						dialogManager.StartDialog (this.gameObject);	
@@ -109,6 +111,15 @@ public class DialogHolder : MonoBehaviour
 	{
 		isPlayerInRange = false;
 	}
+
+	public void ShowDialogInMainScene()
+	{
+		if (!dialogManager.IsDialogActive)
+			dialogManager.StartDialogInMainScene (this.gameObject);
+		else
+			dialogManager.ContinueDialogInMainScene (this.gameObject);
+	}
+
 
 	public bool IsPlayerInRange
 	{
