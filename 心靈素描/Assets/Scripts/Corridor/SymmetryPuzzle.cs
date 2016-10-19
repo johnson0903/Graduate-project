@@ -30,14 +30,16 @@ public class SymmetryPuzzle : MonoBehaviour {
 			fastFowardPaint.GetComponent<FastFowardPaintAI> ().MissionComplete ();
 			umBrellaGirlPaint_Left.SetActive (false);
 			umBrellaGirlPaint_Right.transform.FindChild ("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood_Right;
-			FindObjectOfType<CameraController> ().gameObject.transform.Translate (new Vector3 (10, 0, 0));
+			FindObjectOfType<CameraController> ().gameObject.transform.position = new Vector3 (9.3f, -1.1f, 0);
 			FindObjectOfType<CameraController> ().cameraMinX = 10;
 			backGround.GetComponent<SpriteRenderer> ().sprite = newBackGroundImage;
-			backGround.transform.position = new Vector3 (20.2f, 2, 0);
+			backGround.transform.position = new Vector3 (20.2f, -1.3f, 0);
 			teleportPoint_Left.SetActive (false);
 			teleportPoint_Right.SetActive (false);
 			newCollider_Left.SetActive (true);
 			newCollider_Right.SetActive (true);
+			clock.transform.position = new Vector3(-9.8f, -9.7f, 0);
+			clock.transform.Rotate(new Vector3(0, 0, 300));
 		}
 	}
 	

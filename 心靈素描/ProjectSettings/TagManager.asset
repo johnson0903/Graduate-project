@@ -52,6 +52,9 @@ TagManager:
   - name: Floor
     uniqueID: 1861650685
     locked: 0
+  - name: background
+    uniqueID: 2153246907
+    locked: 0
   - name: Item_Back
     uniqueID: 3393972251
     locked: 0
