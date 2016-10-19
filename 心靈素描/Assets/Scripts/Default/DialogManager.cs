@@ -221,7 +221,7 @@ public class DialogManager : MonoBehaviour
 
 	void lockDialog() {
 		isDialogDelay = true;
-		Invoke ("UnlockDialog", 1);
+		Invoke ("UnlockDialog", 2);
 	}
 
 	void UnlockDialog() {

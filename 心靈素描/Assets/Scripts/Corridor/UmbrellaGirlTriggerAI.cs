@@ -22,27 +22,18 @@ public class UmbrellaGirlTriggerAI : MonoBehaviour {
 		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
 	}
 
-	// Update is called once per frame
-	void Update () {
-		if (!isShockedInCorridor) {
-			if (umBrellaGirlPaint_Left.transform.FindChild ("GirlWithUmbrella").GetComponent<SpriteRenderer> ().sprite == umbrellaGirlWithBlood_Left &&
-			    umBrellaGirlPaint_Right.transform.FindChild ("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite == umbrellaGirlWithBlood_Right) {
-				dialogHolder.Dialogs = new List<Dialog> {
-					dialogHolder.TalkDialog ("........."),
-					dialogHolder.TalkDialog ("......!!!"),
-				};
-				dialogHolder.IsAutoPopUp = true;
-				umbrellaGirl.SetActive (true);
-				umBrellaGirlPaint_Left.transform.FindChild ("GirlWithUmbrella").GetComponent<SpriteRenderer> ().sprite = black;
-			}
-		} else
-			dialogHolder.Dialogs = null;
+	public void MissionComplete()
+	{
+		dialogHolder.Dialogs = new List<Dialog> {
+			dialogHolder.TalkDialog ("........??")
+		};
+		dialogHolder.IsAutoPopUp = true;
 	}
+
 
 	void OnDialogOver (object sender, EventArgs e)
 	{
 		umbrellaGirl.GetComponent<UmbrellaGirlAI> ().Move ();
-		isShockedInCorridor = true;
 	}
 
 }

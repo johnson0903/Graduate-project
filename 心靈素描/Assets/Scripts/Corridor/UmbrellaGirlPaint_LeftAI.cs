@@ -21,7 +21,7 @@ public class UmbrellaGirlPaint_LeftAI : MonoBehaviour {
 		this.GetComponent<DialogHolder>().EventDialogEvent += OnEventDialogOccur;
 
 		if(isKilled)
-			this.transform.FindChild("GirlWithUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
+			this.transform.FindChild("UmbrellaGirl").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
 	}
 
 	// Update is called once per frame
@@ -43,7 +43,6 @@ public class UmbrellaGirlPaint_LeftAI : MonoBehaviour {
 			};
 	}
 
-
 	void OnDialogOver(object sender, EventArgs e)
 	{	
 		if (dialogHolder.AskDialogAnswerList.Count > 1 && dialogHolder.AskDialogAnswerList [1] == 1) 
@@ -52,7 +51,7 @@ public class UmbrellaGirlPaint_LeftAI : MonoBehaviour {
 
 	void OnEventDialogOccur(object sender, EventArgs e)
 	{	
-		this.transform.FindChild("GirlWithUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
+		this.transform.FindChild("UmbrellaGirl").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
 	}
 
 }

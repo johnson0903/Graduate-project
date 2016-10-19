@@ -4,15 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class UmbrellaGirlAI : MonoBehaviour {
 
+	public GameObject blackScreen;
+
 	private GameObject player;
 	private SceneLoader sceneLoader;
 	private bool isMoving;
+	private float movingSpeed = 2.4f;
 
 	// Use this for initialization
 	void Start () {
 		sceneLoader = FindObjectOfType<SceneLoader> ();
 		player = FindObjectOfType<PlayerController>().gameObject;
 		this.gameObject.SetActive (false);
+		blackScreen.SetActive (false);
 	}
 
 	// Update is called once per frame
@@ -24,17 +28,32 @@ public class UmbrellaGirlAI : MonoBehaviour {
 
 		if (isMoving) {
 			if (this.transform.position.x < player.transform.position.x)
-				this.transform.position = new Vector3 (this.transform.position.x + 1.2f, this.transform.position.y, this.transform.position.z);
+				this.transform.position = new Vector3 (this.transform.position.x + movingSpeed, this.transform.position.y, this.transform.position.z);
 			else if (this.transform.position.x > player.transform.position.x)
-				this.transform.position = new Vector3 (this.transform.position.x - 1.2f, this.transform.position.y, this.transform.position.z);
+				this.transform.position = new Vector3 (this.transform.position.x - movingSpeed, this.transform.position.y, this.transform.position.z);
 		}
 	}
 
 	void OnTriggerStay2D(Collider2D other) {
 		if (isMoving && other.CompareTag ("Player")) {
-			sceneLoader.LoadSceneAndMovePlayer (1, new Vector3(26, other.transform.position.y, 0), -1);
 			isMoving = false;
+			ShowBlackScreen ();
 		}
+	}
+
+	void ShowBlackScreen() {
+		blackScreen.SetActive (true);
+		Invoke ("ChangeScene", 0.15f);
+		Invoke ("UnlockBlackScreen", 0.3f);
+	}
+
+	void ChangeScene() {
+		sceneLoader.LoadSceneAndMovePlayerQuickly (1, new Vector3 (28, player.transform.position.y, 0), -1);
+	}
+
+	void UnlockBlackScreen() {
+		blackScreen.SetActive (false);
+		this.gameObject.SetActive (false);
 	}
 		
 	public void Move() {

@@ -9,6 +9,8 @@ public class UmbrellaGirlPaint_RightAI : MonoBehaviour {
 
 	private GameObject player;
 	private DialogHolder dialogHolder;
+	private bool hasEscaped;
+
 	private static bool isKilled;
 
 	// Use this for initialization
@@ -20,7 +22,7 @@ public class UmbrellaGirlPaint_RightAI : MonoBehaviour {
 		this.GetComponent<DialogHolder>().EventDialogEvent += OnEventDialogOccur;
 
 		if(isKilled)
-			this.transform.FindChild("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
+			this.transform.FindChild("UmbrellaGirl").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
 	}
 
 	// Update is called once per frame
@@ -44,10 +46,16 @@ public class UmbrellaGirlPaint_RightAI : MonoBehaviour {
 					dialogHolder.TalkDialog ("哀戚的眼神似乎在期待著些什麼...")
 				};
 				
-		} else
-			dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("一幅慘死女人的畫像"),
-				dialogHolder.TalkDialog ("畫布上噴灑著許多紅色顏料...")
-			};
+		} else {
+			if (hasEscaped)
+				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("......？？"),
+					dialogHolder.TalkDialog ("畫中的女人消失了")
+				};
+			else
+				dialogHolder.Dialogs = new List<Dialog> { dialogHolder.TalkDialog ("一幅慘死女人的畫像"),
+					dialogHolder.TalkDialog ("畫布上噴灑著許多紅色顏料...")
+				};
+		}
 	}
 
 	void OnDialogOver(object sender, EventArgs e)
@@ -60,11 +68,14 @@ public class UmbrellaGirlPaint_RightAI : MonoBehaviour {
 				}
 			}
 		} 
-			
 	}
 
 	void OnEventDialogOccur(object sender, EventArgs e)
 	{	
-		this.transform.FindChild("GirlWithNoUmbrella").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
+		this.transform.FindChild("UmbrellaGirl").GetComponent<SpriteRenderer> ().sprite = umbrellaGirlWithBlood;
+	}
+
+	public void EscapeGirl(){
+		hasEscaped = true;
 	}
 }
