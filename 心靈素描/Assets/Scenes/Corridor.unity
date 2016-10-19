@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMinX: -29.8
-  cameraMaxX: 30.8
+  cameraMaxX: 30.7
 --- !u!1 &263763485
 GameObject:
   m_ObjectHideFlags: 0
