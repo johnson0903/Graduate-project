@@ -27,11 +27,14 @@ public class SceneLoader : MonoBehaviour {
 
 	void Update()
 	{
-		if (isFadingIn)
+		if (isFadingIn) {
 			GetComponent<Image> ().color = new Color (1, 1, 1, Mathf.Lerp (GetComponent<Image> ().color.a, 1, 0.05f));
+			if (!dialogManager.IsDialogActive && GetComponent<Image> ().color.a >= 0.99f)
+				LoadSceneAfterOneSecond ();
+		}
 		else if (isFadingOut) {
 			GetComponent<Image> ().color = new Color (1, 1, 1, Mathf.Lerp (GetComponent<Image> ().color.a, 0, 0.1f));
-			if (!dialogManager.IsDialogActive && GetComponent<Image> ().color.a <= 0.01) {
+			if (!dialogManager.IsDialogActive && GetComponent<Image> ().color.a <= 0.01f) {
 				isFadingOut = false;
 				isLoading = false;
 				player.GetComponent<PlayerController> ().YouCanMove ();
@@ -47,7 +50,6 @@ public class SceneLoader : MonoBehaviour {
 		sceneNum = whatSceneToLoad;
 		playerPosition = whereToMove;
 		playerScale = whereToSee;
-		Invoke ("LoadSceneAfterOneSecond", 1);
 	}
 
 	void LoadSceneAfterOneSecond() {

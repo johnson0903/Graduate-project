@@ -31,9 +31,9 @@ public class Bedroom_BathroomDoorAI : MonoBehaviour {
 	void OnDialogOver (object sender, EventArgs e)
 	{
 		if (SceneManager.GetActiveScene().buildIndex == 1)
-			sceneLoader.LoadSceneAndMovePlayer(2, new Vector3(17, player.transform.position.y, 0), -1);
+			sceneLoader.LoadSceneAndMovePlayer(2, new Vector3(21.5f, player.transform.position.y, 0), -1);
 		else
-			sceneLoader.LoadSceneAndMovePlayer(1, new Vector3(18.8f, player.transform.position.y, 0), 1);
+			sceneLoader.LoadSceneAndMovePlayer(1, new Vector3(21.5f, player.transform.position.y, 0), 1);
 	}
 
 	public IEnumerator WaitForSeconds(int waitTime)

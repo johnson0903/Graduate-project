@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 		playerRigidbody = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
 		walkSpeed = speed;
+		DontMove ();
 	}
 
 	// Update is called once per frame
