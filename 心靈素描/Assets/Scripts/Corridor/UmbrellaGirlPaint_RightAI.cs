@@ -34,7 +34,7 @@ public class UmbrellaGirlPaint_RightAI : MonoBehaviour {
 					dialogHolder.TalkDialog ("將雨傘給了女人"),
 					dialogHolder.TalkDialog ("畫中的女人浮起了一抹微笑"),
 					dialogHolder.TalkDialog (".......喀喀"),
-					dialogHolder.EventDialog ("她突然拿起傘 劃破了自己的喉嚨",0 , .5f),
+					dialogHolder.EventDialog ("她突然拿起傘 劃破了自己的喉嚨", true, 0, .5f),
 					dialogHolder.TalkDialog ("嘶....嘶嘶....."),
 					dialogHolder.TalkDialog ("從圖裡面湧出了許多紅色的顏料"),
 					dialogHolder.TalkDialog ("雨傘從女人鬆開的右手中掉了下來 落在了畫之中")

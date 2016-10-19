@@ -40,7 +40,7 @@ public class HiganFlowerAI : MonoBehaviour {
 					}),
 					dialogHolder.TalkDialog ("唰啦－"),
 					dialogHolder.TalkDialog ("從瓶子中流出來的水 迅速地被泥土所吸收"),
-					dialogHolder.EventDialog ("原本閉合著的花瓣 漸漸地打開了", 0, .5f)
+					dialogHolder.EventDialog ("原本閉合著的花瓣 漸漸地打開了", false, 0, .5f)
 				};
 			else
 				dialogHolder.Dialogs = new List<Dialog> {
