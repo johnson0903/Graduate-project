@@ -673,8 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598c954af1815546af5c6688cf0bb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClips:
-  - {fileID: 8300000, guid: 90e53cec2a0a9374f9663c568f3cee6c, type: 3}
+  audioClips: []
 --- !u!61 &1173172437
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -763,6 +762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04982ee2cadd2bb469341cb152be469d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  closedToilet: {fileID: 21300000, guid: e4dbfe61a5827ae41886f083bbfc5e44, type: 3}
+  openedToilet: {fileID: 21300000, guid: e97aef497c41ca94e9f69fe810b0b087, type: 3}
 --- !u!114 &1213022652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,7 +787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: 90e53cec2a0a9374f9663c568f3cee6c, type: 3}
+  - {fileID: 8300000, guid: 5500fd71f707789449dd23bc32645aa2, type: 3}
 --- !u!61 &1213022654
 BoxCollider2D:
   m_ObjectHideFlags: 0
