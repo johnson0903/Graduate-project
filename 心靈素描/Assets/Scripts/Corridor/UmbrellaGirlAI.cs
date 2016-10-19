@@ -5,11 +5,18 @@ using UnityEngine.SceneManagement;
 public class UmbrellaGirlAI : MonoBehaviour {
 
 	public GameObject blackScreen;
+	public Sprite image1;
+	public Sprite image2;
+	public Sprite image3;
+	public Sprite image4;
 
 	private GameObject player;
 	private SceneLoader sceneLoader;
 	private bool isMoving;
-	private float movingSpeed = 2.4f;
+	private float movingSpeed = 0.8f;
+
+	private float twinkleRate = 0.05f;
+	private float nextTwinkle = 0.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -21,10 +28,18 @@ public class UmbrellaGirlAI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (this.transform.position.x < player.transform.position.x)
-			this.transform.localScale = new Vector3 (3.5f, 3.5f, 1);
-		else if (this.transform.position.x > player.transform.position.x)
-			this.transform.localScale = new Vector3 (-3.5f, 3.5f, 1);
+
+		if (Time.time > nextTwinkle) {
+			nextTwinkle = Time.time + twinkleRate;
+			if (this.GetComponent<SpriteRenderer> ().sprite == image1)
+				this.GetComponent<SpriteRenderer> ().sprite = image2;
+			else if (this.GetComponent<SpriteRenderer> ().sprite == image2)
+				this.GetComponent<SpriteRenderer> ().sprite = image3;
+			else if (this.GetComponent<SpriteRenderer> ().sprite == image3)
+				this.GetComponent<SpriteRenderer> ().sprite = image4;
+			else if (this.GetComponent<SpriteRenderer> ().sprite == image4)
+				this.GetComponent<SpriteRenderer> ().sprite = image1;
+		}
 
 		if (isMoving) {
 			if (this.transform.position.x < player.transform.position.x)

@@ -48,22 +48,21 @@ public class SymmetryPuzzle : MonoBehaviour {
 			umBrellaGirlPaint_Right.GetComponent<UmbrellaGirlPaint_RightAI> ().EscapeGirl ();
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+	void OnTriggerStay2D(Collider2D other) {
 		if (!isSymmetryPuzzleOver &&
 			umBrellaGirlPaint_Left.transform.FindChild ("UmbrellaGirl").GetComponent<SpriteRenderer> ().sprite == umbrellaGirlWithBlood_Left &&
 			umBrellaGirlPaint_Right.transform.FindChild ("UmbrellaGirl").GetComponent<SpriteRenderer> ().sprite == umbrellaGirlWithBlood_Right &&
-		    (clock.GetComponent<Corridor_ClockAI> ().Hour == 0 || clock.GetComponent<Corridor_ClockAI> ().Hour == 6)) {
+			(clock.GetComponent<Corridor_ClockAI> ().Hour == 0 || clock.GetComponent<Corridor_ClockAI> ().Hour == 6)) {
 			isSymmetryPuzzleOver = true;
 
 			if (player.transform.position.x < 0) {
-				umbrellaGirl.transform.position = new Vector3 (20f, -2f, 0);
-				umbrellaGirl.transform.localScale = new Vector3 (-3.5f, 3.5f, 1f);
+				umbrellaGirl.transform.position = new Vector3 (30, -9, 0);
+				umbrellaGirl.transform.localScale = new Vector3 (-1, 1, 1f);
 				umBrellaGirlPaint_Right.transform.FindChild ("UmbrellaGirl").GetComponent<SpriteRenderer> ().sprite = black;
 			} else
 				umBrellaGirlPaint_Left.transform.FindChild ("UmbrellaGirl").GetComponent<SpriteRenderer> ().sprite = black;
-			
+
 			umbrellaGirl.SetActive (true);
 			umBrellaGirlTrigger.GetComponent<UmbrellaGirlTriggerAI> ().MissionComplete ();
 		}
