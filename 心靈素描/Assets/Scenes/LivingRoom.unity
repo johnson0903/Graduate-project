@@ -448,11 +448,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 480008, guid: e2fdea5df3d9146db90af61c1c777ff3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.8
+      value: 2.45
       objectReference: {fileID: 0}
     - target: {fileID: 480008, guid: e2fdea5df3d9146db90af61c1c777ff3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 480008, guid: e2fdea5df3d9146db90af61c1c777ff3, type: 2}
       propertyPath: m_LocalPosition.z
@@ -480,11 +480,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 480008, guid: e2fdea5df3d9146db90af61c1c777ff3, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.7
+      value: 0.45248222
       objectReference: {fileID: 0}
     - target: {fileID: 480008, guid: e2fdea5df3d9146db90af61c1c777ff3, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.7
+      value: 0.45248222
+      objectReference: {fileID: 0}
+    - target: {fileID: 480008, guid: e2fdea5df3d9146db90af61c1c777ff3, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.6464032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2fdea5df3d9146db90af61c1c777ff3, type: 2}
@@ -1253,7 +1257,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bd1c7eb11ead84747a4cd7c1b70b3589, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e97aef497c41ca94e9f69fe810b0b087, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1264,8 +1268,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1444778761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9, y: 1.61, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalPosition: {x: 1.92, y: 1.34, z: 0}
+  m_LocalScale: {x: 0.08826425, y: 0.08826425, z: 0.08826425}
   m_Children: []
   m_Father: {fileID: 1141328830}
   m_RootOrder: 4
