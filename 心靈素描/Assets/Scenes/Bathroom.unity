@@ -763,7 +763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closedToilet: {fileID: 21300000, guid: e4dbfe61a5827ae41886f083bbfc5e44, type: 3}
-  openedToilet: {fileID: 21300000, guid: e97aef497c41ca94e9f69fe810b0b087, type: 3}
+  openedToilet: {fileID: 21300000, guid: c954f1bdcf8b64f6b89118814b84332a, type: 3}
 --- !u!114 &1213022652
 MonoBehaviour:
   m_ObjectHideFlags: 0
