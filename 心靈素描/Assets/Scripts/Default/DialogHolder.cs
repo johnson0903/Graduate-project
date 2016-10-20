@@ -19,14 +19,15 @@ public class DialogHolder : MonoBehaviour
 	void Start()
 	{
 		dialogManager = FindObjectOfType<DialogManager> ();
-		if (SceneManager.GetActiveScene ().buildIndex != 0)
+		if (SceneManager.GetActiveScene ().buildIndex != 0 && SceneManager.GetActiveScene ().buildIndex != 8)
 			sceneLoader = FindObjectOfType<SceneLoader> ();
 	}
 
 	void Update()
 	{
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			if (SceneManager.GetActiveScene ().buildIndex != 0 && !isAutoPopUp && dialogs != null && !sceneLoader.IsLoading) {
+			if (SceneManager.GetActiveScene ().buildIndex != 0 && SceneManager.GetActiveScene ().buildIndex != 8 && 
+				!isAutoPopUp && dialogs != null && !sceneLoader.IsLoading) {
 				if (!dialogManager.IsDialogActive) {
 					if (isPlayerInRange)
 						dialogManager.StartDialog (this.gameObject);	

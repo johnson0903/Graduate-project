@@ -32,7 +32,7 @@ public class DialogManager : MonoBehaviour
 
 	void Start()
 	{
-		if (SceneManager.GetActiveScene ().buildIndex != 0) {
+		if (SceneManager.GetActiveScene ().buildIndex != 0 && SceneManager.GetActiveScene ().buildIndex != 8) {
 			player = FindObjectOfType<PlayerController> ().gameObject;
 			playerController = player.GetComponent<PlayerController> ();
 		}
