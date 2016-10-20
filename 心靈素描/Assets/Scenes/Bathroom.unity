@@ -762,14 +762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04982ee2cadd2bb469341cb152be469d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  toilet: {fileID: 1213022650}
-  openToilet: {fileID: 21300000, guid: e4dbfe61a5827ae41886f083bbfc5e44, type: 3}
-  closeToilet: {fileID: 21300000, guid: c954f1bdcf8b64f6b89118814b84332a, type: 3}
-=======
   closedToilet: {fileID: 21300000, guid: e4dbfe61a5827ae41886f083bbfc5e44, type: 3}
-  openedToilet: {fileID: 21300000, guid: e97aef497c41ca94e9f69fe810b0b087, type: 3}
->>>>>>> 5958b7edb1a823e5d68c073da0572aecee400eb1
+  openedToilet: {fileID: 21300000, guid: c954f1bdcf8b64f6b89118814b84332a, type: 3}
 --- !u!114 &1213022652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,7 +787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: 90e53cec2a0a9374f9663c568f3cee6c, type: 3}
+  - {fileID: 8300000, guid: 5500fd71f707789449dd23bc32645aa2, type: 3}
 --- !u!61 &1213022654
 BoxCollider2D:
   m_ObjectHideFlags: 0
