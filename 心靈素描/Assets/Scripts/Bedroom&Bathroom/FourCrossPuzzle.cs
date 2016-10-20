@@ -3,7 +3,6 @@ using System.Collections;
 
 public class FourCrossPuzzle : MonoBehaviour {
 
-	public GameObject box;
 	public GameObject happyCross;
 	public GameObject angryCross;
 	public GameObject sadCross;
@@ -12,7 +11,6 @@ public class FourCrossPuzzle : MonoBehaviour {
 	public GameObject angryMask;
 	public GameObject sadMask;
 	public GameObject boringMask;
-	public GameObject ironBox;
 	public GameObject missionCompleteDialog;
 
 	private static bool isFourCrossPuzzleOver;
@@ -20,7 +18,6 @@ public class FourCrossPuzzle : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if (isFourCrossPuzzleOver) {
-			ironBox.GetComponent<FourCrossPaint_IronBoxAI> ().MissionComplete ();
 			happyCross.GetComponent<FourCrossAI> ().IsPuzzleOver = true;
 			angryCross.GetComponent<FourCrossAI> ().IsPuzzleOver = true;
 			sadCross.GetComponent<FourCrossAI> ().IsPuzzleOver = true;
@@ -42,7 +39,6 @@ public class FourCrossPuzzle : MonoBehaviour {
 				sadCross.GetComponent<FourCrossAI> ().CurrentMask.name == "SadMask" && boringCross.GetComponent<FourCrossAI> ().CurrentMask.name == "BoringMask") {
 
 				isFourCrossPuzzleOver = true;
-				ironBox.GetComponent<FourCrossPaint_IronBoxAI> ().MissionComplete ();
 				missionCompleteDialog.GetComponent<FourCrossPaint_MissionCompleteDialog> ().MissionComplete ();
 				happyCross.GetComponent<FourCrossAI> ().IsPuzzleOver = true;
 				angryCross.GetComponent<FourCrossAI> ().IsPuzzleOver = true;

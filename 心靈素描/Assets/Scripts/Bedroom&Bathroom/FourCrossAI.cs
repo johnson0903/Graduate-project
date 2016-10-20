@@ -6,11 +6,14 @@ using System.Collections.Generic;
 public class FourCrossAI : MonoBehaviour {
 
 	public string description;
+	public GameObject bones;
+
 	private PlayerInventory playerInventory;
 	private DialogHolder dialogHolder;
 	private bool isPuzzleOver;
 
 	private GameObject currentMask;
+	private static bool isBoneTaken;
 
 	// Use this for initialization
 	void Start()
@@ -115,27 +118,54 @@ public class FourCrossAI : MonoBehaviour {
 					dialogHolder.TalkDialog ("在地上聳立著黑色的十字架"),
 					dialogHolder.TalkDialog ("上面好像有刻字..."),
 					dialogHolder.TalkDialog (description),
-					dialogHolder.TalkDialog ("十字架中間放著 " + currentMask.GetComponent<ItemData> ().name),
+					dialogHolder.TalkDialog ("十字架中間放著 " + currentMask.GetComponent<ItemData> ().itemName),
 					dialogHolder.TalkDialog ("要拿下來嗎？"),
 					dialogHolder.AskDialog ("是", "否", new List<Dialog> { dialogHolder.TalkDialog ("放在這是對的嗎？") }),
-					dialogHolder.TalkDialog ("拿下了 " + currentMask.GetComponent<ItemData> ().name)
+					dialogHolder.TalkDialog ("拿下了 " + currentMask.GetComponent<ItemData> ().itemName)
 				};
-		} else
-			dialogHolder.Dialogs = new List<Dialog> { 
-				dialogHolder.TalkDialog ("在地上聳立著帶著" + currentMask.GetComponent<ItemData> ().name + "的十字架")
-			};
+		} else {
+			if (this.gameObject.name == "HappyCross") {
+				if (!isBoneTaken)
+					dialogHolder.Dialogs = new List<Dialog> { 
+						dialogHolder.TalkDialog ("本來帶著快樂面具的十字架突然斷成了兩截"),
+						dialogHolder.TalkDialog ("面具也不知道為什麼消失了"),
+						dialogHolder.TalkDialog ("在十字架的內部發現了一些堅硬的東西"),
+						dialogHolder.PickUpItemDialog ("獲得了 骨頭堆", bones)
+					};
+				else
+					dialogHolder.Dialogs = new List<Dialog> { 
+						dialogHolder.TalkDialog ("本來帶著快樂面具的十字架斷成了兩截"),
+						dialogHolder.TalkDialog ("給人一種淒涼的感覺...")
+					};
+			} else
+				dialogHolder.Dialogs = new List<Dialog> { 
+					dialogHolder.TalkDialog ("在地上聳立著帶著" + currentMask.GetComponent<ItemData> ().itemName + "的十字架")
+				};
+		}
 	}
 
 	public void WearMask(GameObject whatMaskToWear){
 		currentMask = Instantiate (whatMaskToWear);
 		currentMask.name = whatMaskToWear.name;
 		currentMask.transform.SetParent (this.transform);
-		currentMask.transform.localScale = new Vector3 (3.2f, 3.2f, 1);
-		currentMask.transform.localPosition = new Vector3 (0, 2.5f, 0);
+		if (this.gameObject.name == "HappyCross") {
+			currentMask.transform.localScale = new Vector3 (3.2f, 3.2f, 1);
+			currentMask.transform.localPosition = new Vector3 (0, 2.1f, 0);
+		} else if (this.gameObject.name == "SadCross") {
+			currentMask.transform.localScale = new Vector3 (4f, 4f, 1);
+			currentMask.transform.localPosition = new Vector3 (0, 4f, 0);
+		} else if (this.gameObject.name == "BoringCross") {
+			currentMask.transform.localScale = new Vector3 (3.5f, 3.5f, 1);
+			currentMask.transform.localPosition = new Vector3 (0, 2f, 0);
+		} else if (this.gameObject.name == "AngryCross") {
+			currentMask.transform.localScale = new Vector3 (5f, 4f, 1);
+			currentMask.transform.localPosition = new Vector3 (0, 5.5f, 0);
+		}
 	}
 
 	void OnDialogOver(object sender, EventArgs e)
-	{	if (!isPuzzleOver) {
+	{
+		if (!isPuzzleOver) {
 			if (currentMask == null) {
 				if (dialogHolder.AskDialogAnswerList.Count > 0 && dialogHolder.AskDialogAnswerList [0] == 1) {
 					if (playerInventory.IsSomethingInInventory ("HappyMask")) {
@@ -214,7 +244,8 @@ public class FourCrossAI : MonoBehaviour {
 					GameObject.Destroy (this.transform.GetChild (1));	
 				}
 			}
-		}
+		} else if (this.gameObject.name == "HappyCross")
+			isBoneTaken = true;
 	}
 
 	public bool IsPuzzleOver {

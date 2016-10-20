@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   happyMask: {fileID: 193196, guid: ef1688fc082f07a4189662f8dd2f9897, type: 2}
   angryMask: {fileID: 199450, guid: 8ee363e8564d6ce4490aa55f419b834e, type: 2}
-  sadMask: {fileID: 194692, guid: 9419b26691fdb434896be84d9b87a415, type: 2}
+  sadMask: {fileID: 103764, guid: 59819a26801a7e64dab0d344b6a7aa3e, type: 2}
   boringMask: {fileID: 182334, guid: dcbecc019844c31499174a6eae025d38, type: 2}
 --- !u!1 &1324862720
 GameObject:
