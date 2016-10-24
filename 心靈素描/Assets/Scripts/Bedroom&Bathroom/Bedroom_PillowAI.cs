@@ -15,10 +15,12 @@ public class Bedroom_PillowAI : MonoBehaviour {
 	// Use this for initialization
 	void Start()
 	{
-		player = FindObjectOfType<PlayerController>().gameObject;
-		dialogHolder = this.GetComponent<DialogHolder>();
-		this.GetComponent<DialogHolder>().DialogOverEvent += OnDialogOver;
-		this.GetComponent<DialogHolder>().EventDialogEvent += OnEventDialogOccur;
+		player = FindObjectOfType<PlayerController> ().gameObject;
+		dialogHolder = this.GetComponent<DialogHolder> ();
+		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
+		this.GetComponent<DialogHolder> ().EventDialogEvent += OnEventDialogOccur;
+		if (isPillowKeyTaken)
+			this.GetComponent<SpriteRenderer> ().sprite = brokenPillowImage;
 	}
 
 	// Update is called once per frame

@@ -58,6 +58,7 @@ public class UmbrellaGirlAI : MonoBehaviour {
 
 	void ShowBlackScreen() {
 		blackScreen.SetActive (true);
+		player.GetComponent<PlayerController> ().YouCanMove ();
 		Invoke ("ChangeScene", 0.15f);
 		Invoke ("UnlockBlackScreen", 0.3f);
 	}
@@ -73,6 +74,7 @@ public class UmbrellaGirlAI : MonoBehaviour {
 		
 	public void Move() {
 		isMoving = true;
+		player.GetComponent<PlayerController> ().DontMove ();
 	}
 				
 }

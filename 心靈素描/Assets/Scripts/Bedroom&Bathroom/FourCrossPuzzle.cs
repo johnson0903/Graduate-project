@@ -12,6 +12,9 @@ public class FourCrossPuzzle : MonoBehaviour {
 	public GameObject sadMask;
 	public GameObject boringMask;
 	public GameObject missionCompleteDialog;
+	public GameObject oldBackGround;
+	public Sprite newBackGroundImage;
+	public GameObject door;
 
 	private static bool isFourCrossPuzzleOver;
 
@@ -22,10 +25,11 @@ public class FourCrossPuzzle : MonoBehaviour {
 			angryCross.GetComponent<FourCrossAI> ().IsPuzzleOver = true;
 			sadCross.GetComponent<FourCrossAI> ().IsPuzzleOver = true;
 			boringCross.GetComponent<FourCrossAI> ().IsPuzzleOver = true;
-			happyCross.GetComponent<FourCrossAI> ().WearMask (happyMask);
 			angryCross.GetComponent<FourCrossAI> ().WearMask (angryMask);
 			sadCross.GetComponent<FourCrossAI> ().WearMask (sadMask);
 			boringCross.GetComponent<FourCrossAI> ().WearMask (boringMask);
+			oldBackGround.GetComponent<SpriteRenderer> ().sprite = newBackGroundImage;
+			door.GetComponent<FourCrossPaint_DoorAI> ().OpenDoor ();
 		}
 	}
 	
@@ -44,6 +48,7 @@ public class FourCrossPuzzle : MonoBehaviour {
 				angryCross.GetComponent<FourCrossAI> ().IsPuzzleOver = true;
 				sadCross.GetComponent<FourCrossAI> ().IsPuzzleOver = true;
 				boringCross.GetComponent<FourCrossAI> ().IsPuzzleOver = true;
+				door.GetComponent<FourCrossPaint_DoorAI> ().OpenDoor ();
 			}
 		}
 			

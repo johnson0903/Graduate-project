@@ -152,11 +152,11 @@ public class FourCrossAI : MonoBehaviour {
 			currentMask.transform.localScale = new Vector3 (3.2f, 3.2f, 1);
 			currentMask.transform.localPosition = new Vector3 (0, 2.1f, 0);
 		} else if (this.gameObject.name == "SadCross") {
-			currentMask.transform.localScale = new Vector3 (4f, 4f, 1);
-			currentMask.transform.localPosition = new Vector3 (0, 4f, 0);
-		} else if (this.gameObject.name == "BoringCross") {
 			currentMask.transform.localScale = new Vector3 (3.5f, 3.5f, 1);
 			currentMask.transform.localPosition = new Vector3 (0, 2f, 0);
+		} else if (this.gameObject.name == "BoringCross") {
+			currentMask.transform.localScale = new Vector3 (4f, 4f, 1);
+			currentMask.transform.localPosition = new Vector3 (0, 4f, 0);
 		} else if (this.gameObject.name == "AngryCross") {
 			currentMask.transform.localScale = new Vector3 (5f, 4f, 1);
 			currentMask.transform.localPosition = new Vector3 (0, 5.5f, 0);

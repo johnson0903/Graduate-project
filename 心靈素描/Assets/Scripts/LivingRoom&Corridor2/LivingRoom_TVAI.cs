@@ -28,8 +28,8 @@ public class LivingRoom_TVAI : MonoBehaviour {
 		doge = this.transform.FindChild ("doge").gameObject;
 
 		this.GetComponent<DialogHolder> ().DialogOverEvent += OnDialogOver;
-
-		doge.SetActive (false);
+		if (!hasDogPopedUp)
+			doge.SetActive (false);
 	}
 
 	// Update is called once per frame

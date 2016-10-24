@@ -34,6 +34,7 @@ public class UmbrellaGirlTriggerAI : MonoBehaviour {
 	void OnDialogOver (object sender, EventArgs e)
 	{
 		umbrellaGirl.GetComponent<UmbrellaGirlAI> ().Move ();
+		dialogHolder.Dialogs = null;
 	}
 
 }

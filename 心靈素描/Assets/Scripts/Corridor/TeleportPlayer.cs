@@ -25,6 +25,7 @@ public class TeleportPlayer : MonoBehaviour {
 					sceneLoader.LoadSceneAndMovePlayer (whatSceneToChange, new Vector3 (teleportX, other.transform.position.y, 0), 1);
 			} else
 				other.transform.position = new Vector3 (teleportX, other.transform.position.y, other.transform.position.z);
+			isTeleporting = false;
 		}
 	}
 
